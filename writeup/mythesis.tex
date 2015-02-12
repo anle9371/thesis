@@ -1,0 +1,107 @@
+% alt + shift + 1
+% make projname.pdf
+% wordcount: detex writeup.tex | wc -w
+\documentclass[defaultstyle,11pt]{thesis}
+%------------------------Dimensions----------------------------
+\topmargin=0.0in
+\oddsidemargin=0.0in           % 1in margins at left and right
+\evensidemargin=0in
+\textwidth=6.5in               % US paper is 8.5in wide
+\marginparwidth=0.5in
+
+\headheight=0pt                % 1in margins at top and bottom
+\headsep=0pt
+\topmargin=0in
+\textheight=9.0in              % US paper is 11.0in high
+
+%adjustments...
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+\addtolength{\textwidth}{0.5in}
+\addtolength{\oddsidemargin}{-0.25in}
+\addtolength{\evensidemargin}{-0.25in}                       
+%------------------------Packages----------------------------
+\usepackage{textcomp}
+\usepackage{longtable}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage[paperwidth=8.5in,paperheight=11in,margin=0.98in]{geometry}
+\usepackage{listings,float}
+\usepackage{color}
+\usepackage{array}
+\usepackage{cancel}
+\usepackage[numbers]{natbib}
+\captionsetup{width=.75\textwidth} 
+%%%%%%%%%%%%   All the preamble material:   %%%%%%%%%%%%
+
+\title{Spatial Randomness in Dynamical Systems}
+
+\author{A.~T.}{Le}
+
+\otherdegrees{B.S., University of Colorado, 2015}
+
+\degree{Master of Science}		%  #1 {long descr.}
+	{M.S., Applied Mathematics}		%  #2 {short descr.}
+
+\dept{Department of}			%  #1 {designation}
+	{Applied Mathematics}
+
+\advisor{Prof.}				%  #1 {title}
+	{James Meiss}			%  #2 {name}
+
+\reader{~Juan Restrepo}		%  2nd person to sign thesis
+\readerThree{~Will Kleiber}		%  3rd person to sign thesis
+
+\abstract{  \OnePageChapter	% because it is very short
+
+	% Often the abstract will be long enough to require
+	% more than one page, in which case the macro
+	% ``$\backslash$OnePageChapter'' should {\it not}
+	% be used.
+
+	% But this one isn't, so it should.
+	}
+
+\dedication[Dedication]{	% NEVER use \OnePageChapter here.
+%	To all of the fluffy kitties.
+	}
+
+\acknowledgements{	\OnePageChapter	% *MUST* BE ONLY ONE PAGE!
+	% Here's where you acknowledge folks who helped.
+	% But keep it short, i.e., no more than one page,
+	% as required by the Grad School Specifications.
+	}
+
+% \IRBprotocol{E927F29.001X}	% optional!
+
+\ToCisShort	% use this only for 1-page Table of Contents
+
+\LoFisShort	% use this only for 1-page Table of Figures
+% \emptyLoF	% use this if there is no List of Figures
+
+\LoTisShort	% use this only for 1-page Table of Tables
+% \emptyLoT	% use this if there is no List of Tables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%       BEGIN DOCUMENT...         %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input macros.tex
+\input chapter1.tex
+\input chapter2.tex
+
+%%%%%%%%%   then the Bibliography, if any   %%%%%%%%%
+\bibliographystyle{plain}	% or "siam", or "alpha", etc.
+\nocite{*}		% list all refs in database, cited or not
+\bibliography{refs}		% Bib database in "refs.bib"
+
+%%%%%%%%%   then the Appendices, if any   %%%%%%%%%
+\appendix
+%\input appendixA.tex
+%\input appendixB.tex
+
+\end{document}
+
