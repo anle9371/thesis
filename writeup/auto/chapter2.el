@@ -2,6 +2,7 @@
  (lambda ()
     (LaTeX-add-labels
      "background"
+     "fig:cobex"
      "logmap"
      "thm:fp"
      "fig:detlogstable"
@@ -17,6 +18,7 @@
      "Sn"
      "spec"
      "cx"
+     "fig:covspec"
      "a"
      "fig:correlation"
      "bdnr"
@@ -28,12 +30,12 @@
      "fig:envelope"
      "rho"
      "detcirc"
-     "fig:devil_det"
+     "detcirc2"
      "fig:dcircstable"
      "fig:rcircunstable"
+     "fig:devil_det"
      "randcirc"
      "Omega"
-     "cor_circ"
      "fs_circ"
      "fig:rcircstable")))
 

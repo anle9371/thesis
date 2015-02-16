@@ -2,9 +2,13 @@
  (lambda ()
     (LaTeX-add-bibitems
      "strogatz"
+     "gelhar"
+     "ross"
+     "devaney"
      "meiss"
      "atkinson"
      "rasband"
+     "athreya"
      "may"
      "dlb"
      "lamb"

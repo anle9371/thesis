@@ -30,6 +30,7 @@ if q == 0
     % % at = text(0.1,0.82,['R_0 = ',num2str(R0)]); set(at,'FontSize',12);
     % % title(['R_0 = ',num2str(R0), ', x_0 = ',num2str(x0), ', N = ',num2str(N)])
 else
+    iter = iter*2;
     Om = zeros(iter-1,1);
     L = 0.1;
     N = 10/L;
@@ -43,8 +44,8 @@ else
     end        
     
     %smooth function    
-    t = t';
-    myW = zeros(iter,1);
+    t = linspace(0,1,iter);
+    myW = zeros(1,iter);
     for j = 1:length(t)
         myW(j) = omega(a,b,w,t(j),N);
     end
@@ -53,7 +54,7 @@ else
     title('Random Cobweb Diagram')    
 end
     hold on
-    plot(t,mymap)    
+    plot(t,mymap,'b.','MarkerSize',4)    
     axis([0 1 0 1]);
     set(gca,'XTick',(0:0.1:1),'YTick',(0:0.1:1))
 
@@ -63,7 +64,7 @@ end
     % % plot cobweb
     %  line([x(1) x(1)],[0 x(2)],'Color','g')
     %  plot(x(1), x(1),'k*');
-    for ic = iter-30:iter-1
+    for ic = iter-30:iter-2
         line([x(ic) x(ic+1)],[x(ic+1) x(ic+1)],'Color','g')
         line([x(ic+1) x(ic+1)],[x(ic+1) x(ic+2)],'Color','g')
         plot(x(ic+1), x(ic+1),'k*');

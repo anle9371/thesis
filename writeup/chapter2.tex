@@ -1,7 +1,7 @@
 \chapter{Spatially Random Maps}
 \label{background}
 As studying the effects of random spatial perturbations
-on the dynamics of One Dimensional Maps may yield implications for
+on the dynamics of one-dimensional Maps may yield implications for
 understanding the dynamics on higher dimensional maps, we present two
 case studies:
 \begin{enumerate}
@@ -10,15 +10,16 @@ case studies:
 \end{enumerate}
 The random spatial perturbations in both maps are intended to mimic
 the noise used in hydraulic modeling for the porosity and hydraulic
-conductivity, which is often assumed to be log-normal with an
-exponentially decaying spatial correlation. The following sections
+conductivity, which is assumed to be log-normal with an
+exponentially decaying spatial correlation. Observations
+in subsurface hydrology suggest flow parameters are log-normal~\cite{gelhar}. The following sections
 offer background information on the characteristics of both maps, with
 and without random spatial perturbations. 
 \section{Definitions}
 One-dimensional maps, such as the logistic map and the circle map, are
 analyzed in a variety of ways, e.g. fixed point iterations,
 cobweb diagrams, bifurcation diagrams, etc. This section offers some
-basic definitions and explanations of these concepts. One Dimensional Maps are a
+basic definitions and explanations of these concepts. One-dimensional Maps are a
 subclass of dynamical systems in which time is discrete, rather than
 continuous. They take the form
 \begin{equation*}
@@ -50,13 +51,16 @@ Chaos is aperiodic long-term behavior in a deterministic
 The sequence of iterates ${x_0,x_1,...,x_n}$ in a map is
 called an \textbf{orbit}. As $n \to \infty$, orbits may converge on a fixed point, or a
 set of fixed points. A \textbf{fixed point} $x^*$ of a function $f$ is an element of the
-function's domain that is mapped to itself by the function. The stability of the fixed point $x^*$ is
+function's domain that is mapped to itself by the function. 
+\begin{equation*}
+x^* = f(x^*)
+\end{equation*}
+The stability of the fixed point $x^*$ is
 determined by perturbing the fixed point by $\eta$ to see whether it is
 attracted to or repelled from $x^*$. A Taylor series expansion around
 the perturbation $x_{n+1} = x^* + \eta_{n+1}$ linearizes the map
 \begin{align*}
 \begin{split}
-x^* &= f(x^*)\\
 x_{n+1} &= x^* + \eta_{n+1}\\
 x^* + \eta_{n+1} &= f(x^* + \eta_n)\\
 &= f(x^*) + f'(x^*)\eta_n + \mathcal{O}(\eta_n^2),\\
@@ -94,7 +98,9 @@ behavior of the nonlinear system near the same point, as long as the
 multiplier $|\hat{\lambda}|\neq 1$. Therefore, the results of linear stability
 analysis of fixed points translates to nonlinear stability. 
 
-A \textbf{cobweb diagram} is a graphical representation of the orbit iterations. The method of the cobweb diagram can be outlined in four steps:
+A \textbf{cobweb diagram} is a graphical representation of the orbit
+iterations. The method of the cobweb diagram can be outlined in four
+steps, and is depicted in Figure~\ref{fig:cobex}:
 \begin{enumerate}
 \item Begin at the Cartesian coordinate pair $(x_0, f(x_0))$, which
   may also be written as $(x_0, x_1)$
@@ -105,16 +111,16 @@ A \textbf{cobweb diagram} is a graphical representation of the orbit iterations.
   $(x_n, x_{n+1}) \to (x_{n+1}, x_{n+1}) \to (x_{n+1},x_{n+2})$
 \end{enumerate}
 \begin{figure}[!h]
-\caption[Example of a Cobweb Diagram]{A One Dimensional Map (blue) and
+\caption[Example of a Cobweb Diagram]{A One-dimensional Map (blue) and
   the line $x_{n+1}=x_n$ (red) with a few iterates of the cobweb
-  diagram (green). Cobweb diagrams encapsulate the dynamics of the map at a glance.}
+  diagram (green). Cobweb diagrams encapsulate the dynamics of the orbit at a glance.}\label{fig:cobex}
     \begin{center}
 	\includegraphics[scale=0.8]{figs/cobweb_ex.png}
     \end{center}
 \end{figure}
 
 \textbf{Lyapunov exponents} are a way of classifying a the sensitive
-dependence on initial conditions in any given map. They are defined as follows:
+dependence on initial conditions for a specific orbit. They are defined as follows:
 \begin{equation}
 \lambda(x_0) = \lim_{n \to \infty} \frac{1}{n} \sum_{i=0}^{n-1} \ln |f'(x_i)|
 \end{equation}
@@ -155,7 +161,7 @@ Then,
 \item For any initial point $x_0 \in D$, the iteration will converge
   in $D$, i.e. $\lim_{t \to \infty}x_t = \alpha$
 \item $||\alpha - x_{n+1}||_\infty \leq
-  (||G(\alpha)||_\infty+\epsilon_n)||\alpha - x_n||_\infty$ with
+  (\lambda +\epsilon_n)||\alpha - x_n||_\infty$ with
   $\epsilon \to 0$ as $n\to \infty$
 \end{itemize}
 \end{theorem}
@@ -235,31 +241,53 @@ parameters. In the case of~(\ref{logmap}), we plot the
 locations of the stable orbits as $r$ is varied over $[0,4]$.
 
 \subsection{Random case}
-The spatially random logistic map replaces the parameter $r$ from~(\ref{logmap}) with a random function of space, $R:[0,1]\to [0,4]$. As before,
+The spatially random case has not been as well explored in the
+literature as the temporally random case~\cite{athreya}. Athreya and
+Dai explore the concept of a time-varying logistic map, where the
+parameter $r_i$ is a function of each time step, as opposed to position
+in space. At each time step, some $r_i \in \{r\}_0^\infty$ is applied
+to the map, where the
+sequence $\{r\}_0^\infty$ has independent and identically distributed
+random variables in [0,4]. In contrast, the spatially random logistic map replaces the parameter $r$ from~(\ref{logmap}) with a random function of space, $R:[0,1]\to [0,4]$. As before,
 $f:[0,1]\to [0,1]$.
 \begin{equation}\label{randlogmap}
 x_{n+1} = f(x_n) = R(x_n)x_n(1-x_n)
 \end{equation}
-The noise in hydraulic modeling is often assumed to be log-normal with an
-exponentially decaying spatial correlation. Thus, we let
+Because the noise in hydraulic modeling is often assumed to be log-normal with an
+exponentially decaying spatial correlation, we let
 \begin{equation}\label{R}
 \xi(x)=\ln(R(x)) 
 \end{equation}
-be a random variable with mean $E[\xi(x)] = \ln(r)$, variance
-Var$(\xi(x))=E[(\xi(x) - \ln(r))^2]=E[\xi(x)^2]-(\ln(r))^2$, and
+be a random variable~\cite{gelhar}. A normal distribution may be used
+for subsurface storage properties\footnote{Some examples of subsurface
+storage properties include porosity and moisture content.}, but in some cases, it is
+inappropriate because it would imply negative values have nonzero
+probability. Alternatively, a log-normal random variable~(\ref{R}) may
+be used for physical parameters known to be nonnegative. Moreover, the log-normal distribution frequently appears when observing
+nonnegative flow parameters underground, like hydraulic conductivity and
+transmissivity~\cite{gelhar}. The mean $\mu$, variance $\sigma^2$, and
 covariance (assuming homogeneity, so $C(x)$ is independent of $y$)
+of~(\ref{R}) are defined as
 \begin{align}
 \begin{split}\label{cor}
+\mu&=E[\xi(x)] = \ln(r)\\
+\sigma^2&=E[(\xi(x) - \ln(r))^2]=E[\xi(x)^2]-(\ln(r))^2\\
 C(x) &=E[(\xi(x+y) - E[\xi(x)])(\xi(y)-E[\xi(x)])] \\
-&= E[(\xi(x+y) -\ln(r))(\xi(y)-\ln(r))] \\
+&= E[(\xi(x+y) -\ln(r))(\xi(y)-\ln(r))]. 
 \end{split}
 \end{align}
-$C(x)$ is also called a correlation function, which
+The covariance function is usually a function of $x,y$, but if the
+variability is independent of location in space, rather, dependent on the separation vector between the locations, we
+call the covariance function
+homogeneous~\cite{gelhar}. The noise in nonnegative flow parameters is
+thought to rely on the distance between two points instead of their
+precise locations, so $C(x)$ in (\ref{cor}) is
+homogeneous. $C(x)$ is also called a correlation function, which
 describes how variables at different positions in space are
-related. Correlations are strongest when iterates are nearby, and
-correlations typically gradually decay as
-the distance between two iterates increases, although random processes
-could violate this assumption. 
+related. It physically represents the degree of correlation between
+two consecutive instances in the process. Correlations are strongest
+when iterates are nearby, and they typically decay as the distance
+between two iterates increases, although random processes could violate this assumption. 
 Figure~\ref{fig:rlogstable} demonstrates one realization of the
 spatially random logistic map.
 \begin{figure}[!h]
@@ -276,12 +304,12 @@ Series.
 \begin{align}\label{fs1}
 \begin{split}
 \xi(x) &= \ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx}\\
-\hat{\xi_n} &= a_n + ib_n = \hat{\xi}_{-n}^*
+\hat{\xi}_n &= a_n + ib_n = \hat{\xi}_{-n}^*
 \end{split}
 \end{align}
 where the $*$ operator denotes the complex
-conjugate. $\hat{\xi_{-n}},\hat{\xi^*}_{n} \in \mathbb{C}$ are
-independent random variables. We can combine
+conjugate. The requirement $\hat{\xi}_{-n}=\hat{\xi^*}_{n}$ ensures
+$\xi(x) \in \mathbb{R}$. We can combine
 the equations in~(\ref{fs1}) to arrive at the following form for
 $\xi(x)$.
 \begin{align}\label{fs2}
@@ -294,77 +322,107 @@ simulations) that we impose on the summation.\footnote{In practice, $N
   should be chosen to be large enough such that the Fourier amplitudes
 may decay as more terms are included. This restriction will ensure the
 fluctuations are log-normal.} (\ref{fs2}) assumes
-$a_0=b_0=0$ for symmetry, but $\hat{\xi_0}$ may be a random variable as well. We can impose more restrictions of $\hat{\xi}_n$; in particular,
+$b_0=0$ to keep $\xi(x)$ in the real plane when $n=0$, and $a_0=0$
+because we wish to maintain $E[\xi(x)]=\ln(r)$ when $n=0$ (the
+spatially independent term $a_0$ will be absorbed into $\ln(r)$).
+We can impose more restrictions of $|\hat{\xi}_n|$, the magnitude of
+the Fourier modes. In particular,
 we require the real and imaginary parts $(a_n,b_n)$ of $\hat{\xi}_n$
-to be independent with mean $\mu$ and variance $\sigma^2$
+to be independent with mean $\hat{\mu}_n$ and variance $\hat{\sigma}^2_n$
 \begin{align}
 \begin{split}\label{Sn}
-\mu&=E[\hat{\xi}_n]=0\\
-\sigma^2&=E[\hat{\xi}_n^2]-(E[\hat{\xi}_n])^2=E[\hat{\xi}_n^2]\\
-S_n&=\sigma^2\\
+\hat{\mu}_n&=E[\hat{\xi}_n]=0\\
+\hat{\sigma}_n^2&=E[\hat{\xi}_n^2]-(E[\hat{\xi}_n])^2=E[\hat{\xi}_n^2]\\
+S(n)&=\hat{\sigma}_n^2
 \end{split}
 \end{align}
-where $S_n$ is the spectral density of the log-fluctuations. This
-implies
+where $S_n$ is the spectral density of the
+log-fluctuations. (\ref{Sn}) represents the transformation of the
+mean, variance, and covariance in~(\ref{cor}) to Fourier space. The
+independent modes from the Fourier series have expectation
 \begin{align*}
 \begin{split}
 E[\hat{\xi}_n\hat{\xi}_m]&=E[|\hat{\xi}_n||\hat{\xi}_n|\delta_{m+n}]\\
 &=\delta_{m+n}E[|\hat{\xi}_n|^2]\\
-&=\delta_{m+n}S_n\\
+&=\delta_{m+n}S(n).
 \end{split}
 \end{align*}
+In other words, 
 \begin{displaymath}
    E[\hat{\xi}_n\hat{\xi}_m] = \left\{
      \begin{array}{lr}
-       \delta_{m+n}S_n & : m = -n\\
-       0 & : m \neq -n\\
+       \delta_{m+n}S(n) & : m = -n\\
+       0 & : m \neq -n.\\
      \end{array}
    \right.
 \end{displaymath} 
-The spectral density $S_n$ is defined as the Fourier transform of the
-correlation function~(\ref{cor}).
+The spectral density $S(n)$ is defined as the Fourier transform of the
+correlation function~(\ref{cor})~\cite{gelhar}. 
 \begin{align*}
 \begin{split}
-\hat{C}_k &= \int_{0}^{1}C(x)e^{-2\pi ikx}dx\\
+\hat{C}(k) &= \int_{0}^{1}C(x)e^{-2\pi ikx}dx\\
 &= \sum_{m,n} \int_{0}^{1} E[\hat{\xi}_n\hat{\xi}_m] e^{2\pi
   im(x+y)}e^{2\pi iny}e^{-2\pi ikx}dx\\
-&=S_k
+&=S(k)
+\end{split}
+\end{align*}
+By nature of being defined as the Fourier transform of the covariance
+function, the spectrum represents a distribution of variance over
+frequency. In fact, for $x=0$, (\ref{cor}) reduces to the definition
+of variance, so 
+\begin{align*}
+\begin{split}
+C(x) &= \int_{-\infty}^{\infty}e^{ikx}S(k)\,dk\\
+C(0) &= \sigma^2 = \int_{-\infty}^{\infty}S(k)\, dk.
 \end{split}
 \end{align*}
 A simple spectrum that falls off quickly is
 \begin{align}\label{spec}
-S_n=\alpha_n e^{-L|n|}
+S(n)=\alpha_n e^{-L|n|}
 \end{align}
 where $L \in [0,1]$ is the correlation length (and is fixed
-for each simulation). This choice of $S_n$ corresponds to a correlation function
+for each simulation). Values of $L$ close to zero will result in a
+small, negative exponent, which consequently increases the
+spectrum. On the other hand, larger values of $L$ closer to one cause
+the spectrum to decay faster. This choice of $S(n)$ corresponds to a correlation function
 \begin{align}
 \begin{split}
-C(x) &= \sum_{n\in \mathbb{Z}}S_ne^{2\pi inx}=\sum_{n\in \mathbb{Z}}\alpha \frac{1}{e^{L|n|}}e^{2\pi inx}\\
+C(x) &= \sum_{n\in \mathbb{Z}}S(n)e^{2\pi inx}=\sum_{n\in \mathbb{Z}}\alpha \frac{1}{e^{L|n|}}e^{2\pi inx}\\
 &= \alpha + \sum_{n=1}^{\infty}\alpha e^{2\pi
   inx-L|n|}+\sum_{n=-1}^{-\infty}\alpha e^{-2\pi inx-L|n|}\\
 &= \alpha+\alpha \sum_{n=1}^{\infty}(e^{2\pi ix-L})^n+\alpha \sum_{m=1}^{\infty}(e^{-2\pi ix-L})^m\\
 &=\alpha + \alpha \frac{e^{2\pi ix-L}}{1-e^{2\pi ix-L}} +\alpha
 \frac{e^{-2\pi ix-L}}{1-e^{-2\pi ix-L}}\\
-&=\alpha \left(1+ \frac{-2e^{-2L}+2\cos(2\pi x)e^{-L}}{e^{-2L}-2\cos(2\pi x)e^{-L}+1} \right)\\
+&=\alpha \left(1+ \frac{-2e^{-2L}+2\cos(2\pi x)e^{-L}}{e^{-2L}-2\cos(2\pi x)e^{-L}+1} \right).\\
 \end{split}
 \end{align}
 Finally,
 \begin{align}\label{cx}
-C(x)= \alpha \frac{e^{2L}-1}{e^{2L}-2\cos(2\pi x)e^L+1}
+C(x)= \alpha \frac{e^{2L}-1}{e^{2L}-2\cos(2\pi x)e^L+1}.
 \end{align}
-Above, the parameter $\alpha$ is a constant used to normalize $C(x)$. To normalize $C(x)$,
-let $C(0)=\sigma^2$. In other words, at position $x=0$, the
-correlation function is equal to the variance from~(\ref{Sn}).
+Above, the parameter $\alpha$ is a constant used to normalize
+$C(x)$. Figure~\ref{fig:covspec} demonstrates an example of a covariance-spectrum
+pair from~(\ref{cx}) and~(\ref{spec}). 
+\begin{figure}[htp]
+\caption[Schematic example of the covariance-spectrum pair]{The correlation function
+  $C(x)$ and the spectral density $S(n)$ for $L=0.5,r=3.6,\sigma=0.0216, \alpha=0.000114$.}\label{fig:covspec}
+\centering
+\includegraphics[width=.45\textwidth]{figs/cx.png}\hfill
+\includegraphics[width=.45\textwidth]{figs/sn.png}
+\end{figure}
+Recall from~(\ref{cor}) when $x=0$, the covariance function reduces to the definition
+of variance. We find
 \begin{align}
 \begin{split}\label{a}
 \sigma^2&= \alpha \frac{e^{2L}-1}{e^{2L}-2\cos(0)e^L+1}\\
 \alpha &=\sigma^2 \frac{e^{2L}-2e^{L} +1}{e^{2L}-1}\\
 \alpha &=\sigma^2
 \frac{(e^{L}-1)^2}{(e^{L}-1)(e^{L}+1)}\\
-\alpha &= \sigma^2 \tanh(L/2)
+\alpha &= \sigma^2 \tanh(L/2).
 \end{split}
 \end{align}
-Such a function $C(x)$ is demonstrated in Figure~\ref{fig:correlation}
+The parameter $\alpha$ is now defined in terms of the variance
+$\sigma^2$ of $\xi(x)$. Such a function $C(x)$ is demonstrated in Figure~\ref{fig:correlation}
 for various values of $L$.
 \begin{figure}[htp]
 \caption[The correlation function $C(x)$]{The correlation function
@@ -383,14 +441,13 @@ must be bounded within $[0,4]$, as specified in~(\ref{logmap}). Without enforcin
 on~(\ref{Sn}), iterates on~(\ref{randlogmap}) would leave $[0,1]$. One way to accomplish this is to bound
 the distribution of $\hat{\xi}_n$ from~(\ref{fs1}). Suppose the probability density
 function for $\hat{\xi}_n$ is nonzero only in the complex square centered at the
-origin with side length $2M_n$. Thus, $|\hat{\xi}_n| \leq
-\sqrt{2}M_n$, and for a fixed $r$, we
+origin with side length $2M_n$. Thus, $|a_n|,|b_n| \leq M_n$, and for a fixed $r$, we
 can bound $\ln(R(x))$ using~(\ref{R}) and~(\ref{fs1})
 \begin{align}
 \begin{split}\label{bdnr}
 |\ln(R)-\ln(r)|&\leq |\max_{R\in [0,4]}\ln(R) - \ln(r)|=\ln(4/r)\\
 |\ln(R)-\ln(r)|&\leq \sum_{n\in \mathbb{Z}}|\hat{\xi}_n| \\
-&\leq \sqrt{2}M_0+2\sum_{n=1}^\infty \sqrt{2}M_n\\
+&\leq M_0+2\sum_{n=1}^\infty M_n\\
 &\leq \ln(4/r)
 \end{split}
 \end{align}
@@ -405,46 +462,47 @@ The sequence of side lengths $M_n$ must be summable.
 	\end{center}
 \end{figure}
 Suppose $\hat{\xi}_n$ is uniformly distributed, so 
-\begin{displaymath}\label{eq:square}
+\begin{equation}\label{eq:square}
    h(\hat{\xi}_n) =h(a,b)= \left\{
      \begin{array}{lr}
-       \frac{1}{4 M_n^2} & |\hat{\xi}_n| \leq \sqrt{2}M_n\\
-       0 & |\hat{\xi}_n| > \sqrt{2}M_n\\
+       \frac{1}{4 M_n^2} & |a_n|,|b_n| \leq M_n\\
+       0 & |a_n|,|b_n| > M_n\\
      \end{array}
    \right.
-\end{displaymath} 
+\end{equation} 
 where $h:\mathbb{C}\to [0,1]\in \mathbb{R}$ is the probability density
-function of $\hat{\xi}_n$. To find the relationship between $S_n$ and
-$M_n$, recall that $S_n$ is defined as the variance of the
-log-fluctuations~(\ref{Sn}). Thus, 
+function of $\hat{\xi}_n$. Figure~\ref{fig:square} shows the complex
+region where $h(a,b)$ is nonzero. To find the relationship between $S(n)$ and
+$M_n$, recall that $S(n)$ is defined as the variance of the
+log-fluctuations~(\ref{Sn}). Then, 
 \begin{align}
 \begin{split}\label{Mn}
-S_n&=E[|\hat{\xi}_n|^2] = E[a^2+b^2]\\
+S(n)&=E[|\hat{\xi}_n|^2] = E[a^2+b^2]\\
  &= \frac{1}{4M_n^2}\int_{-M_n}^{M_n}\int_{-M_n}^{M_n}a^2+b^2\,da\,db\\
 &=\frac{2}{3}M_n^2\\
-M_n&=\sqrt{\frac{3}{2}S_n}
+M_n&=\sqrt{\frac{3}{2}S(n)}
 \end{split}
 \end{align}
 Finally, using the expression for $\alpha$~(\ref{a}), the
 expression for $M_n$~(\ref{Mn}), and the sum from~(\ref{bdnr}), let
 \begin{align*}
-A = \sqrt{2}M_0+2\sum_{n=1}^\infty \sqrt{2}M_n \leq \ln(4/r)
+A = M_0+2\sum_{n=1}^\infty M_n \leq \ln(4/r).
 \end{align*}
 Then, we find
 \begin{align*}
 \begin{split}
-A &=\sqrt{2}\left(\sqrt{\frac{3}{2}\alpha} +
+A &=\left(\sqrt{\frac{3}{2}\alpha} +
 2\sqrt{\frac{3}{2}\alpha}\sum_{n=1}^{\infty}e^{-Ln/2}\right) \\
-&= \sqrt{3}\alpha\left(1+ \frac{2e^{-L/2}}{1-e^{-L/2}} \right)\\
-&= \sqrt{3}\sigma
+&= \sqrt{\frac{3}{2}}\alpha\left(1+ \frac{2e^{-L/2}}{1-e^{-L/2}} \right)\\
+&= \sigma\sqrt{\frac{3}{2}}
 \sqrt{\tanh(L/2)}\left(\frac{e^{L/2}+1}{e^{L/2}-1} \right)\\
-&= \sqrt{3}\sigma \frac{\sqrt{\tanh(L/2)}}{\tanh(L/4)} \leq \ln(4/r).\\
+&= \sigma \sqrt{\frac{3}{2}}\frac{\sqrt{\tanh(L/2)}}{\tanh(L/4)} \leq \ln(4/r).\\
 \end{split}
 \end{align*}
 Thus, the standard deviation $\sigma$ must be bounded from below by
 zero and from above by
 \begin{align}\label{sigma}
-0<\sigma<\ln(4/r)\frac{1}{\sqrt{3}}\frac{\tanh(L/4)}{\sqrt{\tanh(L/2)}}.
+0<\sigma \leq \ln(4/r)\sqrt{\frac{2}{3}}\frac{\tanh(L/4)}{\sqrt{\tanh(L/2)}}.
 \end{align}
 Figure~\ref{fig:R} is a sample realization of a function $R(x)$ that
 behaves according to~(\ref{sigma}).
@@ -452,14 +510,14 @@ behaves according to~(\ref{sigma}).
 \caption[The function $R(x)$]{The function $R:[0,1]\to [0,4]$ where
   $\sigma=0.0386, L=0.1, r=3.5, N=100$}\label{fig:R}
 	\begin{center}
-		\includegraphics[scale=0.65]{figs/xi.png}
+		\includegraphics[scale=0.6]{figs/xi.png}
 	\end{center}
 \end{figure}
 
 In summary, for each realization of the random logistic map,
 we have uniform random variables $a_n,b_n \sim Unif(-M_n,M_n)$ that correspond to the
 Fourier modes $n$ of $\xi(x)$ from~(\ref{fs2}) whose bounds are set by
-$M_n= \sqrt{\frac{3}{2}S_n}$, where $S_n=\alpha e^{-L|n|}$, the
+$M_n= \sqrt{\frac{3}{2}S(n)}$, where $S(n)=\alpha e^{-L|n|}$, the
 spectral density, was chosen to decay exponentially fast. $\alpha = \sigma^2 \tanh(L/2)$ is a normalization constant for the corresponding
 correlation function $C(x)$, where the standard deviation $\sigma$
 must be bound according to~(\ref{sigma}) in order to restrict $R(x)$
@@ -472,7 +530,7 @@ map for various sets of parameters.
 \caption[Upper and lower bounds on the random logistic map]{A coarse
   demonstration (500 samples) of the upper and lower bounds of the random logistic
   map. Sample realizations are shown in red. From left to right:
-  $\{\sigma=0.0773,r=2.7,L=0.9,N=112\}, \{\sigma=0.0061,r=3.5,L=0.05,N=200\},\{\sigma=0.0050,r=3.7,L=0.1,N=100\}$
+  $\{\sigma=0.1093,r=2.7,L=0.9,N=112\}, \{\sigma=0.0086,r=3.5,L=0.05,N=200\},\{\sigma=0.0071,r=3.7,L=0.1,N=100\}$
   }\label{fig:envelope}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_500_r27_L09.png}\hfill
@@ -496,46 +554,134 @@ instead of $[0,2\pi )$, $\omega$ is the driving frequency of the map, and
 $g(x)$ is the nonlinear component of the recursion~\cite{rasband}. The
 parameter $\omega$ represents the frequency of the driving
 force, which is the external force applied to the
-rotor. We define the circle $S^1$ as $\mathbb{R} \setminus \mathbb{Z}$
-to avoid factors of $2\pi$.
+rotor. We define the circle $S^1$ as $\mathbb{R} \setminus
+\mathbb{Z}$. The \textbf{degree} of a map $f:S^1 \to S^1$ is the integer
+deg($f$) given by 
+\begin{align*}
+\deg(f) = F(1) - F(0)
+\end{align*}
+where $F:\mathbb{R} \to \mathbb{R}$ is the lift of the
+map. $F$ is called the \textbf{lift} of $f$ if
+\begin{align*}
+w \circ F = f \circ w,
+\end{align*}
+where $w:\mathbb{R} \to S^1$ is defined as
+\begin{equation*}
+w(x) = e^{2\pi i x} = \cos(2\pi x) + i\sin(2\pi x).
+\end{equation*}
+$w$ wraps $\mathbb{R}$ around the circle $S^1$ without critical
+points~\cite{devaney}. $w$ is many-to-one, therefore it is not a topological conjugacy
+between $F$ and $f$. Since $f$ is an orientation
+preserving diffeomorphism of the circle, it follows that the lift of a $f$ must be
+monotonic increasing, i.e. $F'(x)>0$.
+
+\begin{singlespacing}
+\begin{definition}
+Let $f:I \to J$. The function $f(x)$ is a homeomorphism if $f(x)$ is
+one-to-one, onto, and continuous, and $f^{-1}(x)$ is also continuous~\cite{devaney}.
+\end{definition}
+\begin{definition}
+Let $f:I\to J$. The function $f(x)$ is a $C^r$-diffeomorphism if
+$f(x)$ is a $C^r$-homeomophism such that $f^{-1}(x)$ is also $C^r$~\cite{devaney}. 
+\end{definition}
+\end{singlespacing}
 
 A phenomenon of \textbf{mode-locking} may occur in the map,
 where after $q$ iterations, the new angle differs from the initial
 value of $x$ by exactly $p \in \mathbb{Z}$
 \begin{align*}
-x_{n+q}=x_n+p
+x_{n+q}=x_n+p.
 \end{align*}
-Notice the modulo operator is no longer applied to the map. Thus, this
-is the lift of the map from $S^1$ to $\mathbb{R}$. The
-rotation number of the orbit is defined by
-\begin{align}\label{rho}
-\begin{split}
-\rho &= \lim_{n \to \infty} \frac{f^n(x)-x}{n}\\
-&= \frac{p}{q}
-\end{split}
-\end{align}
-When $\rho \in \mathbb{Q}$, the system is mode-locked, and if $\rho$
+The \textbf{rotation number} of the orbit is an important invariant of
+the circle map because it measures the average amount of points
+rotated by an iteration of the map. Essentially, it gives an idea of
+whether $f$ has periodic orbits.
+
+\begin{singlespacing}
+\begin{definition}\label{rho}
+The rotation number of $f$, $\rho(f)$, is the fractional part of
+$\rho_0(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}$ for any lift $F$ of $f$. That is, $\rho(f)$ is the unique
+number in [0,1) such that $\rho_0(F)-\rho$ is an integer~\cite{devaney}.
+\end{definition}
+\end{singlespacing}
+
+\noindent When $\rho \in \mathbb{Q}$, the system is mode-locked. Since
+$\rho$ is a rational number, it can be expressed as $p/q$, where $p,q
+\in \mathbb{Z}$. The order of the periodic orbit is $q$. If $\rho$
 does not exist, then the system may be in a chaotic
-state. When $\rho \in \mathbb{R} \setminus \mathbb{Q}$, the orbit is quasiperiodic.  
+state. When $\rho \in \mathbb{R} \setminus \mathbb{Q}$, the orbit is
+quasiperiodic. The theorem below
+establishes the rotation number of the map $\rho(f)$
+depends continuously on $f$, and that if $f$ is monotone, then all
+orbits have the same rotation number.
+
+\begin{singlespacing}
+\begin{theorem}
+Let $f:S^1 \to S^1$ be an orientation-preserving diffeomorphism with
+lift $F$. Then
+\begin{equation*}
+\rho_0(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}
+\end{equation*}
+exists and is independent of both $x$ and the lift $F$. Hence the
+rotation number $\rho(f)$ is well-defined~\cite{devaney}.
+\end{theorem}
+\end{singlespacing}
 
 \subsection{Deterministic case}
-Arnold introduces the example
+Arnold introduces the two-parameter example
 \begin{align}\label{detcirc}
-x_{n+1}= f(x_n) =  x_n + \omega - \frac{k}{2\pi}\sin(2\pi x_n),
+x_{n+1}= F(x_n) =  x_n + \omega - \frac{k}{2\pi}\sin(2\pi x_n),
 \end{align}
-which we will explore as well. There are two parameters: $k \in [0,1]$
+which we will explore as well. (\ref{detcirc}) is the lift of the map
+$f$,
+\begin{align}\label{detcirc2}
+f(x_n) = x_n + 2\pi \omega + k\sin(x_n).
+\end{align}
+In both (\ref{detcirc}) and (\ref{detcirc2}), there are two parameters: $k \in [0,\infty)$
 is the coupling strength and $\omega \in [0,1]$ is the driving
-frequency. To ensure $\forall x \in S^1, f(S^1) \subset S^1$ in~(\ref{detcirc}), we apply the
-modulo operator 
+frequency. When discussing $f$, we will deal exclusively with the
+lift, $F$. According to Theorem~\ref{thm:fp}, existence of fixed
+points depends on the condition $\forall x \in S^1, f(S^1) \subset S^1$
+in~(\ref{detcirc}). Taking the modulus of~(\ref{detcirc}) will fulfill
+the requirement, so we find
 \begin{align*}
-x_{n+1}=x_{n+1} \mod 1
+x_{n+1}= F(x_n) \mod 1.
 \end{align*}
-to all iterates. The coupling strength $k$
+A stable period 2 orbit is shown in
+Figure~\ref{fig:dcircstable}, and
+Figure~\ref{fig:rcircunstable} shows an orbit that may have diverged.
+\begin{figure}[!h]
+\caption[Deterministic circle map, stable orbit]{The cobweb
+  diagram (green) for a deterministic circle map (blue) with $\omega =
+  0.5$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  has converged to a stable period 2 after 1000 iterations. Transient iterations were removed.}\label{fig:dcircstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/detcirc_cobweb_2.png}
+	\end{center}
+\end{figure}
+\begin{figure}[!h]
+\caption[Deterministic circle map, unstable orbit]{The cobweb
+  diagram (green) for a deterministic circle map (blue) with $\omega =
+  0.6$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  appears to have diverged after 1000 iterations. Transient iterations were removed.}\label{fig:rcircunstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/detcirc_cobweb_chaos.png}
+	\end{center}
+\end{figure}
+The coupling strength $k$
 controls the amplitude of the oscillations in the circle map; no
-coupling is $k=0$, and the coupling increases as $k \to \infty$. In contrast, $\omega$
+coupling is $k=0$, and the coupling increases as $k \to
+\infty$. For $0 \leq k < 1$, $f$ is a diffeomorphism of $S^1$, and
+when $k=1$, the map is a homeomorphism. For $k>1$, the map is no
+longer one-to-one, so $\rho$ may not exist~\cite{devaney}. In contrast, $\omega$
 applies a positive vertical shift to the map, which causes it to wrap around itself, due to the effects of the modulo operator. The changes in the rotation number $\rho$ as $\omega$ is
 varied over [0,1] is graphically demonstrated as a Devil's Staircase
-in Figure~\ref{fig:devil_det}. 
+in Figure~\ref{fig:devil_det}. The graph of $\rho(\omega)$ is a Cantor
+function. Cantor functions are everywhere continuous and have zero
+derivative almost everywhere. The Devil's Staircase is everywhere
+continuous; it is constant for
+rational rotation numbers, and takes on every value in between the
+rational numbers~\cite{devaney}.
 \begin{figure}[!h]
 \caption[The Devil's Staircase for the deterministic circle map]{The
   plot of $\omega$ vs the rotation number $\rho$ for $k=1$ results in a Devil's
@@ -548,34 +694,13 @@ in Figure~\ref{fig:devil_det}.
 		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
 	\end{center}
 \end{figure}
-The width of each "step" corresponds to the
-width of the Arnold Tongues in the bifurcation diagram for $k$ and
-$\omega$ in~(\ref{detcirc}). A stable period 2 orbit is shown in
-Figure~\ref{fig:dcircstable} for the deterministic circle map, and
-Figure~\ref{fig:rcircunstable} shows a diverging orbit.
-\begin{figure}[!h]
-\caption[Deterministic circle map, stable orbit]{The cobweb
-  diagram (green) for a deterministic circle map (blue) with $\omega =
-  0.5$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The map
-  has converged on a stable period 2 orbit. Transient iterations were removed.}\label{fig:dcircstable}
-	\begin{center}
-		\includegraphics[scale=0.7]{figs/detcirc_cobweb_2.png}
-	\end{center}
-\end{figure}
-\begin{figure}[!h]
-\caption[Deterministic circle map, unstable orbit]{The cobweb
-  diagram (green) for a deterministic circle map (blue) with $\omega =
-  0.6$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The map
-  has diverged. Transient iterations were removed.}\label{fig:rcircunstable}
-	\begin{center}
-		\includegraphics[scale=0.7]{figs/detcirc_cobweb_chaos.png}
-	\end{center}
-\end{figure}
+%The width of each "step" corresponds to the width of the Arnold
+%Tongues in the bifurcation diagram for $k$ and $\omega$ in~(\ref{detcirc}). 
 
 \subsection{Random case}
 We will investigate a spatially random circle map of the form
 \begin{align}\label{randcirc}
-x_{n+1}= f(x_n) =  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n),
+x_{n+1}= F(x_n) =  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n),
 \end{align}
 where $\omega$ from~(\ref{detcirc}) has been replaced with a function
 of space, $\Omega:S^1\to S^1$. Just as in the randomized logistic
@@ -584,17 +709,7 @@ will assume that
 \begin{align}\label{Omega}
 \xi(x) = \ln(\Omega(x)),
 \end{align}
-where properties of the random variable $\xi(x)$ will be similar to
-those of the random logistic map. As before, we apply the definitions $E[\xi(x)] =
-\ln(\omega)$, variance Var$(\xi(x))=E[(\xi(x) -
-\ln(\omega))^2]=E[\xi(x)^2]-(\ln(\omega))^2$, and covariance
-\begin{align}
-\begin{split}\label{cor_circ}
-C(x) &=E[(\xi(x+y) - E[\xi(x)])(\xi(y)-E[\xi(x)])] \\
-&= E[(\xi(x+y) -\ln(\omega))(\xi(y)-\ln(\omega))] \\
-\end{split}
-\end{align}
-A function $\xi(x)$ that satisfies the above requirements may be
+where properties of the random variable $\xi(x)$ will be similar to those of the random logistic map. As before, a log-normal random variable $\xi(x)$ may be
 constructed with a Fourier Series:
 \begin{align}\label{fs_circ}
 \begin{split}
@@ -602,41 +717,36 @@ constructed with a Fourier Series:
 &= \ln(\omega) + 2\sum^N_{n=1}a_n\cos(2\pi nx)-b_n\sin(2\pi nx)\\
 \end{split}
 \end{align}
-As before, $\hat{\xi_n} = a_n + ib_n = \hat{\xi}_{-n}^*$, and the $*$
-operator denotes the complex conjugate. The real and imaginary parts
+We continue to enforce $\hat{\xi_n} = a_n + ib_n = \hat{\xi}_{-n}^*$
+to keep $\xi(x) \in \mathbb{R}$. The real and imaginary parts
 $(a_n,b_n)$ of $\hat{\xi}_n$ are independent with mean
-$\mu_n=E[\hat{\xi}_n]=0$ and variance $\sigma_n^2=E[\hat{\xi}_n^2]=S_n$,
-where $S_n$ is the spectral density~(\ref{Sn}). The
+$\hat{\mu}_n=E[\hat{\xi}_n]=0$ and variance $\hat{\sigma}_n^2=E[\hat{\xi}_n^2]=S_n$,
+where $S_n$ is the spectral density~(\ref{spec}). The
 spectral density decays exponentially, so $S_n$ in this case
-takes the same form as for the random logistic map~(\ref{spec}):
-\begin{align*}
-S_n=\alpha e^{-L|n|}
-\end{align*}
-However, since we do not require $\Omega(x)$ to be bounded as strictly
-as $R(x)$, $\alpha$ may be chosen to be any arbitrary
-value\footnote{In the case of the numerical simulations, $\alpha
-  \approx 10^{-5}$}. We use the same uniform probability density
+takes the same form as for the random logistic map. However, since we
+do not require $\Omega(x)$ of the circle map~(\ref{randcirc}) to be bounded as strictly
+as $R(x)$ of the logistic map~(\ref{randlogmap}), $\alpha$ may be
+chosen freely. We use the same uniform probability density
 function $h:\mathbb{C}\to [0,1]\in \mathbb{R}$ in~(\ref{eq:square})
-and Figure~\ref{fig:square}. In Figure~\ref{fig:rcircstable}, a realization of the
-random circle map is shown, where the orbit converges to a period 4 orbit.
+and shown in Figure~\ref{fig:square}. In Figure~\ref{fig:rcircstable}, a realization of the
+random circle map is shown, where the orbit converges to a period 5 orbit.
+\begin{figure}[!h]
+\caption[Random circle map, stable orbit]{The cobweb
+  diagram (green) for a random realization of the circle map (blue) with $\omega =
+  0.3, k=1, \alpha = 10^{-5}$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  has converged to a stable period 5 orbit. Its basin of attraction is
+  $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/randcirc_cobweb.png}
+	\end{center}
+\end{figure}
 
 Overall, we have a much simpler set of equations for the circle map
 than for the logistic map since $\Omega(x)$ is unrestricted. For each realization of the map, we choose
 a set of random variables, $a_n, b_n \sim Unif(-M_n,M_n)$, that
 correspond to the Fourier modes of $\xi(x)$. Their magnitudes decrease
 as $M_n=\sqrt{\frac{3}{2}S_n}$ diminishes exponentially, due to the
-exponential term in $S_n=\alpha e^{-L|n|}$, where $\alpha$ is an arbitrary
-constant. 
-\begin{figure}[!h]
-\caption[Random circle map, stable orbit]{The cobweb
-  diagram (green) for a random realization of the circle map (blue) with $\omega =
-  0.3$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
-  has converged to a stable period 4 orbit. Its basin of attraction is
-  $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
-	\begin{center}
-		\includegraphics[scale=0.7]{figs/randcirc_cobweb.png}
-	\end{center}
-\end{figure}
+exponential term in $S_n=\alpha e^{-L|n|}$, where $\alpha$ is a constant. 
 
 % \singlespacing	% <------------------------------
 

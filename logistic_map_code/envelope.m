@@ -41,7 +41,7 @@ set(gca,'FontSize',15)
 set(findall(gcf,'type','text'),'FontSize',15)
 h=gcf;
 name = ['envelope_',num2str(kmax),'_r',num2str(r),'_L',num2str(L),'.png'];
-path = 'C:\Users\amy\Dropbox\thesis\logistic map code\figures\';
+path = 'C:\Users\amy\Dropbox\thesis\logistic_map_code\figures\';
 saveas (h, [path,name], 'png');
 
 end
