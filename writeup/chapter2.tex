@@ -15,122 +15,6 @@ exponentially decaying spatial correlation. Observations
 in subsurface hydrology suggest flow parameters are log-normal~\cite{gelhar}. The following sections
 offer background information on the characteristics of both maps, with
 and without random spatial perturbations. 
-\section{Definitions}
-One-dimensional maps, such as the logistic map and the circle map, are
-analyzed in a variety of ways, e.g. fixed point iterations,
-cobweb diagrams, bifurcation diagrams, etc. This section offers some
-basic definitions and explanations of these concepts. One-dimensional Maps are a
-subclass of dynamical systems in which time is discrete, rather than
-continuous. They take the form
-\begin{equation*}
-x_{n+1}=f(x_n)
-\end{equation*}
-These maps demonstrate that even simple dynamical systems are capable
-of complex behavior, and as such, are also simple examples of
-\textbf{chaos}. Although no universal definition of chaos has been
-agreed upon, the following working definition is generally acceptable~\cite{strogatz}:
-\begin{singlespace}
-\begin{definition}
-Chaos is aperiodic long-term behavior in a deterministic
-  system that exhibits sensitive dependence on initial conditions.
-\end{definition}
-\end{singlespace}
-\begin{enumerate}
-\item \textbf{Aperiodic long-term behavior} is another way of stating
-  that there are trajectories within the map that do not limit to
-  fixed points or more generally quasiperiodic orbits as $n \to \infty$.
-\item \textbf{Deterministic} is used to describe systems in which
-  there is no random input or parameter. The observed behavior of the
-  system arises from its nonlinearity, not from random noise.
-\item \textbf{Sensitive dependence on initial conditions} means that
-  trajectories that start in almost the same place ($\epsilon$ apart)
-  separate quickly. In other words, the system has a
-  positive Lyapunov exponent.
-\end{enumerate}
-
-The sequence of iterates ${x_0,x_1,...,x_n}$ in a map is
-called an \textbf{orbit}. As $n \to \infty$, orbits may converge on a fixed point, or a
-set of fixed points. A \textbf{fixed point} $x^*$ of a function $f$ is an element of the
-function's domain that is mapped to itself by the function. 
-\begin{equation*}
-x^* = f(x^*)
-\end{equation*}
-The stability of the fixed point $x^*$ is
-determined by perturbing the fixed point by $\eta$ to see whether it is
-attracted to or repelled from $x^*$. A Taylor series expansion around
-the perturbation $x_{n+1} = x^* + \eta_{n+1}$ linearizes the map
-\begin{align*}
-\begin{split}
-x_{n+1} &= x^* + \eta_{n+1}\\
-x^* + \eta_{n+1} &= f(x^* + \eta_n)\\
-&= f(x^*) + f'(x^*)\eta_n + \mathcal{O}(\eta_n^2),\\
-\eta_{n+1} &= f'(x^*)\eta_n + \mathcal{O}(\eta_n^2).\\
-\end{split}
-\end{align*}
-Neglecting the higher order terms in $\mathcal{O}(\eta_n^2)$ leaves
-$\eta_{n+1} = f'(x^*)\eta_n$. The multiplier is $\hat{\lambda} =
-f'(x^*)$. Solutions of the map are found by extending the recursion:
-\begin{align*}
-\begin{split}
-\eta_{1} &= \hat{\lambda}\eta_0\\
-\eta_{2} &= \hat{\lambda}\eta_1 = \hat{\lambda}^2\eta_0\\
-&...\\
-\eta_{n} &=\hat{\lambda}^n\eta_0\\
-\end{split}
-\end{align*}
-If $|\hat{\lambda}| = |f'(x^*)| > 1$, $\lim_{n \to \infty}\hat{\lambda}^n = \infty$, and
-the fixed point $x^*$ is \textbf{linearly unstable}. If $|\hat{\lambda}| = |f'(x^*)| < 1$, $\lim_{n \to
-  \infty}\hat{\lambda}^n = 0$, and the fixed point $x^*$ is
-\textbf{linearly stable}. If
-$|\hat{\lambda}| = |f'(x^*)| = 1$ the $\mathcal{O}(\eta_n^2)$ terms
-determine the local stability~\cite{strogatz}. Linear stability is
-linked to nonlinear stability by the Hartman-Grobman Theorem~\cite{meiss}.
-\begin{singlespace}
-\begin{theorem}
-Hartman-Grobman Theorem: Let $x^*$ be a hyperbolic equilibrium point of a $C^1$
-vector field $f(x)$ with flow $\phi_t(x)$. Then there is a
-neighborhood $N$ of $x^*$ such that $\phi$ is topologically conjugate to its linearization on $N$.
-\end{theorem}
-\end{singlespace}
-The Hartman-Grobman theorem states the behavior of the linearized
-dynamical system near a fixed point is equivalent to the
-behavior of the nonlinear system near the same point, as long as the
-multiplier $|\hat{\lambda}|\neq 1$. Therefore, the results of linear stability
-analysis of fixed points translates to nonlinear stability. 
-
-A \textbf{cobweb diagram} is a graphical representation of the orbit
-iterations. The method of the cobweb diagram can be outlined in four
-steps, and is depicted in Figure~\ref{fig:cobex}:
-\begin{enumerate}
-\item Begin at the Cartesian coordinate pair $(x_0, f(x_0))$, which
-  may also be written as $(x_0, x_1)$
-\item Plot horizontally the distance from $(x_0, f(x_0)=(x_0, x_1)$ to $(f(x_0),
-  f(x_0))=(x_1, x_1)$
-\item Plot vertically from $(f(x_0), f(x_0))=(x_1, x_1)$ to $(f(x_0), f(f(x_0)))=(x_1, x_2)$
-\item Repeat steps 2-3 until convergence or divergence is determined:
-  $(x_n, x_{n+1}) \to (x_{n+1}, x_{n+1}) \to (x_{n+1},x_{n+2})$
-\end{enumerate}
-\begin{figure}[!h]
-\caption[Example of a Cobweb Diagram]{A One-dimensional Map (blue) and
-  the line $x_{n+1}=x_n$ (red) with a few iterates of the cobweb
-  diagram (green). Cobweb diagrams encapsulate the dynamics of the orbit at a glance.}\label{fig:cobex}
-    \begin{center}
-	\includegraphics[scale=0.8]{figs/cobweb_ex.png}
-    \end{center}
-\end{figure}
-
-\textbf{Lyapunov exponents} are a way of classifying a the sensitive
-dependence on initial conditions for a specific orbit. They are defined as follows:
-\begin{equation}
-\lambda(x_0) = \lim_{n \to \infty} \frac{1}{n} \sum_{i=0}^{n-1} \ln |f'(x_i)|
-\end{equation}
-$\lambda(x_0)$ is the same for all initial conditions $x_0$ in the same \textbf{basin of
-attraction}. The basin of attraction for an attracting fixed point
-$x^*$ is defined as the set $S=\{x_0:x(t) \to x^*, t \to \infty\}$, i.e.
-the set of initial conditions $x_0$ that are drawn to the fixed point
-as time goes to infinity~\cite{strogatz}. For stable fixed points and periodic orbits, $\lambda(x_0) < 0$,
-and for chaotic attractors, $\lambda(x_0)>0$.
-
 \section{Logistic Map}
 \subsection{Deterministic case}
 \hspace{5mm}The Logistic map is a quadratic recursive equation that maps the domain
@@ -139,9 +23,9 @@ applications in population modeling. Robert May popularized the
 logistic map in 1976~\cite{may}. He demonstrated even simple nonlinear
 maps could have complicated dynamics. There is one parameter in the
 expression, $r$, which can take any value in the range [0,4] so that
-[0,1] is an invariant set of the map. $f:[0,1]\to [0,1]$
+[0,1] is an invariant set of the map. We define the map $f:[0,1]\to [0,1]$
 \begin{equation}\label{logmap}
-x_{n+1} = f(x_n) = rx_n(1-x_n)
+x_{n+1} = f(x_n) = rx_n(1-x_n).
 \end{equation}
 We require $[0,1]$ to be invariant in $f$ because of the stipulations
 of the fixed point convergence theorem~\cite{atkinson}.
@@ -248,10 +132,12 @@ parameter $r_i$ is a function of each time step, as opposed to position
 in space. At each time step, some $r_i \in \{r\}_0^\infty$ is applied
 to the map, where the
 sequence $\{r\}_0^\infty$ has independent and identically distributed
-random variables in [0,4]. In contrast, the spatially random logistic map replaces the parameter $r$ from~(\ref{logmap}) with a random function of space, $R:[0,1]\to [0,4]$. As before,
-$f:[0,1]\to [0,1]$.
+random variables in [0,4]. In contrast, the spatially random logistic
+map replaces the parameter $r$ from~(\ref{logmap}) with a random
+function of space, $R:[0,1]\to [0,4]$. As before, 
+$f:[0,1]\to [0,1]$, where
 \begin{equation}\label{randlogmap}
-x_{n+1} = f(x_n) = R(x_n)x_n(1-x_n)
+x_{n+1} = f(x_n) = R(x_n)x_n(1-x_n).
 \end{equation}
 Because the noise in hydraulic modeling is often assumed to be log-normal with an
 exponentially decaying spatial correlation, we let
@@ -311,9 +197,9 @@ where the $*$ operator denotes the complex
 conjugate. The requirement $\hat{\xi}_{-n}=\hat{\xi^*}_{n}$ ensures
 $\xi(x) \in \mathbb{R}$. We can combine
 the equations in~(\ref{fs1}) to arrive at the following form for
-$\xi(x)$.
+$\xi(x)$,
 \begin{align}\label{fs2}
-\xi(x) = \ln(r) + 2\sum^N_{n=1}a_n\cos(2\pi nx)-b_n\sin(2\pi nx)
+\xi(x) = \ln(r) + 2\sum^N_{n=1}a_n\cos(2\pi nx)-b_n\sin(2\pi nx),
 \end{align}
 where $N$ represents the number of Fourier modes in the sum, and is an
 upper limit (necessary for numerical
@@ -333,7 +219,7 @@ to be independent with mean $\hat{\mu}_n$ and variance $\hat{\sigma}^2_n$
 \begin{split}\label{Sn}
 \hat{\mu}_n&=E[\hat{\xi}_n]=0\\
 \hat{\sigma}_n^2&=E[\hat{\xi}_n^2]-(E[\hat{\xi}_n])^2=E[\hat{\xi}_n^2]\\
-S(n)&=\hat{\sigma}_n^2
+S(n)&=\hat{\sigma}_n^2,
 \end{split}
 \end{align}
 where $S_n$ is the spectral density of the
@@ -357,13 +243,13 @@ In other words,
    \right.
 \end{displaymath} 
 The spectral density $S(n)$ is defined as the Fourier transform of the
-correlation function~(\ref{cor})~\cite{gelhar}. 
+correlation function~(\ref{cor})~\cite{gelhar}
 \begin{align*}
 \begin{split}
 \hat{C}(k) &= \int_{0}^{1}C(x)e^{-2\pi ikx}dx\\
 &= \sum_{m,n} \int_{0}^{1} E[\hat{\xi}_n\hat{\xi}_m] e^{2\pi
   im(x+y)}e^{2\pi iny}e^{-2\pi ikx}dx\\
-&=S(k)
+&=S(k).
 \end{split}
 \end{align*}
 By nature of being defined as the Fourier transform of the covariance
@@ -378,7 +264,7 @@ C(0) &= \sigma^2 = \int_{-\infty}^{\infty}S(k)\, dk.
 \end{align*}
 A simple spectrum that falls off quickly is
 \begin{align}\label{spec}
-S(n)=\alpha_n e^{-L|n|}
+S(n)=\alpha_n e^{-L|n|},
 \end{align}
 where $L \in [0,1]$ is the correlation length (and is fixed
 for each simulation). Values of $L$ close to zero will result in a
@@ -448,7 +334,7 @@ can bound $\ln(R(x))$ using~(\ref{R}) and~(\ref{fs1})
 |\ln(R)-\ln(r)|&\leq |\max_{R\in [0,4]}\ln(R) - \ln(r)|=\ln(4/r)\\
 |\ln(R)-\ln(r)|&\leq \sum_{n\in \mathbb{Z}}|\hat{\xi}_n| \\
 &\leq M_0+2\sum_{n=1}^\infty M_n\\
-&\leq \ln(4/r)
+&\leq \ln(4/r).
 \end{split}
 \end{align}
 The sequence of side lengths $M_n$ must be summable. 
@@ -472,7 +358,24 @@ Suppose $\hat{\xi}_n$ is uniformly distributed, so
 \end{equation} 
 where $h:\mathbb{C}\to [0,1]\in \mathbb{R}$ is the probability density
 function of $\hat{\xi}_n$. Figure~\ref{fig:square} shows the complex
-region where $h(a,b)$ is nonzero. To find the relationship between $S(n)$ and
+region where $h(a,b)$ is nonzero. Notice that by this restriction on
+$\hat{\xi}_n$, the random variable $R(x)$ is no longer ensured to be log-normal. The
+sum of independent uniform random variables does not necessarily tend to a normal
+distribution (by the Central Limit Theorem), since the variables are
+not identical. The Central Limit Theorem states~\cite{ross}
+
+\begin{singlespacing}
+\begin{theorem}
+Let $X_1, X_2, ...$ be a sequence of independent and identically
+distributed random variables, each having mean $\mu$ and variance
+$\sigma^2$. Then the distribution of
+\begin{equation*}
+\frac{X_1+...X_n-n\mu}{\sigma \sqrt{n}}
+\end{equation*}
+tends to the standard normal as $n \to \infty$.
+\end{theorem}
+\end{singlespacing}
+To find the relationship between $S(n)$ and
 $M_n$, recall that $S(n)$ is defined as the variance of the
 log-fluctuations~(\ref{Sn}). Then, 
 \begin{align}
@@ -480,7 +383,7 @@ log-fluctuations~(\ref{Sn}). Then,
 S(n)&=E[|\hat{\xi}_n|^2] = E[a^2+b^2]\\
  &= \frac{1}{4M_n^2}\int_{-M_n}^{M_n}\int_{-M_n}^{M_n}a^2+b^2\,da\,db\\
 &=\frac{2}{3}M_n^2\\
-M_n&=\sqrt{\frac{3}{2}S(n)}
+M_n&=\sqrt{\frac{3}{2}S(n)}.
 \end{split}
 \end{align}
 Finally, using the expression for $\alpha$~(\ref{a}), the
@@ -547,7 +450,7 @@ regions of stable periodic motion in the bifurcation diagram of the
 map. Generally, a degree-one circle map takes the form
 \begin{align*}
 x_{n+1}&=f(x)=x_n + \omega + g(x_n) \mod 1\\
-g(x_n)&=g(x_n + 1)
+g(x_n)&=g(x_n + 1),
 \end{align*}
 where the angle $x$ has been normalized so that its range is $[0,1)$
 instead of $[0,2\pi )$, $\omega$ is the driving frequency of the map, and
@@ -558,7 +461,7 @@ rotor. We define the circle $S^1$ as $\mathbb{R} \setminus
 \mathbb{Z}$. The \textbf{degree} of a map $f:S^1 \to S^1$ is the integer
 deg($f$) given by 
 \begin{align*}
-\deg(f) = F(1) - F(0)
+\deg(f) = F(1) - F(0),
 \end{align*}
 where $F:\mathbb{R} \to \mathbb{R}$ is the lift of the
 map. $F$ is called the \textbf{lift} of $f$ if
@@ -694,27 +597,46 @@ rational numbers~\cite{devaney}.
 		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
 	\end{center}
 \end{figure}
-%The width of each "step" corresponds to the width of the Arnold
-%Tongues in the bifurcation diagram for $k$ and $\omega$ in~(\ref{detcirc}). 
-
+The width of each "step" corresponds to the width of the Arnold
+Tongues (Figure~\ref{fig:dettongues}) in the bifurcation diagram for $k$ and $\omega$ in~(\ref{detcirc}). 
+\begin{figure}[!h]
+\caption[The Arnold Tongues for the deterministic circle map]{A color coded
+  plot of the order the of periodic orbit for values of $\omega \in [0,1]$ vs $k \in [0,1]$ creates a bifurcation diagram that looks
+  like tongues. This plot samples 1000 values of $\omega$ and $k$ in [0,1].}\label{fig:dettongues}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/tongues_1000_det.png}
+	\end{center}
+\end{figure}
 \subsection{Random case}
 We will investigate a spatially random circle map of the form
 \begin{align}\label{randcirc}
 x_{n+1}= F(x_n) =  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n),
 \end{align}
 where $\omega$ from~(\ref{detcirc}) has been replaced with a function
-of space, $\Omega:S^1\to S^1$. Just as in the randomized logistic
-map~(\ref{R}), we wish to mimic the noise in hydraulic modeling, so we
+of space, $\Omega:S^1\to S^1$. In Figure~\ref{fig:rcircstable}, a realization of the
+random circle map using the probability density function $h$ is shown,
+where the orbit converges to a period 5 orbit. 
+\begin{figure}[!h]
+\caption[Random circle map, stable orbit]{The cobweb
+  diagram (green) for a random realization of the circle map (blue) with $\omega =
+  0.3, k=1, \alpha = 10^{-5}$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  has converged to a stable period 5 orbit. Its basin of attraction is
+  $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/randcirc_cobweb.png}
+	\end{center}
+\end{figure}
+We wish to mimic the noise in hydraulic modeling, so we
 will assume that
 \begin{align}\label{Omega}
 \xi(x) = \ln(\Omega(x)),
 \end{align}
-where properties of the random variable $\xi(x)$ will be similar to those of the random logistic map. As before, a log-normal random variable $\xi(x)$ may be
+where properties of the random variable $\xi(x)$ will be similar to those of the random logistic map. As before, a normal random variable $\xi(x)$ may be
 constructed with a Fourier Series:
 \begin{align}\label{fs_circ}
 \begin{split}
 \xi(x) &= \ln(\omega) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx}\\
-&= \ln(\omega) + 2\sum^N_{n=1}a_n\cos(2\pi nx)-b_n\sin(2\pi nx)\\
+&= \ln(\omega) + 2\sum^N_{n=1}a_n\cos(2\pi nx)-b_n\sin(2\pi nx).
 \end{split}
 \end{align}
 We continue to enforce $\hat{\xi_n} = a_n + ib_n = \hat{\xi}_{-n}^*$
@@ -726,20 +648,21 @@ spectral density decays exponentially, so $S_n$ in this case
 takes the same form as for the random logistic map. However, since we
 do not require $\Omega(x)$ of the circle map~(\ref{randcirc}) to be bounded as strictly
 as $R(x)$ of the logistic map~(\ref{randlogmap}), $\alpha$ may be
-chosen freely. We use the same uniform probability density
-function $h:\mathbb{C}\to [0,1]\in \mathbb{R}$ in~(\ref{eq:square})
-and shown in Figure~\ref{fig:square}. In Figure~\ref{fig:rcircstable}, a realization of the
-random circle map is shown, where the orbit converges to a period 5 orbit.
-\begin{figure}[!h]
-\caption[Random circle map, stable orbit]{The cobweb
-  diagram (green) for a random realization of the circle map (blue) with $\omega =
-  0.3, k=1, \alpha = 10^{-5}$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
-  has converged to a stable period 5 orbit. Its basin of attraction is
-  $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
-	\begin{center}
-		\includegraphics[scale=0.7]{figs/randcirc_cobweb.png}
-	\end{center}
-\end{figure}
+chosen freely. Moreover, we use a different uniform probability density
+function $\tilde{h}:\mathbb{C}\to [0,1]\in \mathbb{R}$ to ensure the
+random variables $a_n,b_n$ are independent and identically distributed. 
+\begin{equation}\label{eq:circh}
+   \tilde{h}(\hat{\xi}_n) =h(a,b)= \left\{
+     \begin{array}{lr}
+       1 & |a_n|,|b_n| \leq 1\\
+       0 & |a_n|,|b_n| > 1\\
+     \end{array}
+   \right.
+\end{equation} 
+Therefore, the random
+variable $\xi(x)$ tends to the normal distribution, by the Central
+Limit Theorem. It follows that $\Omega(x)$ is a log-normal random
+variable, as desired. 
 
 Overall, we have a much simpler set of equations for the circle map
 than for the logistic map since $\Omega(x)$ is unrestricted. For each realization of the map, we choose
@@ -747,69 +670,3 @@ a set of random variables, $a_n, b_n \sim Unif(-M_n,M_n)$, that
 correspond to the Fourier modes of $\xi(x)$. Their magnitudes decrease
 as $M_n=\sqrt{\frac{3}{2}S_n}$ diminishes exponentially, due to the
 exponential term in $S_n=\alpha e^{-L|n|}$, where $\alpha$ is a constant. 
-
-% \singlespacing	% <------------------------------
-
-% This paragraph was preceded by the
-% command \verb2\singlespacing2.
-% See the Specifications of the Grad School for instructions
-% about when single spacing is appropriate in a thesis.
-
-% \doublespacing	% <------------------------------
-
-% And now, here is an example of using the macros
-% \verb2\begin{singlespace}2 and \verb2\end{singlespace}2;
-% another way to get single-spacing.
-
-% \begin{singlespace}	% <-----------------------------
-% Two cases are studied in the present work which differ only in the
-% boundary conditions.  Each different boundary condition model a
-% different source of instability.  The boundary of the first case
-% consists of a steady, axisymmetric sidewall radial velocity boundary
-% and a time-dependent, non-axisymmetric endwall axial velocity
-% boundary.  The second case is studied with a fixed impermeable axial
-% velocity along the endwall and a combination axisymmetric steady and
-% non-axisymmetric unsteady radial velocity along the sidewall.
-% \end{singlespace}	% <-----------------------------
-
-
-% Usually you want to use a table produced by some other
-% software, such as Excel, rather than try to do it using
-% \LaTeX macros.  If the table is saved/printed to a PDF file,
-% then it can be displayed using the
-% $\backslash${\tt includegraphics} macro
-% inside a {\tt table} environment:
-
-
-% \begin{table}
-%     \caption[Table from a PDF file]{
-% 	This table wasn't constructed with \LaTeX{}
-% 	commands, but resides in PDF file
-% 	({\tt tableD.pdf})
-% 	created by some other software.
-% 	}
-%     \begin{center}
-% 	\includegraphics[width=5.45in]{figs/tableD.pdf}
-%     \end{center}
-% \label{pdftable}
-% \end{table}
-
-
-% Some of the boundary conditions are:
-
-% \begin{eqnarray}
-%   z=0; && V_z = \twochoices
-% 	{0, && t\leq0}
-% 	{\widetilde{F}_{zw}(r,\theta,t), && t>0}
-% 						\label{eq:endwall} \\
-%   z=0; && V_{\theta}=V_r=0			\label{eq:endnoslip} \\
-%   r=0; && P,\rho,T,V_r,\vth,V_z~\mbox{finite},	\label{eq:centerline} \\
-%   r=1; && V_r= F_{rws}(z),			\label{eq:injection} \\
-%   r=1; && V_z=\vth =0,				\label{eq:sidenoslip}
-% \end{eqnarray}
-% and solutions must be periodic in $\theta$.
-
-% If you don't believe this stuff, check out
-% Mulick\cite{mulick} and Baylor\cite{baylor}.
-
-

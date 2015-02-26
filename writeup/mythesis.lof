@@ -1,17 +1,19 @@
 \contentsline {part} {\figurenameToC }{\relax }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Groundwater usage in the United States in 2005}}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Example of a Cobweb Diagram}}{6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of a Cobweb Diagram}}{5}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Deterministic logistic map, stable orbit}}{7}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Deterministic logistic map, unstable orbit}}{8}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Bifurcation diagram for the deterministic logistic map}}{9}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Random logistic map, stable orbit}}{11}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Schematic example of the covariance-spectrum pair}}{13}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces The correlation function $C(x)$}}{14}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Uniform Distribution over a Square Region}}{15}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces The function $R(x)$}}{16}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Upper and lower bounds on the random logistic map}}{17}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Deterministic circle map, stable orbit}}{19}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Deterministic circle map, unstable orbit}}{20}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces The Devil's Staircase for the deterministic circle map}}{21}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Random circle map, stable orbit}}{22}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Deterministic logistic map, stable orbit}}{9}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Deterministic logistic map, unstable orbit}}{10}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Bifurcation diagram for the deterministic logistic map}}{11}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Random logistic map, stable orbit}}{12}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Schematic example of the covariance-spectrum pair}}{15}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces The correlation function $C(x)$}}{16}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Uniform Distribution over a Square Region}}{17}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces The function $R(x)$}}{18}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Upper and lower bounds on the random logistic map}}{19}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Deterministic circle map, stable orbit}}{22}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Deterministic circle map, unstable orbit}}{23}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces The Devil's Staircase for the deterministic circle map}}{24}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces The Arnold Tongues for the deterministic circle map}}{25}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Random circle map, stable orbit}}{25}

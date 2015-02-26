@@ -1,5 +1,8 @@
 (TeX-add-style-hook "chapter1"
  (lambda ()
     (LaTeX-add-labels
-     "introchap")))
+     "introchap"
+     "tbl:porosity"
+     "fig:gwuse"
+     "fig:cobex")))
 

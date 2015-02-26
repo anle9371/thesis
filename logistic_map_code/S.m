@@ -1,5 +1,5 @@
 % Lorentzian distribution
-
+% removed function call to S.m on 2/19/15
 function y = S(L,n,r)
 
 % sigma = 0.5;    % standard deviation of xi

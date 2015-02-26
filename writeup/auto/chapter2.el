@@ -2,7 +2,6 @@
  (lambda ()
     (LaTeX-add-labels
      "background"
-     "fig:cobex"
      "logmap"
      "thm:fp"
      "fig:detlogstable"
@@ -34,8 +33,10 @@
      "fig:dcircstable"
      "fig:rcircunstable"
      "fig:devil_det"
+     "fig:dettongues"
      "randcirc"
+     "fig:rcircstable"
      "Omega"
      "fs_circ"
-     "fig:rcircstable")))
+     "eq:circh")))
 
