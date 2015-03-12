@@ -4,5 +4,21 @@
      "introchap"
      "tbl:porosity"
      "fig:gwuse"
-     "fig:cobex")))
+     "eq:lyap"
+     "thm:contraction"
+     "fig:cobex"
+     "logmap"
+     "fig:detlogstable"
+     "fig:detlogunstable"
+     "tbl:bif"
+     "fig:bif"
+     "fig:detloglyap"
+     "detcirc"
+     "detcirc2"
+     "fig:dcircstable"
+     "fig:rcircunstable"
+     "rho"
+     "fig:devil_det"
+     "fig:dettongues"
+     "fig:detcirclyap")))
 

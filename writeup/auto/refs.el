@@ -7,6 +7,7 @@
      "basics"
      "advection"
      "strogatz"
+     "billingsley"
      "gelhar"
      "ross"
      "devaney"

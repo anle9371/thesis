@@ -7,8 +7,8 @@ is called groundwater. It moves slowly through
 aquifer thickness, and aquifer \textbf{transmissivity}. Aquifers are
 water-bearing layers of rock and sediments that hold
 water~\cite{basics}. The pressure exerted on the groundwater is called
-the hydraulic head. It is the sum of three components: the pressure
-head, elevation head and velocity head~\cite{basics}. In other words,
+the hydraulic head, and it is measured in units of height, such as
+feet or meters. It is the sum of the pressure head and the elevation head~\cite{basics}. In other words,
 the level that water entering a confined well will stand at is
 determined by the hydraulic head. Porosity refers to the ratio of the empty
 spaces to the total volume of the sediment; fine-grained materials tend to
@@ -30,7 +30,12 @@ porosity ranges for three kinds of materials: clay, sand, and gravel.
 \end{table}
 \noindent Transmissivity characterizes the volume of water flowing through a
  cross-section of the aquifer (1 ft. by the aquifer thickness), under
- a hydraulic gradient of 1 ft./ 1 ft. per unit of time (usually one day)~\cite{basics}.
+ a \textbf{hydraulic gradient} of 1 ft in difference between two
+ hydraulic heads by 1 ft in length between two peizometers per unit of time
+ (usually one day)~\cite{basics}. The hydraulic gradient is a
+ dimensionless vector gradient between two or more hydraulic heads. It
+ is equal to the difference between two hydraulic heads (ft) divided by
+ the length between two piezometers\footnote{A device which measures the pressure of groundwater at a specific point} (ft). 
 
 Groundwater is vital
 to providing drinking water, irrigation, and makes up a large
@@ -65,7 +70,7 @@ solute is advected through a system when it moves with the local fluid
 velocity~\cite{advection}. Degredation reactions are more efficient when the solutions are thoroughly mixed
 together, so the onset of chaos in this system is a positive sign
 because it indicates the interface length between the two reactants is
-maximal. The primary agents of mixing are the local velocity
+maximal, or at least large. The primary agents of mixing are the local velocity
 variations due to aquifer heterogeneity and the extent to which
 solutions move underground (transmissivity)
 \cite{neupauer}. Therefore, the spatial distribution of rocks and
@@ -83,15 +88,49 @@ groundwater model.
 One-dimensional maps, such as the logistic map and the circle map, are
 analyzed in a variety of ways, e.g. fixed point iterations,
 cobweb diagrams, bifurcation diagrams, etc. This section offers some
-basic definitions and explanations of these concepts. One-dimensional Maps are a
+basic definitions and explanations of these concepts. One-dimensional maps are a
 subclass of dynamical systems in which time is discrete, rather than
 continuous. They take the form
 \begin{equation*}
-x_{n+1}=f(x_n).
+x_{n+1}=f(x_n),
 \end{equation*}
-These maps demonstrate that even simple dynamical systems are capable
-of complex behavior, and as such, are also simple examples of
-\textbf{chaos}. Although no universal definition of chaos has been
+where $x_n \in \mathbb{R}$ or $x_n \in \mathbb{S}^1$, the circle. These maps demonstrate that even simple dynamical systems are capable
+of complex behavior, and as such, are also simple examples of chaos. 
+
+The sequence of iterates ${x_0,x_1,...,x_n}$ in a map is
+called an \textbf{orbit}. As $n \to \infty$, orbits may converge to a fixed point, a
+set of periodic fixed points, or they may not converge at all. 
+
+A \textbf{fixed point} $x^*$ of a function $f$ is an element of the
+function's domain that is mapped to itself by the function, i.e.
+\begin{equation*}
+x^* = f(x^*).
+\end{equation*}
+In simple terms, a \textbf{periodic orbit} is an orbit that converges to a set
+of points after many iterates. Consider the repeating sequence $\{z_m\}$
+in an arbitrary closed orbit $\{x_n\}$, where $m,n \in \mathbb{N},
+m<n$. The sequence $\{z_m\}$ may contain many terms, but since
+$\{x_n\}$ is closed, $\{z_m\}$ eventually repeats. Thus, $z_{m+p}=z_m$
+for some $p \in \mathbb{N}, p\geq 1$. We call $p$ the period of the
+sequence, and $z_m$ the period-$p$ point. 
+
+Fixed points and periodic
+orbits are examples of attractors, whose definition is often debated. However, most agree that an \textbf{attractor} has the following
+properties: it is an invariant set, it attracts an open set of initial
+conditions, and it is minimal~\cite{strogatz}. Since the attractor is
+invariant, trajectories that begin in the attractor $A$ cannot escape
+from $A$. By being minimal, we mean there does not exist a proper
+subset of $A$ such that the previous two conditions are
+satisfied. An attractor is considered chaotic if it is sensitive to
+initial conditions. Otherwise, stable fixed points and periodic orbits are examples of attractors. Both types of attractors may have
+a \textbf{basin of attraction}, which is the set $S=\{x_0:x(t) \to A, t \to \infty\}$, i.e.
+the largest set of initial conditions $x_0$ that are drawn to the attractor as
+time goes to infinity~\cite{strogatz}. The opposite of an attractor is
+called repeller, a set that repels trajectories away from it.
+
+Previously, we mentioned an attractor is considered chaotic if it
+exhibits sensitive dependence on initial conditions, but in fact, the
+definition of chaos is more complicated. Although no universal definition of chaos has been
 agreed upon, the following working definition is generally acceptable~\cite{strogatz}:
 \begin{singlespace}
 \begin{definition}
@@ -103,22 +142,74 @@ Chaos is aperiodic long-term behavior in a deterministic
 \item \textbf{Aperiodic long-term behavior} is another way of stating
   that there are trajectories within the map that do not limit to
   fixed points or more generally quasiperiodic orbits as $n \to \infty$.
-\item \textbf{Deterministic} is used to describe systems in which
-  there is no random input or parameter. The observed behavior of the
+\item \textbf{Deterministic} is used to describe systems in which a
+  given state has exactly one orbit, i.e. there is no random input or parameter. The observed behavior of the
   system arises from its nonlinearity, not from random noise.
 \item \textbf{Sensitive dependence on initial conditions} means that
   trajectories that start in almost the same place ($\epsilon$ apart)
-  separate quickly. In other words, the system has a
+  separate quickly. In most cases, this means the system has a
   positive Lyapunov exponent.
 \end{enumerate}
 
-The sequence of iterates ${x_0,x_1,...,x_n}$ in a map is
-called an \textbf{orbit}. As $n \to \infty$, orbits may converge on a fixed point, or a
-set of fixed points. A \textbf{fixed point} $x^*$ of a function $f$ is an element of the
-function's domain that is mapped to itself by the function, i.e.
-\begin{equation*}
-x^* = f(x^*).
-\end{equation*}
+\textbf{Lyapunov exponents} are a way of quantifying the sensitive
+dependence on initial conditions for a specific orbit. If this limit
+exists, Lyapunov exponents are defined as 
+\begin{equation}\label{eq:lyap}
+\lambda(x_0) = \lim_{n \to \infty} \frac{1}{n} \sum_{i=0}^{n-1} \ln |f'(x_i)|.
+\end{equation}
+For stable fixed points and periodic orbits, $\lambda(x_0) < 0$,
+and for chaotic attractors, $\lambda(x_0)>0$. Equation~\ref{eq:lyap} essentially states that if the magnitude of the
+derivative on the orbit is overall less than one (the logarithm becomes negative), then there is no chaos. However, if
+the first derivative on the orbit is overall greater than one (the logarithm becomes positive), then it is a
+sign of chaos. $\lambda(x_0)$ is the same for all initial conditions
+$x_0$ in the same basin of attraction. 
+
+The existence and stability of fixed points in $f$ are topics of great
+interest as they constitute a major part in understanding the
+dynamics of the map. If the domain is a complete metric space and $f$ is a contraction
+mapping, the Contraction Mapping Theorem implies the map $f$ has a unique
+fixed point~\cite{meiss}. We call a metric space $X$ \textbf{complete} if every
+Cauchy sequence in $X$ converges to an element of $X$. A sequence is
+Cauchy if the distance between any two elements of the sequence
+approaches zero as we consider more and more terms of the
+sequence. More formally, given a metric space $X$ with metric $\rho$, a sequence $f_n \in X$ is \textbf{Cauchy} if
+$\forall \epsilon>0, \exists N(\epsilon)$ such that whenever $m,n \geq
+N(\epsilon), \rho(f_n,f_m)<\epsilon$~\cite{meiss}. A metric measures
+the distance between two elements of the space $f,g$, and must satisfy the following three
+properties~\cite{meiss}:
+\begin{enumerate}
+\item Positivity. $\rho(f,g) \geq 0$ and $\rho(f,g)=0$ only when $f
+  \equiv g$
+\item Symmetry. $\rho(f,g) = \rho(g,f)$
+\item Triangle inequality. $\rho(f,h) \leq \rho(f,g) + \rho(g,h)$
+\end{enumerate}
+A vector norm, such as the infinity norm, is an example of a metric. 
+\begin{singlespace}
+\begin{theorem}\label{thm:contraction}
+Let $T:X\to X$ be a complete metric space $X$. If $T$ is a
+contraction, i.e., if $\forall f,g \in X, \exists$ a constant $c<1$
+such that $\rho(T(f),T(g)) \leq c\rho(f,g)$, then $T$ has a unique
+fixed point, $f^* = T(f^*) \in X$.
+%let $D$ be a closed, bounded and convex set in the plane. Assume the
+% components of the iterative map $g(x)$ are continuously differentiable at all points of
+% $D$, and further assume: 
+% \begin{enumerate}
+% \item $g(D) \subset D$
+% \item $\lambda =\max_{x\in D}||G(x)||_\infty < 1$, where $G(x)$ is the Jacobian of
+% $g(x)$
+% \end{enumerate}
+% Then, 
+% \begin{itemize}
+% \item $x=g(x)$ has a unique solution $\alpha \in D$
+% \item For any initial point $x_0 \in D$, the iteration will converge
+%   in $D$, i.e. $\lim_{t \to \infty}x_t = \alpha$
+% \item $||\alpha - x_{n+1}||_\infty \leq
+%   (\lambda +\epsilon_n)||\alpha - x_n||_\infty$ with
+%   $\epsilon \to 0$ as $n\to \infty$
+% \end{itemize}
+\end{theorem}
+\end{singlespace}
+
 The stability of the fixed point $x^*$ is
 determined by perturbing the fixed point by $\eta$ to see whether it is
 attracted to or repelled from $x^*$. A Taylor series expansion around
@@ -162,9 +253,54 @@ behavior of the nonlinear system near the same point, as long as the
 multiplier $|\hat{\lambda}|\neq 1$. Therefore, the results of linear stability
 analysis of fixed points translates to nonlinear stability. 
 
+Fixed points may be created, destroyed, or their stability may
+change. Such a qualitative change in dynamics is called a \textbf{bifurcation}~\cite{strogatz}. These changes are strongly dependent on the
+parameters of the system. There are many types of
+bifurcations, such as~\cite{strogatz}: 
+\begin{enumerate}
+\item saddle-node\footnote{Also called a fold bifurcation, a
+    turning-point bifurcation, or a blue-sky bifurcation.}: As a parameter increases or decreases, two fixed
+  points approach one another, collide, and finally are destroyed. The
+  reverse may also occur, where the system begins with no fixed
+  points, then one is created, and finally it splits into two points. 
+\item transcritical: No matter how a parameter varies, this fixed
+  point is neither created nor destroyed. However, its stability may
+  change between stable, semistable, and unstable. In many cases, it
+  exchanges stability with another fixed point. 
+\item pitchfork: Fixed points appear and disappear in
+  symmetrical pairs as a parameter is varied. There are two types of
+  pitchfork bifurcations:
+\begin{enumerate} 
+\item supercritical pitchfork\footnote{Sometimes referred to as a
+    forward, soft or safe bifurcation.}: One stable fixed point splits into
+  three points after the bifurcation: a pair
+  of stable fixed points that flank one unstable fixed point, located
+  where the original stable fixed point was. 
+\item subcritical pitchfork\footnote{Can be called an inverted,
+    backward, hard, or dangerous bifurcation.}: A pair of unstable fixed points exists only below
+  the bifurcation. The pair also flanks one stable fixed point, which
+  becomes unstable after the bifurcation.
+\end{enumerate}
+\end{enumerate}
+A bifurcation diagram is a
+visual demonstration of the change in dynamics of a system as its
+parameters are varied. Bifurcation diagrams are constructed by
+plotting the long term behavior of the map as a function of its
+parameters, such as the locations of the stable and unstable orbits as
+a function of the parameters of the map. 
+
 A \textbf{cobweb diagram} is a graphical representation of the orbit
 iterations. The method of the cobweb diagram can be outlined in four
-steps, and is depicted in Figure~\ref{fig:cobex}:
+steps, and is depicted in Figure~\ref{fig:cobex}.
+\begin{figure}[!h]
+\caption[Example of a Cobweb Diagram]{A one-dimensional map (blue) and
+  the line $x_{n+1}=x_n$ (red) with a few iterates of the cobweb
+  diagram (green). Cobweb diagrams encapsulate the dynamics of the orbit at a glance.}\label{fig:cobex}
+    \begin{center}
+	\includegraphics[scale=0.8]{figs/cobweb_ex.png}
+    \end{center}
+\end{figure}
+
 \begin{enumerate}
 \item Begin at the Cartesian coordinate pair $(x_0, f(x_0))$, which
   may also be written as $(x_0, x_1)$
@@ -174,28 +310,299 @@ steps, and is depicted in Figure~\ref{fig:cobex}:
 \item Repeat steps 2-3 until convergence or divergence is determined:
   $(x_n, x_{n+1}) \to (x_{n+1}, x_{n+1}) \to (x_{n+1},x_{n+2})$
 \end{enumerate}
+
+\subsection{Logistic Map}
+The Logistic map is a quadratic recursive equation that maps the domain
+$[0,1] \rightarrow [0,1]$. It is a commonly studied topic in nonlinear dynamics and has
+applications in population modeling. Robert May popularized the
+logistic map in 1976~\cite{may}. He demonstrated that even simple nonlinear
+maps could have complicated dynamics. There is one parameter in the
+expression, $r$, which can take any value in the range [0,4] so that
+[0,1] is an invariant set of the map. We define the map $f:[0,1]\to [0,1]$
+\begin{equation}\label{logmap}
+x_{n+1} = f(x_n) = rx_n(1-x_n).
+\end{equation}
+For a fixed initial condition $x_0$ and $r$, the long term behavior of
+the map may be obtained by iteration, using~(\ref{logmap}). 
 \begin{figure}[!h]
-\caption[Example of a Cobweb Diagram]{A One-dimensional Map (blue) and
-  the line $x_{n+1}=x_n$ (red) with a few iterates of the cobweb
-  diagram (green). Cobweb diagrams encapsulate the dynamics of the orbit at a glance.}\label{fig:cobex}
+\caption[Deterministic logistic map, stable orbit]{Deterministic Logistic Map (blue) for $r=3.2$. There is a stable period
+4 orbit. The period is calculated by counting the number
+of crossings from the cobweb diagram (green) on the line $x_{n+1}=x_n$
+(red). The transient iterations (the first 500) were removed to make
+the long-term behavior of the orbit more obvious.}\label{fig:detlogstable}
     \begin{center}
-	\includegraphics[scale=0.8]{figs/cobweb_ex.png}
+	\includegraphics[scale=0.8]{figs/det_cobweb.png}
     \end{center}
 \end{figure}
+For example, Figure~\ref{fig:detlogstable}
+demonstrates a stable period 4 orbit, whereas Figure~\ref{fig:detlogunstable}
+demonstrates a possibly chaotic orbit. 
+\begin{figure}[!h]
+\caption[Deterministic logistic map, unstable orbit]{Deterministic
+  Logistic Map (blue) for $r=3.8$. There appears to be no
+  stable orbit. The cobweb diagram (green) behaves erratically, even
+  after removing the transient behavior. For values of $r \in
+  [3.5,4]$, the system is chaotic.}\label{fig:detlogunstable}
+	\begin{center}
+		\includegraphics[scale=0.8]{figs/chaos.png}
+	\end{center}
+\end{figure} 
+The effects of the parameter $r$ are
+tabulated in Table~\ref{tbl:bif} and also graphically visualized in
+Figure~\ref{fig:bif}, a bifurcation diagram. 
+\begin {table}[!h]
+\begin{center}
+\caption[Behavior of the deterministic map as $r$ is varied]{As $r$ is
+varied over [0,4], the logistic map undergoes notable changes in terms
+of stability~\cite{may}.}\label{tbl:bif}
+\begin{tabular}{ | p{4cm}| p{8cm}|}   \hline
+$r \in [0,1]$ & convergence to the stable Period
+1 orbit, $x=0$ \\ \hline
+$r \in [1,2]$ & convergence to the stable Period 1
+orbit, $x = \frac{r-1}{r}$\\ \hline
+$r \in [2,3]$ & convergence to the stable Period 1
+orbit, $x = \frac{r-1}{r}$, but at a slower rate\\ \hline
+$r \in [3,3.44949]$ & emergence of stable Period 2 orbits\\ \hline
+$r \in (3.44949, 3.54409)$ & emergence of stable Period 4 orbits\\ \hline
+$r \in [3.54409,3.56995)$ & period doubling cascade\\ \hline
+$ r \approx 3.56995 $ & onset of chaos\\\hline
+$r \in (3.56995,4]$ & mostly chaotic behavior, but there are islands of
+stability (eg. Period 3 orbits for $r \approx 3.82843$) \\\hline
+\end{tabular}
+\end{center}
+\end {table}
+Most notably, there is no chaos for values of $r
+< 3.5$, and for $r > 3.5$, the system appears chaotic, although
+there are islands of stability interspersed throughout the bifurcation
+diagram. 
+\begin{figure}[!h]
+\caption[Bifurcation diagram for the deterministic logistic map]{The
+  behavior in Table~\ref{tbl:bif} may be graphed in a bifurcation
+  diagram, there the long term behavior of the map is a function of $r$. The left diagram ranges from $r\in
+  [0,4]$, and the right diagram ranges from $r\in [2.5,4]$. Notice the
+  islands of stability in the chaotic region of the map.}\label{fig:bif}
+\centering
+\includegraphics[width=.5\textwidth]{figs/det_bif_1.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/det_bif_2.png}
+\end{figure}
+The Lyapunov exponent $\lambda$ of the logistic map is an indicator of
+chaos. Figure~\ref{fig:detloglyap} demonstrates how the Lyapunov
+exponent of the logistic map changes sign as a function of
+$r$. $\lambda$ approaches zero at the period-doubling bifurcations
+shown in Figure~\ref{fig:bif}. The negative spikes in the plot around
+$r=3.2$ and $r=3.5$ correspond to the period 2 and period 4 orbits in the
+bifurcation diagram. Chaotic behavior appears where $\lambda >0$, near
+$r=3.57$. The islands of stability in the bifurcation diagram are
+visible where $\lambda$ dips past zero, notably around $r=3.83$.
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the deterministic logistic map]{The
+  Lyapunov exponent for the deterministic
+  logistic map, where $x_0=0.7$ for $r \in
+  [3,4]$. The positive values of $\lambda$ for $r>3.57$ indicate the system is chaotic.}\label{fig:detloglyap}
+	\begin{center}
+		\includegraphics[scale=0.65]{figs/det_log_lyap.png}
+	\end{center}
+\end{figure} 
 
-\textbf{Lyapunov exponents} are a way of classifying a the sensitive
-dependence on initial conditions for a specific orbit. They are
-defined as 
-\begin{equation}
-\lambda(x_0) = \lim_{n \to \infty} \frac{1}{n} \sum_{i=0}^{n-1} \ln |f'(x_i)|.
-\end{equation}
-$\lambda(x_0)$ is the same for all initial conditions $x_0$ in the same \textbf{basin of
-attraction}. The basin of attraction for an attracting fixed point
-$x^*$ is defined as the set $S=\{x_0:x(t) \to x^*, t \to \infty\}$, i.e.
-the set of initial conditions $x_0$ that are drawn to the fixed point
-as time goes to infinity~\cite{strogatz}. For stable fixed points and periodic orbits, $\lambda(x_0) < 0$,
-and for chaotic attractors, $\lambda(x_0)>0$.
+\subsection{Circle Map}
+The circle map is another
+dynamical system whose deceivingly simple form gives way to complicated behavior. It was used to
+understand the dynamics of a kicked rotor by Vladimir
+Arnold, who is credited for discovery of what are now called the Arnold Tongues, which are
+regions of stable periodic motion in the bifurcation diagram of the
+map. Generally, a degree-one circle map takes the form
+\begin{align*}
+x_{n+1}&=f(x)=x_n + \omega + g(x_n) \mod 1\\
+g(x_n)&=g(x_n + 1),
+\end{align*}
+where the angle $x$ has been normalized so that its range is $[0,1)$
+instead of $[0,2\pi )$, $\omega$ is the driving frequency of the map, and
+$g(x)$ is the nonlinear component of the recursion~\cite{rasband}. The
+parameter $\omega$ represents the frequency of the driving
+force, which is the external force applied to the
+rotor. We define the circle $S^1$ as $\mathbb{R} \setminus
+\mathbb{Z}$. The \textbf{degree} of a map $f:S^1 \to S^1$ is the integer
+deg($f$) given by 
+\begin{align*}
+\deg(f) = F(1) - F(0),
+\end{align*}
+where $F:\mathbb{R} \to \mathbb{R}$ is the lift of the
+map. $F$ is called the \textbf{lift} of $f$ if
+\begin{align*}
+w \circ F = f \circ w,
+\end{align*}
+where $w:\mathbb{R} \to S^1$ is defined as
+\begin{equation*}
+w(x) = e^{2\pi i x} = \cos(2\pi x) + i\sin(2\pi x).
+\end{equation*}
+$w$ wraps $\mathbb{R}$ around the circle $S^1$ without critical
+points~\cite{devaney}. $w$ is many-to-one, therefore it is not a
+topological conjugacy (homeomorphism)
+between $F$ and $f$. When $f$ is an orientation
+preserving diffeomorphism of the circle, the lift of $f$ must be
+monotonic increasing, i.e. $F'(x)>0$. A function is a \textbf{diffeomorphism}
+if it is a smooth, differentiable, invertible map between two or more
+manifolds. The term \textbf{topologically conjugate} means that there
+is a homeomorphism (a continuous and invertible function whose inverse
+is also continuous)
+that transforms one map to another in such a way that the sense of
+time is preserved~\cite{strogatz}.
 
+\begin{singlespacing}
+\begin{definition}
+Let $f:I \to J$. The function $f(x)$ is a homeomorphism if $f(x)$ is
+one-to-one, onto, and continuous, and $f^{-1}(x)$ is also continuous~\cite{devaney}.
+\end{definition}
+\begin{definition}
+Let $f:I\to J$. The function $f(x)$ is a $C^r$-diffeomorphism if
+$f(x)$ is a $C^r$-homeomophism such that $f^{-1}(x)$ is also $C^r$~\cite{devaney}. 
+\end{definition}
+\end{singlespacing}
+
+Arnold introduced the two-parameter example
+\begin{align}\label{detcirc}
+x_{n+1}= F(x_n) =  x_n + \omega - \frac{k}{2\pi}\sin(2\pi x_n),
+\end{align}
+which we will explore as well. Equation (\ref{detcirc}) is the lift of the map
+$f$,
+\begin{align}\label{detcirc2}
+f(x_n) = x_n + 2\pi \omega + k\sin(x_n).
+\end{align}
+In both (\ref{detcirc}) and (\ref{detcirc2}), there are two parameters: $k \in [0,\infty)$
+is the coupling strength and $\omega \in [0,1]$ is the driving
+frequency. A stable period 2 orbit is shown in
+Figure~\ref{fig:dcircstable}, and
+Figure~\ref{fig:rcircunstable} shows an orbit that appears to be quasiperiodic.
+\begin{figure}[!h]
+\caption[Deterministic circle map, stable orbit]{The cobweb
+  diagram (green) for a deterministic circle map (blue) with $\omega =
+  0.5$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  has converged to a stable period 2 after 1000 iterations. Transient iterations were removed.}\label{fig:dcircstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/detcirc_cobweb_2.png}
+	\end{center}
+\end{figure}
+\begin{figure}[!h]
+\caption[Deterministic circle map, quasiperiodic orbit]{The cobweb
+  diagram (green) for a deterministic circle map (blue) with $\omega =
+  0.6$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  appears to be quasiperiodic after 1000 iterations. Transient iterations were removed.}\label{fig:rcircunstable}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/detcirc_cobweb_chaos.png}
+	\end{center}
+\end{figure}
+When discussing $f$, we will deal exclusively with the
+lift, $F$. Taking the modulus of~(\ref{detcirc}) will map the circle
+to itself, so we find
+\begin{align*}
+x_{n+1}= F(x_n) \mod 1.
+\end{align*}
+
+The coupling strength $k$
+controls the amplitude of the oscillations in the circle map; no
+coupling is $k=0$, and the coupling increases as $k \to
+\infty$. For $0 \leq k < 1$, $f$ is a diffeomorphism of $S^1$, and
+when $k=1$, the map is a homeomorphism. $f$ is monotone only if $|k|<1$. For $k>1$, the map is no
+longer one-to-one, so $\rho$ may not exist~\cite{devaney}. In contrast, $\omega$
+applies a positive vertical shift to the map, which causes it to wrap
+around itself, due to the effects of the modulo operator. 
+
+A phenomenon of \textbf{mode-locking} may occur in the lift of the map,
+where after $q$ iterations, the new angle differs from the initial
+value of $x$ by exactly $p \in \mathbb{Z}$
+\begin{align*}
+x_{n+q}=x_n+p.
+\end{align*}
+The mode-locked state of the lift $F$ implies the map $f$ is periodic
+on $\mathbb{S}^1$. The \textbf{rotation number} of the orbit is an important invariant of
+the circle map because it measures the average amount of points
+rotated by an iteration of the map. Essentially, it gives an idea of
+whether $f$ has periodic orbits in $\mathbb{S}^1$.
+
+\begin{singlespacing}
+\begin{definition}\label{rho}
+The rotation number of $f$, $\rho(f)$, is the fractional part of
+$\rho_0(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}$ for any lift $F$ of $f$. That is, $\rho(f)$ is the unique
+number in [0,1) such that $\rho_0(F)-\rho(f)$ is an integer~\cite{devaney}.
+\end{definition}
+\end{singlespacing}
+
+\noindent It is important that $\rho(f)$ depends only on $f$ when $f$
+is a homeomorphism. But, if not, it depends on $x$. When $\rho \in \mathbb{Q}$, the system is mode-locked. Since
+$\rho$ is a rational number, it can be expressed as $p/q$, where $p,q
+\in \mathbb{Z}$. The order of the periodic orbit is $q$. If $\rho$
+does not exist (when $f$ is not a homeomorphism), then the system may be in a chaotic
+state. When $\rho \in \mathbb{R} \setminus \mathbb{Q}$, the orbit is
+quasiperiodic. Quasiperiodicity refers to irregular periodicity in the
+system; the periodicity has a component of unpredictability that does
+not occur at regular intervals. The theorem below
+establishes the rotation number of the map $\rho(f)$
+depends continuously on $f$, and that if $f$ is monotone, then all
+orbits have the same rotation number.
+
+\begin{singlespacing}
+\begin{theorem}
+Let $f:S^1 \to S^1$ be an orientation-preserving diffeomorphism with
+lift $F$. Then
+\begin{equation*}
+\rho_0(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}
+\end{equation*}
+exists and is independent of both $x$ and the lift $F$. Hence the
+rotation number $\rho(f)$ is well-defined~\cite{devaney}.
+\end{theorem}
+\end{singlespacing}
+
+The changes in the rotation number $\rho$ as $\omega$ is
+varied over [0,1] is graphically demonstrated as a devil's staircase
+in Figure~\ref{fig:devil_det}. The devil's staircase is constant for
+rational rotation numbers, and takes on every value in between the
+rational numbers~\cite{devaney}. Interestingly, the graph of $\rho(\omega)$ is a Cantor
+function. Cantor functions are everywhere continuous and monotone, but have zero
+derivative almost everywhere. 
+\begin{figure}[!h]
+\caption[The devil's staircase for the deterministic circle map]{The
+  plot of $\omega$ vs the rotation number $\rho$ for $k=1$ results in a devil's
+  staircase. Since the circle map is monotone, $\rho$ is independent of
+  the initial value $x_0$. At each $\omega$, $\rho$ is either
+  irrational or rational (due to the quasiperiodic cases), which results in a monotonically increasing  ``staircase." The largest steps (where $\rho$ appears constant)
+  correspond with the simplest rationals.}\label{fig:devil_det}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
+	\end{center}
+\end{figure}
+The width of each ``step" corresponds to the width of the Arnold
+tongues (Figure~\ref{fig:dettongues}) in the bifurcation diagram for
+$k$ and $\omega$ in~(\ref{detcirc}). The colored
+triangular regions in Figure~\ref{fig:dettongues} resemble tongues,
+and are aptly named as such.
+\begin{figure}[!h]
+\caption[The Arnold Tongues for the deterministic circle map]{A color coded
+  plot of the order the of periodic orbit for values of $\omega \in [0,1]$ vs $k \in [0,1]$. This plot samples 1000 values of $\omega$ and $k$ in
+  [0,1], and checks for periodicity up to period 100. Red: period 1
+  fixed points, black: orbits that have period larger than 100 (or
+  possibly no period), orange: period 2 orbit, yellow: period 3 orbit, blue: period 5 orbit,
+green: period 4 orbit, and purple: period 6 orbit.}\label{fig:dettongues}
+	\begin{center}
+		\includegraphics[scale=0.65]{figs/tongues_1000_det.png}
+	\end{center}
+\end{figure}
+Recall the onset of chaos is marked by a positive Lyapunov
+exponent. Figure~\ref{fig:detcirclyap} shows the Lyapunov exponent
+$\lambda$ of
+the circle map as a function of $\omega$ for $k=1$. Although small in
+magnitude, $\lambda$ fluctuates between negative and positive
+values around the Arnold tongues. The negative stretches in $\lambda$
+coincide with the periodic fixed points (red, yellow, orange, blue, green
+and purple regions) in
+Figure~\ref{fig:dettongues}.  
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the deterministic circle map]{The
+  Lyapunov exponent for the deterministic
+  cirlce map, where $k=1,x_0=0.7$. The positive values of $\lambda$ indicate the system may be chaotic (marked in red).}\label{fig:detcirclyap}
+	\begin{center}
+		\includegraphics[scale=0.65]{figs/det_circ_lyap.png}
+	\end{center}
+\end{figure} 
 
 % For example, a common problem is to insert graphics ---
 % figures and tables --- into the body of the thesis.  For
