@@ -21,7 +21,11 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Random circle map, stable orbit}}{31}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Average number of order $p$ orbits for the random circle map}}{33}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Bifurcation diagram of the random circle map}}{34}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The devil's staircase for the random circle map}}{34}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Histogram of rotation numbers in the random circle map}}{35}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces The Arnold tongues for the random circle map}}{36}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bifurcation diagram of the random logistic map}}{34}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Average number of order $p$ orbits for the random circle map}}{34}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Bifurcation diagram of the random circle map}}{35}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The devil's staircase for the random circle map}}{35}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Histogram of rotation numbers in the random circle map}}{36}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The Arnold tongues for the random circle map}}{37}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Load Balancing Workflow}}{38}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Load Balancing Tool Overview}}{38}

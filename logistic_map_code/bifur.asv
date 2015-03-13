@@ -9,10 +9,7 @@
 % numSims = number of times to repeat x0
 
 % output
-% myorbs = array: 
-         % myorbs(:,1) = r, 
-         % myorbs(:,2) = period order
-         % myorbs(:,3:maxp) = unique orbit locations for (r,L,x0) tuple
+% myorbs = vector, unique orbit locations for (r,L,x0) tuple
 
 function myorbs = bifur(r, N, a, b, x0, maxp, tol, numSims)
 iter = 1000;    % number iterations of cobweb for one x0
@@ -40,11 +37,10 @@ for n = 1:numSims
 end
 
 myorbs = uorbits(orbits, tol);
-[urow, ucol] = size(myorbs);
-if isempty(myorbs)
-    myorbs = [r, -1*ones(1,ucol)];  % record divergence for this r
+if isempty(u_orbits)
+    myorbs = [r, ones(1,maxp)*-1];
 else
-    myorbs = [r*ones(urow,1), myorbs];
+    myorbs = [ones(length(urow),1)*om, u_orbits];
 end
 
 end

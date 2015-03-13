@@ -45,7 +45,7 @@ bar(1:maxp,stats(:,1),'g')
 hold on
 h = errorbar(1:maxp,stats(:,1),stats(:,4),'k');
 set(h(1),'linestyle','none');
-title('mean number of orbits')
-xlabel('orbit order')
-ylabel('mean')
+title('Average fraction of order p orbits')
+xlabel('Orbit order (p)')
+ylabel('Average fraction')
 % axis([0 20 0 0.06])

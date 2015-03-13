@@ -1,10 +1,32 @@
 \chapter{Results}
 \section{Implementation of Randomness in the Logistic Map}
+\begin{figure}[!h]
+\caption[Average number of order $p$ orbits for the random circle
+map]{Average number of order $p$ orbits for the random circle
+map, where $r =3.2$,$L=0.1$,$N=100$, and $\sigma = 0.0061$. Results from 2000
+simulations of these parameters are plotted.}
+	\begin{center}
+          \includegraphics[scale=0.7]{figs/rlog_hist_r32_L01.png}
+	\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+\caption[Bifurcation diagram of the random logistic map]{Bifurcation diagram of the random
+circle map, where $r \in [0,4]$, $\Delta r = 0.008$, $N=100$, $\sigma
+= 0.0061$, and $L=0.1$. Results from 500
+simulations of these parameters are plotted. Blue: period 1, red:
+period 2, cyan: period 3, magenta: period 4, green: period 5, black:
+period $p > 5$.}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/rlog_bif_r500_x10_L01.png}
+	\end{center}
+\end{figure}
+
 \section{Implementation of Randomness in the Circle Map}
 \begin{figure}[!h]
-\caption[Average number of order $p$ orbits for the random
-circle map]{Average number of order $p$ periodic orbits for the random
-circle map, where $L=0.1$, $\omega =0.1$ and $k=1$. Results from 1000
+\caption[Average number of order $p$ orbits for the random circle
+map]{Average number of order $p$ periodic orbits for the random circle
+map, where $L=0.1$, $\omega =0.1$, $\alpha = 10^{-5}$ and $k=1$. Results from 1000
 simulations of these parameters are plotted.}
 	\begin{center}
 		\includegraphics[scale=0.7]{figs/rcirc_avg_num_1000_sim_logscale.png}
@@ -14,7 +36,7 @@ simulations of these parameters are plotted.}
 \begin{figure}[!h]
 \caption[Bifurcation diagram of the random
 circle map]{Bifurcation diagram of the random
-circle map for $L=0.1$, $\omega \in [0,1]$, $\Delta \omega = 0.001$
+circle map for $L=0.1$, $\omega \in [0,1]$, $\Delta \omega = 0.001$,$\alpha = 10^{-5}$
 and $k=1$. Results from 100 simulations of these parameters are
 plotted. Blue: period 1, red:
 period 2, cyan: period 3, magenta: period 4, green: period 5, black:
@@ -26,7 +48,7 @@ period $p > 5$.}
 
 \begin{figure}[htp]
 \caption[The devil's staircase for the random circle map]{The devil's
-  staircase for $k=1$ and $L = 0.1,0.5$. For small $L$
+  staircase for $k=1$,$\alpha = 10^{-5}$ and $L = 0.1,0.5$. For small $L$
   (leftmost graph), the noise is more pronounced than for large $L$
   (rightmost graph).}\label{fig:randdevil1}
 \centering
@@ -37,7 +59,7 @@ period $p > 5$.}
 \begin{figure}[htp]
 \caption[Histogram of rotation numbers in the random circle
 map]{Histogram of rotation numbers in the random circle map, where
-  $L=0.1$, $k=1$, and $\omega = 0.45$. Results from 1000 simulations
+  $L=0.1$, $k=1$, $\alpha = 10^{-5}$,and $\omega = 0.45$. Results from 1000 simulations
   are plotted.}
 \centering
 \includegraphics[width=.5\textwidth]{figs/hist_rho_k1_L01_om045.png}\hfill
@@ -61,4 +83,17 @@ green: period 4 orbit, and purple: period 6 orbit.}\label{fig:randtongues}
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_09.png}\\
 \end{figure}
 
+\section{Dynamic Load Balancing on the Janus Supercomputer}
+\begin{figure}[!h]
+\caption[Load Balancing Workflow]{Load Balancing Workflow}
+	\begin{center}
+          \includegraphics[scale=0.5]{figs/workflow.png}
+	\end{center}
+\end{figure}
+\begin{figure}[!h]
+\caption[Load Balancing Tool Overview]{Load Balancing Tool Overview}
+	\begin{center}
+          \includegraphics[scale=0.45]{figs/load_balancer.png}
+	\end{center}
+\end{figure}
 
