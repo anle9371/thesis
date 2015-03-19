@@ -1,6 +1,7 @@
 function Tongues(kmin,kmax,om,oM,m,n )
 %Tongues Compute the Arnold tongues
 %   krange from 0 to kmax, Compute on an m x n grid
+close all
 
 global omega ktpi tpi
 tpi = 2*pi;
@@ -31,12 +32,33 @@ for t=1:tmax
     end;
 end;
                 
-% figure('Color',[1,1,1],'Position',[10,10,800,800])
+
+set(gcf,'position',get(0,'screensize'))
 period = flipud(period+1);   %reflect image to get proper orientation
 image(period)   ;                    %add one to get 1 based image
 %colormap([lines(10);hsv(tmax-10);0*white(1)])
-colormap([prism(6);hsv(94);0*white(1)]);
-xlabel('\omega', 'FontSize', 14)
-ylabel('k', 'FontSize', 14)
+% colormap([prism(6);hsv(94);0*white(1)]);
+c1 = colorcube(tmax);
+colormap([c1(1:ceil(tmax/2),:); jet(ceil(tmax/2)-1) ;0*white(1)]);
+% colormap([colorcube(6);hsv(95)]);
+
+cb = colorbar;
+xlabel('\omega')
+set(gca,'XTickMode', 'Manual');
+oind = 0:ceil(m/10):m;
+oind = oind(2:end);
+strom = strsplit(sprintf('%1.1f ',omegavect(oind)));
+set(gca,'XTickLabel',strom)
+
+set(gca,'YLim', [0 n])
+ylabel('k')
+set(gca,'YTickMode', 'Manual');
+kind = 0:ceil(n/10):n;
+kind = kind(2:end);
+strk = strsplit(sprintf('%1.1f ',fliplr(2*pi*kvect(kind))));
+set(gca,'YTickLabel',strk)
+
+set(gca,'FontSize',15)
+set(findall(gcf,'type','text'),'FontSize',15)
 end
 

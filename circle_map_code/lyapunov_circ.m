@@ -1,7 +1,15 @@
+% plot the lyapunov exponent of the circle map
+% input
+% [wmin, wmax] = min and max values of omega, e.g. [0,1]
+% maxj = number of lyapunov exponents to find
+% x0 = initial condition for the map
+
+% output
+% plot of the lyapunov exponent vs omega
 function poslamb = lyapunov_circ( wmin, wmax, maxj, x0 )
-%plot the lyapunov exponent of the circle map
 close all
-k = 1;
+
+k = 1.5;
 om = linspace(wmin,wmax,maxj);
 lambda = zeros(maxj,1);
 n = 1000;
@@ -11,7 +19,6 @@ for j = 1:maxj
     
     for iter = 1:n-1                      
         x(iter + 1) = x(iter) + om(j) - (k/(2*pi)) * sin(2.0 * pi * x(iter));
-%         x(iter+1) = mod(x(iter+1),1.0);
     end    
     lambda(j) = sum(log( 1 - k * cos(2.0 * pi * x)))/n;    
 end
@@ -22,13 +29,14 @@ plot(om, zeros(maxj,1),'k')
 set(gca,'fontsize',16)
 xlabel('\omega','FontSize',16)
 ylabel('\lambda','FontSize',16)
-i = 1;
-poslamb = zeros(1,2);
-for j = 1:maxj
-    if lambda(j) > 0
-        poslamb(i,:) = [om(j), lambda(j)];        
-        i = i+1;
-    end
-end
-plot(poslamb(:,1),poslamb(:,2), 'r.', 'MarkerSize', 5)
+
+% i = 1;
+% poslamb = zeros(1,2);
+% for j = 1:maxj
+%     if lambda(j) > 0
+%         poslamb(i,:) = [om(j), lambda(j)];        
+%         i = i+1;
+%     end
+% end
+% plot(poslamb(:,1),poslamb(:,2), 'r.', 'MarkerSize', 5)
 end

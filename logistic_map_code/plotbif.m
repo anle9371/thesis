@@ -1,52 +1,49 @@
-%plot the bifurcation diagram for the rand log map
+% plot the bifurcation diagram for the rand log map
+% read the data file in fname line by line to plot
 
-function plotbif(fname, L, rlen, N, x0len, maxp, tol, numSims)
+function plotbif(pth, fname, L, rlen, x0len, maxp)
 close all
-% load data from fname to memory
-M = dlmread(fname); %col1 = r, col2 = order, col3:end = locations
-[numrows,~] = size(M);
 
-% plot
-si = 12; % markersize 
+% plot params
+si = 12; % markersize
 loc = 3; % start index of orbit locations
+c = linspace(1,10,maxp); % colormap
+tikind = 1:6:length(c);
+tik = c(tikind);
+maxp_vec = 1:maxp;
+tiklb = maxp_vec(tikind);
+
+% plot labels
 figure
 hold on
-for i = 1:numrows   % go thru all rows of M
-    myperiod = M(i,2);    % col2 = order    
-    w = M(i,1);   % col1 = r
-    switch myperiod    % ignores the -1 entries
-        case 1
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'b.','markersize',si)
-        case 2
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'r.','markersize',si)
-        case 3 
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'c.','markersize',si)
-        case 4
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'m.','markersize',si)
-        case 5
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'g.','markersize',si)
-    end
-    if myperiod > 5
-            plot(w*ones(myperiod,1),M(i,loc:loc+myperiod-1),'k.','markersize',si)
-    end
-end
-ylim =get(gca,'YLim');
-xlim =get(gca,'XLim');
-% text(xlim(2),ylim(2),['\fontsize{10}{\color{blue}1 \color{red}2 '...
-% '\color[rgb]{0 1 1}3 \color{magenta}4 \color{green} 5} >5'],...
-%    'VerticalAlignment','bottom',...
-%    'HorizontalAlignment','left')
-% title('Bifurcation diagram')
+axis([0 4 0 1])
+set(gcf,'position',get(0,'screensize'))
 xlabel('r')
 ylabel('x')
-
-% save with meaningful title
 t = ['L = ',num2str(L),', N_r = ', num2str(rlen), ', N_x_0 = ', num2str(x0len), ', p_{max} = ',num2str(maxp)];
 title(t);
+
+% fname = [pth,froot,num2str(L),'.csv'];
+fid = fopen([pth,fname],'r');
+tline = fgets(fid);
+while ischar(tline)   % go thru all rows of M
+    t1 = cellstr(tline);
+    t2 = strjoin(t1);
+    M = str2double(strsplit(t2,','));
+    myperiod = M(2);    % period order
+    w = M(1);   % r value
+    if myperiod > 0
+        scatter(w*ones(myperiod,1),M(loc:loc+myperiod-1),si,c(myperiod)*ones(myperiod,1),'filled')
+    end
+    tline = fgets(fid);
+end
+fclose(fid);
+
+% save with meaningful title
+cb = colorbar('YTick',tik,'YTickLabels',tiklb);
 set(gca,'FontSize',15)
 set(findall(gcf,'type','text'),'FontSize',15)
 h = gcf;
-name = ['rlog_bif_L_',num2str(L),'.png'];
-path = 'C:\Users\amy\Dropbox\thesis\logistic_map_code\bifurcation_data\';
-saveas (h, [path,name], 'png');
+pname = ['rlog_bif_L_',num2str(L),'_2.png'];
+saveas (h, [pth,pname], 'png');
 end
