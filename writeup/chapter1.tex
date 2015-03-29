@@ -115,7 +115,7 @@ for some $p \in \mathbb{N}, p\geq 1$. We call $p$ the period of the
 sequence, and $z_m$ the period-$p$ point. 
 
 Fixed points and periodic
-orbits are examples of attractors, whose definition is often debated. However, most agree that an \textbf{attractor} has the following
+orbits are examples of attractors. An \textbf{attractor} has the following
 properties: it is an invariant set, it attracts an open set of initial
 conditions, and it is minimal~\cite{strogatz}. Since the attractor is
 invariant, trajectories that begin in the attractor $A$ cannot escape
@@ -160,7 +160,7 @@ exists, Lyapunov exponents are defined as
 For stable fixed points and periodic orbits, $\lambda(x_0) < 0$,
 and for chaotic attractors, $\lambda(x_0)>0$. Equation~\ref{eq:lyap} essentially states that if the magnitude of the
 derivative on the orbit is overall less than one (the logarithm becomes negative), then there is no chaos. However, if
-the first derivative on the orbit is overall greater than one (the logarithm becomes positive), then it is a
+the rate of change of position on the orbit is overall greater than one (the logarithm becomes positive), then it is a
 sign of chaos. $\lambda(x_0)$ is the same for all initial conditions
 $x_0$ in the same basin of attraction. 
 
@@ -186,7 +186,7 @@ properties~\cite{meiss}:
 A vector norm, such as the infinity norm, is an example of a metric. 
 \begin{singlespace}
 \begin{theorem}\label{thm:contraction}
-Let $T:X\to X$ be a complete metric space $X$. If $T$ is a
+The Contraction Mapping Theorem. Let $T:X\to X$ be a complete metric space $X$. If $T$ is a
 contraction, i.e., if $\forall f,g \in X, \exists$ a constant $c<1$
 such that $\rho(T(f),T(g)) \leq c\rho(f,g)$, then $T$ has a unique
 fixed point, $f^* = T(f^*) \in X$.
@@ -238,20 +238,68 @@ the fixed point $x^*$ is \textbf{linearly unstable}. If $|\hat{\lambda}| = |f'(x
   \infty}\hat{\lambda}^n = 0$, and the fixed point $x^*$ is
 \textbf{linearly stable}. If
 $|\hat{\lambda}| = |f'(x^*)| = 1$ the $\mathcal{O}(\eta_n^2)$ terms
-determine the local stability~\cite{strogatz}. Linear stability is
-linked to nonlinear stability by the Hartman-Grobman Theorem~\cite{meiss}.
-\begin{singlespace}
-\begin{theorem}
-Hartman-Grobman Theorem: Let $x^*$ be a hyperbolic equilibrium point of a $C^1$
-vector field $f(x)$ with flow $\phi_t(x)$. Then there is a
-neighborhood $N$ of $x^*$ such that $\phi$ is topologically conjugate to its linearization on $N$.
-\end{theorem}
-\end{singlespace}
-The Hartman-Grobman theorem states the behavior of the linearized
-dynamical system near a fixed point is equivalent to the
+determine the local stability~\cite{strogatz}. 
+
+Likewise, a Taylor expansion about a periodic orbit demonstrates its
+stability criteria. Suppose we have a period 2 orbit. This implies
+$f(u)=v$ and $f(v)=u$. Both $v,u$ are solutions of $f \circ
+f= f^2(x) = x$, so $v,u$ are fixed points of $f^2(x)$. We compute the
+multiplier $\hat{\lambda}$,
+\begin{align*}
+\begin{split}
+\hat{\lambda} &= \frac{d}{dx} f(f(x)) \\
+&= f'(f(x))f'(x).
+\end{split}
+\end{align*}
+Evaluating the multiplier at $x=v$ yields
+\begin{align*}
+\hat{\lambda} = f'(u)f'(v).
+\end{align*}
+By the symmetry of the final product, evaluating the multiplier at
+$x=u$ returns the same multiplier. Furthermore, we can generalize the
+stability analysis of a periodic orbit of order $p$. Each point of a
+periodic orbit $u_1,u_2,...u_p$ is a fixed point of the map
+$f^p(x)$. Interestingly, any one of the points $u_j$ may be a fixed point or a point
+on another periodic orbit of period less than $p$, e.g., a fixed
+point $x^*$ of $f$ is also the root of $f^p(x)-x$ for any $p$. We
+calculate the multiplier and evaluate along the points of the orbit,
+$u_j$, finding
+\begin{align*}
+\begin{split}
+\hat{\lambda} &= \frac{d}{dx} f^p(x) \\
+&= \left(\frac{d}{dx} f^p(x)\right) \left(\frac{d}{dx} f^{p-1}(x)\right) ... \left(\frac{d}{dx} f(x)\right)\\
+&...\\
+&= f'(u_p)f'(u_{p-1})...f'(u_{2})f'(u_{1}).
+\end{split}
+\end{align*}
+The magnitude of the multiplier can take on values
+\begin{displaymath}
+|\hat{\lambda}| =  \prod_{j = 1}^{p}|f'(u_j)| =\left\{
+     \begin{array}{lr}
+       <1 & \\
+       =1 & \\
+       >1 & .\\
+     \end{array}
+   \right.
+\end{displaymath} 
+As in the fixed point scenario, $|\hat{\lambda}|<1$ occurs for a
+stable orbit, the $\mathcal{O}(\eta_n^2)$ terms of the Taylor
+expansion determine the local stability for $|\hat{\lambda}|=1$, and $|\hat{\lambda}|>1$ corresponds to an unstable
+orbit. However, the difference lies in the fact that the
+stability of the orbit depends on the derivative at any given point on the
+orbit. In other words, if there is a point along the orbit where the
+slope is extremely large, then it is possible the orbit is unstable. 
+
+Linear stability is
+linked to nonlinear stability by the Hartman-Grobman
+Theorem~\cite{meiss}. The Hartman-Grobman theorem states the behavior of the linearized
+dynamical system near a fixed point is topologically equivalent to the
 behavior of the nonlinear system near the same point, as long as the
-multiplier $|\hat{\lambda}|\neq 1$. Therefore, the results of linear stability
-analysis of fixed points translates to nonlinear stability. 
+multiplier $|\hat{\lambda}|\neq 1$. The term \textbf{topologically
+  equivalent} means that there is a homeomorphism, or a continuous and
+invertible map, between the linear and nonlinear system such that the
+directions of the trajectories are preserved~\cite{strogatz}. Therefore, the results of linear stability
+analysis of fixed points and orbits translates to nonlinear stability. 
 
 Fixed points may be created, destroyed, or their stability may
 change. Such a qualitative change in dynamics is called a \textbf{bifurcation}~\cite{strogatz}. These changes are strongly dependent on the
@@ -281,6 +329,10 @@ bifurcations, such as~\cite{strogatz}:
   the bifurcation. The pair also flanks one stable fixed point, which
   becomes unstable after the bifurcation.
 \end{enumerate}
+\item period-doubling\footnote{Also known as a flip bifurcation.}:
+  When a parameter increases past a certain point, a periodic orbit of
+  order $2p$ appears near an orbit of order $p$. Chaos may appear if
+  an infinite sequence of period-doubling bifurcations occur. 
 \end{enumerate}
 A bifurcation diagram is a
 visual demonstration of the change in dynamics of a system as its
@@ -325,13 +377,14 @@ x_{n+1} = f(x_n) = rx_n(1-x_n).
 For a fixed initial condition $x_0$ and $r$, the long term behavior of
 the map may be obtained by iteration, using~(\ref{logmap}). 
 \begin{figure}[!h]
-\caption[Deterministic logistic map, stable orbit]{Deterministic Logistic Map (blue) for $r=3.2$. There is a stable period
-4 orbit. The period is calculated by counting the number
-of crossings from the cobweb diagram (green) on the line $x_{n+1}=x_n$
-(red). The transient iterations (the first 500) were removed to make
-the long-term behavior of the orbit more obvious.}\label{fig:detlogstable}
+\caption[Deterministic logistic map, stable orbit]{Deterministic
+  Logistic Map (blue) for $r=3.2$. There is a stable period 4
+  orbit. The period is calculated by counting the number of crossings
+  from the cobweb diagram (green) on the line $x_{n+1}=x_n$ (red). The
+  transient iterations were removed to make demonstrate the long-term
+  behavior of the orbit.}\label{fig:detlogstable}
     \begin{center}
-	\includegraphics[scale=0.8]{figs/det_cobweb.png}
+	\includegraphics[scale=0.75]{figs/det_cobweb.png}
     \end{center}
 \end{figure}
 For example, Figure~\ref{fig:detlogstable}
@@ -344,7 +397,7 @@ demonstrates a possibly chaotic orbit.
   after removing the transient behavior. For values of $r \in
   [3.5,4]$, the system is chaotic.}\label{fig:detlogunstable}
 	\begin{center}
-		\includegraphics[scale=0.8]{figs/chaos.png}
+		\includegraphics[scale=0.75]{figs/chaos.png}
 	\end{center}
 \end{figure} 
 The effects of the parameter $r$ are
@@ -374,7 +427,15 @@ stability (eg. Period 3 orbits for $r \approx 3.82843$) \\\hline
 Most notably, there is no chaos for values of $r
 < 3.5$, and for $r > 3.5$, the system appears chaotic, although
 there are islands of stability interspersed throughout the bifurcation
-diagram. 
+diagram. The Lyapunov exponent $\lambda$ of the logistic map is an indicator of
+chaos. Figure~\ref{fig:detloglyap} demonstrates how the Lyapunov
+exponent of the logistic map changes sign as a function of
+$r$. $\lambda$ approaches zero at the period-doubling bifurcations
+shown in Figure~\ref{fig:bif}. The negative spikes in the plot around
+$r=3.2$ and $r=3.5$ correspond to the period 2 and period 4 orbits in the
+bifurcation diagram. Chaotic behavior appears where $\lambda >0$, near
+$r=3.57$. The islands of stability in the bifurcation diagram are
+visible where $\lambda$ dips past zero, notably around $r=3.83$.
 \begin{figure}[!h]
 \caption[Bifurcation diagram for the deterministic logistic map]{The
   behavior in Table~\ref{tbl:bif} may be graphed in a bifurcation
@@ -385,15 +446,6 @@ diagram.
 \includegraphics[width=.5\textwidth]{figs/det_bif_1.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/det_bif_2.png}
 \end{figure}
-The Lyapunov exponent $\lambda$ of the logistic map is an indicator of
-chaos. Figure~\ref{fig:detloglyap} demonstrates how the Lyapunov
-exponent of the logistic map changes sign as a function of
-$r$. $\lambda$ approaches zero at the period-doubling bifurcations
-shown in Figure~\ref{fig:bif}. The negative spikes in the plot around
-$r=3.2$ and $r=3.5$ correspond to the period 2 and period 4 orbits in the
-bifurcation diagram. Chaotic behavior appears where $\lambda >0$, near
-$r=3.57$. The islands of stability in the bifurcation diagram are
-visible where $\lambda$ dips past zero, notably around $r=3.83$.
 \begin{figure}[!h]
 \caption[Lyapunov exponent in the deterministic logistic map]{The
   Lyapunov exponent for the deterministic
@@ -466,9 +518,10 @@ x_{n+1}= F(x_n) =  x_n + \omega - \frac{k}{2\pi}\sin(2\pi x_n),
 which we will explore as well. Equation (\ref{detcirc}) is the lift of the map
 $f$,
 \begin{align}\label{detcirc2}
-f(x_n) = x_n + 2\pi \omega + k\sin(x_n).
+f(x_n) = x_n + 2\pi \omega + \frac{k}{2\pi}\sin(2\pi x_n) \mod 1.
 \end{align}
-In both (\ref{detcirc}) and (\ref{detcirc2}), there are two parameters: $k \in [0,\infty)$
+Taking the modulus of~(\ref{detcirc}) maps the circle
+to itself. In both (\ref{detcirc}) and (\ref{detcirc2}), there are two parameters: $k \in [0,\infty)$
 is the coupling strength and $\omega \in [0,1]$ is the driving
 frequency. A stable period 2 orbit is shown in
 Figure~\ref{fig:dcircstable}, and
@@ -492,11 +545,7 @@ Figure~\ref{fig:rcircunstable} shows an orbit that appears to be quasiperiodic.
 	\end{center}
 \end{figure}
 When discussing $f$, we will deal exclusively with the
-lift, $F$. Taking the modulus of~(\ref{detcirc}) will map the circle
-to itself, so we find
-\begin{align*}
-x_{n+1}= F(x_n) \mod 1.
-\end{align*}
+lift, $F$.
 
 The coupling strength $k$
 controls the amplitude of the oscillations in the circle map; no
@@ -504,7 +553,7 @@ coupling is $k=0$, and the coupling increases as $k \to
 \infty$. For $0 \leq k < 1$, $f$ is a diffeomorphism of $S^1$, and
 when $k=1$, the map is a homeomorphism. $f$ is monotone only if $|k|<1$. For $k>1$, the map is no
 longer one-to-one, so $\rho$ may not exist~\cite{devaney}. In contrast, $\omega$
-applies a positive vertical shift to the map, which causes it to wrap
+applies a positive vertical shift to the map, which causes the map to wrap
 around itself, due to the effects of the modulo operator. 
 
 A phenomenon of \textbf{mode-locking} may occur in the lift of the map,

@@ -5,10 +5,11 @@ function plotbif(pth, fname, L, rlen, x0len, maxp)
 close all
 
 % plot params
-si = 12; % markersize
+si = 3; % markersize
 loc = 3; % start index of orbit locations
 c = linspace(1,10,maxp); % colormap
-tikind = 1:6:length(c);
+
+tikind = 1:10:length(c);
 tik = c(tikind);
 maxp_vec = 1:maxp;
 tiklb = maxp_vec(tikind);
@@ -32,8 +33,13 @@ while ischar(tline)   % go thru all rows of M
     M = str2double(strsplit(t2,','));
     myperiod = M(2);    % period order
     w = M(1);   % r value
-    if myperiod > 0
-        scatter(w*ones(myperiod,1),M(loc:loc+myperiod-1),si,c(myperiod)*ones(myperiod,1),'filled')
+    
+    if myperiod > 0        
+        myorbsize = ones(myperiod,1);
+        rv = w*myorbsize;    
+        xv = M(loc:loc+myperiod-1);
+        cv = c(myperiod)*myorbsize;
+        scatter(rv,xv,si,cv,'filled')
     end
     tline = fgets(fid);
 end
@@ -44,6 +50,6 @@ cb = colorbar('YTick',tik,'YTickLabels',tiklb);
 set(gca,'FontSize',15)
 set(findall(gcf,'type','text'),'FontSize',15)
 h = gcf;
-pname = ['rlog_bif_L_',num2str(L),'_2.png'];
+pname = ['rlog_bif_L_',num2str(L),'.png'];
 saveas (h, [pth,pname], 'png');
 end

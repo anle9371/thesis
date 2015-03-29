@@ -53,32 +53,23 @@ C(x,y) &= E[(x - E[x])(y - E[y])]\\
 &= E[xy] - E[x]E[y].
 \end{split}
 \end{align*}
-Let us compute $C(y+x,y)$,
-\begin{align*}
-\begin{split}
-C(y+x,y) &= E[(y+x - E[y+x])(y - E[y])]\\
-&= E[ (y+x)y - (y+x)E[y] -yE[y+x] + E[y+x]E[y] ]\\
-%&= E[y^2 + xy] - E[y+x]E[y] - E[y]E[y+x] + E[y+x]E[y]\\
-&= E[y^2 + xy] - E[y+x]E[y] \\
-&= E[y^2] - (E[y])^2 + E[xy] - E[x]E[y]\\
-&= Var(y) + Cov(x,y).
+Let us compute $C(\xi(y+x),\xi(y))$. Homogeneity implies $E[\xi(x)] =
+E[\xi(y)] = E[\xi(y+x)]$.
+\begin{align}
+\begin{split}\label{cor}
+C(\xi(y+x),\xi(y)) &= E[(\xi(y+x) - E[\xi(y+x)])(\xi(y) -
+E[\xi(y)])]\\
+&= E[(\xi(y+x) -\ln(r))(\xi(y)-\ln(r))]. 
 \end{split}
-\end{align*}
+\end{align}
 As the entire process is homogeneous, the covariance is also
 homogeneous. Indeed, if the covariance function is defined as a function of $x,y$, but the
 variability is independent of location in space; rather, dependent on
 the separation vector between the locations, we call the covariance
-function homogeneous~\cite{gelhar}. Thus, covariance is
-\begin{align}
-\begin{split}\label{cor}
-C(x) &= E[(\xi(x+y) - E[\xi(x)])(\xi(y)-E[\xi(x)])] \\
-&= E[(\xi(x+y) -\ln(r))(\xi(y)-\ln(r))]. 
-\end{split}
-\end{align}
-The noise in nonnegative flow parameters is
+function homogeneous~\cite{gelhar}. Homogeneity is consistent with the
+noise in nonnegative flow parameters, which is
 thought to rely on the distance between two points instead of their
-precise locations, so $C(x)$ in (\ref{cor}) is
-homogeneous. $C(x)$ is also called a correlation function, which
+precise locations. $C(x)$ is also called a correlation function, which
 describes how variables at different positions in space are
 related. It physically represents the degree of correlation between
 two consecutive instances in the process. Correlations are strongest
@@ -103,38 +94,32 @@ Since the expectation of a sum is equal to the sum of
 expectations, we find~\cite{ross}
 \begin{align*}
 \begin{split}
-E[\xi(x)] &= E[\ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi
-  inx}]\\
-&= \ln(r) + E[\sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx}]\\
+E[\xi(x)] &= E\left[\ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi
+  inx}\right]\\
+&= \ln(r) + E\left[\sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx}\right]\\
 &= \ln(r) + \sum_{n \in \mathbb{Z}}e^{2\pi inx}E[\hat{\xi_n}].
 \end{split}
 \end{align*}
-If we choose the mean of the
-magnitude of the Fourier modes $|\hat{\xi}_n|$ to be zero, then the mean of the Fourier
-Series is zero, which preserves the expected value of $\xi(x)$ in~(\ref{ximean}). Therefore, we let
+If we choose the mean of the Fourier modes $\hat{\xi}_n$ to be zero,
+then the mean of the Fourier Series is zero, which preserves the expected value of $\xi(x)$ in~(\ref{ximean}). Therefore, we let
 \begin{align}
 \begin{split}\label{xihatmean}
-\hat{\mu}_n&=E[|\hat{\xi}_n|]=0\\
-\hat{\sigma}_n^2&=E[|\hat{\xi}_n|^2]-(E[|\hat{\xi}_n|])^2=E[|\hat{\xi}_n|^2].
+\hat{\mu}_n&=E[\hat{\xi}_n]=0\\
+\hat{\sigma}_n^2&=E[\hat{\xi}_n^2]-(E[\hat{\xi}_n])^2=E[\hat{\xi}_n^2].
 \end{split}
 \end{align}
-For notation, let the function $S:\mathbb{Z} \to \mathbb{R}$ be
-\begin{equation}\label{Sn}
-S(n) = \hat{\sigma}_n^2.
-\end{equation}
-Equation~(\ref{Sn}) is also called the spectral density function. If we
-assume the modes $|\hat{\xi}_n|$ are independent, then the product of
+If we assume the modes $\hat{\xi}_n$ are independent, then the product of
 two modes $n,m$, where $m \neq -n$, have expectation
 \begin{align*}
 \begin{split}
-E[|\hat{\xi}_n||\hat{\xi}_m|]&=E[|\hat{\xi}_n|]E[|\hat{\xi}_m|]\\
+E[\hat{\xi}_n\hat{\xi}_m]&=E[\hat{\xi}_n]E[\hat{\xi}_m]\\
 &=0.
 \end{split}
 \end{align*}
 However, if $m=-n$, 
 \begin{align*}
 \begin{split}
-E[|\hat{\xi}_n||\hat{\xi}_{-n}|]&= E[\hat{\xi}_n\hat{\xi}_n^*]\\
+E[\hat{\xi}_n\hat{\xi}_{-n}]&= E[\hat{\xi}_n\hat{\xi}_n^*]\\
 &=E[a_n^2+b_n^2]\\
 &=E[|\hat{\xi}_n|^2]
 \end{split}
@@ -143,23 +128,45 @@ which follows from~(\ref{realcond}). In other words,
 \begin{displaymath}
 E[|\hat{\xi}_n||\hat{\xi}_m|] = \left\{
      \begin{array}{lr}
-       S(n) & : m = -n\\
+       E[|\hat{\xi}_n|^2] & : m = -n\\
        0 & : m \neq -n.\\
      \end{array}
    \right.
 \end{displaymath} 
-We introduce the notion of the spectral density function $S(n)$ as the Fourier transform
-of the correlation function~(\ref{cor})~\cite{gelhar}.
-\begin{align}
-\begin{split}\label{homog}
+Notice we may choose a function of $n$ for $E[|\hat{\xi}_n|^2]$. For notation, let the function $S:\mathbb{Z} \to \mathbb{R}$ be
+\begin{equation}\label{Sn}
+S(n) = E[|\hat{\xi}_n|^2] = \hat{\sigma}_n^2.
+\end{equation}
+Equation~(\ref{Sn}) is also called the spectral density function. We introduce the notion of the spectral density function $S(n)$ as the Fourier transform
+of the correlation
+function~(\ref{cor})~\cite{gelhar}. From~(\ref{xihatmean}), it is
+clear the correlation function is a function of $x$,
+\begin{align*}
+\begin{split}
+C(\xi(x+y),\xi(y)) &= E[(\xi(y+x) -\ln(r))(\xi(y)-\ln(r))]\\
+\xi(y) - \ln(r) &= \sum_n\hat{\xi}_ne^{2\pi iny}\\
+\xi(y+x) - \ln(r) &= \sum_m\hat{\xi}_ne^{2\pi im(x+y)}\\
+C(\xi(x+y),\xi(y)) &= E\left[\sum_n\sum_m \hat{\xi}_n\hat{\xi}_m e^{2\pi
+  imx}e^{2\pi iy(n+m)}\right]\\
+&= \sum_n\sum_m E\left[\hat{\xi}_n\hat{\xi}_m e^{2\pi
+  imx}e^{2\pi iy(n+m)}\right].
+\end{split}
+\end{align*}
+If $m \neq -n$, then $E[\hat{\xi}_n\hat{\xi}_m]=0$ and if $m =-n$, then $e^{2\pi
+  iy(n+m)}=1$, which means
+\begin{align*}
+C(x) = E[|\hat{\xi}_n|^2 e^{-2\pi inx}].
+\end{align*}
+The Fourier transform of $C(x)$ demonstrates
+\begin{align*}
+\begin{split}
 \hat{C}(k) &= \int_{0}^{1}C(x)e^{-2\pi ikx}dx\\
-&= \sum_{m,n} \int_{0}^{1} E[|\hat{\xi}_n||\hat{\xi}_m|] e^{2\pi
+&= \sum_{m,n} \int_{0}^{1} E[\hat{\xi}_n\hat{\xi}_m] e^{2\pi
   im(x+y)}e^{2\pi iny}e^{-2\pi ikx}dx\\
 &=S(k).
 \end{split}
-\end{align}
-Equation~(\ref{homog}) is homogeneous, so this implies $(a_n,b_n)$ are
-independent. By nature of being defined as the Fourier transform of
+\end{align*}
+By nature of being defined as the Fourier transform of
 the covariance function, the spectrum represents a distribution of variance over
 frequency. In fact, for $x=0$, (\ref{cor}) reduces to the definition
 of variance of $\xi(x)$, so 
@@ -247,7 +254,9 @@ Since we also defined $\xi(x)$ as a series, we have
 \begin{align*}
 \xi(x) =\ln(R(x))= \ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx} \leq \ln(r) + \sum_{n \in \mathbb{Z}}|\hat{\xi_n}|,
 \end{align*}
-where $r$ is fixed for any given realization. If the sum over the magnitude of the Fourier modes is bounded by a constant, $\xi(x)$ will also be bounded by the same limit; therefore we choose
+where $r$ is fixed for any given realization. Recall the sum
+in~(\ref{fs1}) was constructed to be real, so it is less than the sum
+over $|\hat{\xi}_n|$. If the sum over the magnitude of the Fourier modes is bounded by a constant, $\xi(x)$ will also be bounded by the same limit; therefore we choose
 \begin{align*}
 \begin{split}
 \ln(r) + \sum_{n \in \mathbb{Z}}|\hat{\xi_n}| &\leq \ln(4)\\
@@ -277,7 +286,7 @@ bounded by $\ln(4/r)$. In order for this to occur, the sequence of side lengths 
 
 Let $\hat{\xi}_n$ be uniformly distributed, so 
 \begin{equation}\label{eq:square}
-   h(\hat{\xi}_n) =h(a,b)= \left\{
+   h(\hat{\xi}_n) =h(a_n,b_n)= \left\{
      \begin{array}{lr}
        \frac{1}{4 M_n^2} & |a_n|,|b_n| \leq M_n\\
        0 & |a_n|,|b_n| > M_n\\
@@ -290,8 +299,8 @@ $M_n$, recall that $S(n)$ is defined as the variance of the
 log-fluctuations~(\ref{Sn}). Then, 
 \begin{align}
 \begin{split}\label{Mn}
-S(n)&=E[|\hat{\xi}_n|^2] = E[a^2+b^2]\\
- &= \frac{1}{4M_n^2}\int_{-M_n}^{M_n}\int_{-M_n}^{M_n}(a^2+b^2)\,da\,db\\
+S(n)&=E[|\hat{\xi}_n|^2] = E[a_n^2+b_n^2]\\
+ &= \frac{1}{4M_n^2}\int_{-M_n}^{M_n}\int_{-M_n}^{M_n}(a_n^2+b_n^2)\,da_n\,db_n\\
 &=\frac{2}{3}M_n^2\\
 M_n&=\sqrt{\frac{3}{2}S(n)}.
 \end{split}
@@ -312,7 +321,7 @@ A &=\left(\sqrt{\frac{3}{2}\alpha} +
 &= \sigma \sqrt{\frac{3}{2}}\frac{\sqrt{\tanh(L/2)}}{\tanh(L/4)} \leq \ln(4/r).\\
 \end{split}
 \end{align*}
-Thus, the standard deviation $\sigma$ must be bounded from below by
+Thus, the standard deviation $\sigma$ of the variable $\xi(x)$ must be bounded from below by
 zero and from above by
 \begin{align}\label{sigma}
 0<\sigma \leq \ln(4/r)\sqrt{\frac{2}{3}}\frac{\tanh(L/4)}{\sqrt{\tanh(L/2)}}.
@@ -326,10 +335,15 @@ behaves according to~(\ref{sigma}).
 		\includegraphics[scale=0.6]{figs/xi.png}
 	\end{center}
 \end{figure}
-
-An application of the Lyapunov Central
-Limit Theorem demonstrates that the sum over independent, non-identical uniform
-random variables $\hat{\xi}_n$ tends to the normal distribution~\cite{billingsley}.
+% To clarify, the variable $\xi(x)$ is no longer normal under these
+% restrictions, as it neither passes the conditions from the Lyapunov
+% condition nor the Lindeberg condition~\cite{billingsley}. The Lyapunov and Lindeberg
+% conditions are weaker versions of the Central Limit Theorem that
+% describe how sums of nonidentical random variables may tend to the
+% standard normal distribution as long as the limit of the sums of the moments of the random
+% variables limit to zero. 
+An application of the Lyapunov Central Limit Theorem demonstrates that
+the sum over independent, non-identical uniform random variables $\hat{\xi}_n$ tends to the normal distribution~\cite{billingsley}.
 
 \begin{singlespacing}
 \begin{theorem}\label{clt}
@@ -343,7 +357,7 @@ T_m &= \sum_{n=1}^{m}Y_n\\
 s_m^2 &=\sum_{n=1}^m\hat{\sigma}_n^2.
 \end{split}
 \end{align*}
-if $\exists\, \delta>0$ such that 
+if $\exists\, \delta>0$,
 \begin{align*}
 \lim_{m\to \infty}\frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] \to 0,
 \end{align*}
@@ -356,78 +370,118 @@ That is, $\frac{T_m}{s_m}$ tends to the standard normal.
 \end{singlespacing}
 
 Based on the definitions in Theorem~\ref{clt}, we have for
-$|\hat{\xi}_n| \sim Unif(-M_n,M_n)$
+$\hat{\xi}_n \sim Unif(-M_n,M_n)$
 \begin{align*}
 \begin{split}
-Y_n &= |\hat{\xi}_n| - \hat{\mu}_n = |\hat{\xi}_n|\\
-T_m &= |\hat{\xi}_{-m}|+|\hat{\xi}_{-m+1}|+ ...+|\hat{\xi}_{0}|+|\hat{\xi}_{1}|+...+|\hat{\xi}_{m}|\\
+Y_n &= \hat{\xi}_n - \hat{\mu}_n = \hat{\xi}_n\\
+T_m &= \hat{\xi}_{-m}+\hat{\xi}_{-m+1}+ ...+\hat{\xi}_{0}+\hat{\xi}_{1}+...+\hat{\xi}_{m}\\
 &=
-|\hat{\xi}_{1}|+|\hat{\xi}_{1}^*|+...+|\hat{\xi}_{m}|+|\hat{\xi}_{m}^*|\\
-&= \sum_{n=1}^{m} 2|\hat{\xi}_{n}|,
+\hat{\xi}_{1}+\hat{\xi}_{1}^*+...+\hat{\xi}_{m}+\hat{\xi}_{m}^*\\
+&= \sum_{n=1}^{m} 2a_n,
 \end{split}
 \end{align*}
-since $\hat{\xi}_{0} = 0$. A uniform random variable $X\sim Unif(a,b)$ has variance
-$Var(X) = \frac{1}{12}(b-a)^2$, so
+since $\hat{\xi}_{0} = 0$. A uniform random variable $X\sim Unif(c,d)$ has variance
+$Var(X) = \frac{1}{12}(d-c)^2$, so
 \begin{align*}
 \begin{split}
-\hat{\sigma}_n^2 &= \frac{1}{3}M_n^2\\
-&= \frac{1}{3}\frac{3}{2}S(n)\\
+Var(\hat{\xi}_n) = \hat{\sigma}_n^2  &= \frac{1}{12}(2M_n)^2\\
+&= \frac{1}{3}M_n^2\\
 &= \frac{1}{2}\alpha e^{-L|n|}\\
-s_m^2 &= \frac{\alpha}{2}\left(e^{-L|-m|}+e^{-L|-m+1|}+...+1+e^{-L}+...e^{-Lm} \right)\\
-&= \frac{\alpha}{2} + \alpha \left(e^{-L}+...e^{-Lm} \right)\\
+s_m^2 &= \frac{\alpha}{2}\left(e^{-L|-m|}+e^{-L|-m+1|}+...+1+e^{-L}+...+e^{-Lm} \right)\\
+&= \frac{\alpha}{2} + \alpha \left(e^{-L}+... + e^{-Lm} \right)\\
 &=\frac{\alpha}{2} +\alpha\sum_{n=1}^m e^{-Ln}.
 \end{split}
 \end{align*}
 We check whether the sum $s_m^2$ diverges as $m \to \infty$. After applying the Geometric series identity,
 \begin{align*}
 \begin{split}
-s_m^2 &=\frac{\alpha}{2} +\alpha\sum_{n=1}^\infty e^{-Ln}\\
+\lim_{m\to \infty}s_m^2 &=\frac{\alpha}{2} +\alpha\sum_{n=1}^\infty e^{-Ln}\\
 &= \frac{\alpha}{2} + \left( \frac{\alpha}{1-e^{-L}}- \alpha\right)\\
 &= \frac{\alpha(e^L+1)}{2(e^L-1)}\\
-&= \frac{\alpha}{2 \tanh(L/2)}.
+&= \frac{\alpha}{2 \tanh(L/2)},
 \end{split}
 \end{align*}
-It is convenient to calculate the moments of a random variable $X$ as a
-way of finding $E[X^n]$. The $k$th moment of a uniform random variable $X \sim
-Unif(a,b)$ is defined as 
+we find the sum does indeed converge to a finite value. Since
+$|\hat{\xi}_n| = \sqrt{a_n^2 + b_n^2} \leq |a_n|+|b_n| \leq 2M_n$
+almost surely, we have
 \begin{align*}
-m_k = \frac{1}{k+1}\sum_{i=0}^ka^ib^{k-i}.
+|Y_n|^{2+\delta} = |\hat{\xi}_n|^{2+\delta} \leq (2M_n)^\delta|Y_n|^2.
 \end{align*}
-If we choose $\delta=1$, then 
+If we choose $\delta = 1$, this implies
 \begin{align*}
 \begin{split}
-\lim_{m \to \infty}s_m^3&=\left(\frac{\alpha}{2 \tanh(L/2)}\right)^{3/2}\\
-E[|\hat{\xi}_{n}|^3] &=\frac{1}{4} (-M_n + M_n)4M_n^2 = 0.
+\frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] \leq
+\frac{1}{s_m^{3}}\sum_{n=1}^m2M_nE[|Y_n|^{2}]
+&=\frac{2}{s_m^{3}}\sum_{n=-m}^m\sqrt{\frac{3}{2}S(n)}S(n)\\
+&=\frac{\sqrt{6}}{s_m^{3}}\sum_{n=-m}^m(\alpha e^{-L|n|})^{3/2}\\
+&=\frac{\sqrt{6}}{s_m^{3}}\alpha^{3/2}\left(e^{-(3/2)L|-m|}+...+1+...+e^{-(3/2)Lm}
+\right)\\
+&=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{s_m^{3}}\\
+&=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{\alpha^3(\frac{1}{2} +\sum_{n=1}^m e^{-Ln})^3}\\
+&=\frac{2\sqrt{6}\left(\frac{1}{2}+\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{\alpha^{3/2}(\frac{1}{2} +\sum_{n=1}^m e^{-Ln})^3}.
 \end{split}
 \end{align*}
-Therefore, 
+The dominant power in the numerator is $\mathcal{O}(x^{3/2})$, and the
+dominant power in the denominator is $\mathcal{O}(x^3)$. Therefore, 
 \begin{align*}
 \begin{split}
 \lim_{m\to
-  \infty}\frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] &= \lim_{m\to
-  \infty}\frac{1}{s_m^{3}}\lim_{m\to
-  \infty}\sum_{n=1}^mE[|\hat{\xi}_{n}|^{3}] \\
-&= \left(\frac{\alpha}{2 \tanh(L/2)}\right)^{-3/2}\lim_{m\to \infty}\sum_{n=1}^m 0 \\
-&= 0.
+  \infty}\frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] \leq \lim_{m\to
+  \infty}\frac{1}{s_m^{3}}2\sum_{n=1}^mM_nE[|Y_n|^2] &= \lim_{m\to \infty}\frac{2\sqrt{6}\left(\frac{1}{2}+\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{\alpha^{3/2}(\frac{1}{2} +\sum_{n=1}^m e^{-Ln})^3}\\
+&\to 0.
 \end{split}
 \end{align*}
+% It is convenient to calculate the moments of a random variable $X$ as a
+% way of finding $E[X^n]$. The $k$th moment of a uniform random variable $X \sim
+% Unif(c,d)$ is defined as 
+% \begin{align*}
+% m_k = \frac{1}{k+1}\sum_{i=0}^kc^id^{k-i}.
+% \end{align*}
+% Thus, the second moment is
+% \begin{align*}
+% \begin{split}
+%   m_2 &=E[\hat{\xi}_n^2]= \frac{c^2+cd+d^2}{3}\\
+% &= \frac{M_n^2}{3}.
+% \end{split}
+% \end{align*}
+% If we show $|Y_n|\leq \epsilon s_m$, for $m \to \infty$, then $I\{|Y_n|\geq \epsilon
+% s_m\}=0$, and the sum will tend to zero, as desired. We find
+% expressions for $|Y_n|$ and $\epsilon s_m$,
+% \begin{align*}
+% \begin{split}
+% \epsilon s_m &= \epsilon \sqrt{\frac{\alpha}{2 \tanh(L/2)}} = \epsilon
+% \sqrt{\frac{\alpha}{2}} \sqrt{\frac{e^L+1}{e^L-1}}\\
+% |Y_n|&= \sqrt{|\hat{\xi}_n|^2} = \sqrt{a_n^2+b_n^2} \leq \sqrt{2}M_n
+% \leq \sqrt{2\frac{3}{2}S(n)}\\
+% &\leq \sqrt{3\alpha} e^{-L|n|/2}.
+% \end{split}
+% \end{align*}
+% Let $\hat{\epsilon} = \epsilon \sqrt{1/6}$. Then,
+% \begin{align*}
+% \begin{split}
+% \hat{\epsilon} &\leq \hat{\epsilon}(e^L+1)\\
+% \hat{\epsilon}\frac{1}{e^L-1} &\leq
+% \hat{\epsilon}\frac{e^L+1}{e^L-1}\\
+% \hat{\epsilon}\frac{1}{e^{Ln}} \leq \hat{\epsilon}\frac{1}{e^{Ln}-1} &\leq \hat{\epsilon}\frac{e^L+1}{e^L-1}\\
+% e^{-L|n|/2}&\leq \hat{\epsilon}\sqrt{\frac{e^L+1}{e^L-1}} 
+% \end{split}
+% \end{align*}
 Thus, 
 \begin{align*}
-\frac{T_m}{s_m} = \frac{2}{\sqrt{\frac{\alpha}{2} +\alpha\sum_{n=1}^m e^{-Ln}}} \sum_{n=1}^{m} |\hat{\xi}_{n}|\sim N(0,1),
+\frac{T_m}{s_m} = \frac{\sum_{n=1}^{m} 2a_n}{\sqrt{\frac{\alpha}{2} +\alpha\sum_{n=1}^m e^{-Ln}}} \sim N(0,1),
 \end{align*}
 which implies the transformation $\xi(x)$ of this sum is also normal,
 as desired.  
 
 In summary, for each realization of the random process, the noise
-$\xi(x)$ is normally distributed, which implies $R(x)$ is a log-normal
-random variable. The Fourier modes of $\xi(x)$ are uniform random variables $a_n,b_n \sim Unif(-M_n,M_n)$ whose bounds are set by
-$M_n= \sqrt{\frac{3}{2}S(n)}$, where $S(n)=\alpha e^{-L|n|}$, the
-spectral density, was chosen to decay exponentially fast. The constant $\alpha = \sigma^2 \tanh(L/2)$ normalizes the corresponding
-correlation function $C(x)$, where the standard deviation $\sigma$ of
-the noise $\xi(x)$
-must be bound according to~(\ref{sigma}) in order to restrict $R(x)$
-to $[0,4]$ to ensure $[0,1]$ is an invariant set of
-$f$.
+$\xi(x)=\ln(R(x))$ is random variable whose mean value is
+$E[\xi(x)]=\ln(r)$. The Fourier modes of $\xi(x)$ are uniform random
+variables $a_n,b_n \sim Unif(-M_n,M_n)$, where $M_n=
+\sqrt{\frac{3}{2}S(n)}$. The function $S(n)=\alpha e^{-L|n|}$
+represents the spectral density, which was chosen to decay exponentially fast. The constant $\alpha = \sigma^2 \tanh(L/2)$ normalizes the corresponding
+correlation function $C(x)$. If we wish to restrict $R(x)$
+to $[0,4]$, then the standard deviation $\sigma$ of
+the noise $\xi(x)$ must be bound according to~(\ref{sigma}). 
 
 \section{Random Dynamics of the Logistic Map}
 The spatially random logistic map has not been as well explored in the
@@ -489,20 +543,67 @@ x_{n+1}= F(x_n) =  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n),
 where $\omega$ from~(\ref{detcirc}) has been replaced with a function
 of space, $\Omega:S^1\to S^1$. To distinguish between the logistic map
 and the circle map, we denote the function $R(x)$ in~(\ref{R}) as
-$\Omega(x)$; that is, $\Omega(x)$ is also a log-normal random variable
-and has the same properties as $R(x)$ from Section~\ref{spatprocs}. In Figure~\ref{fig:rcircstable}, a realization of the
-random circle map using the probability density function $h$ from~(\ref{eq:square}) is shown,
-where the orbit converges to a period 5 orbit. 
+$\Omega(x)$; that is, $\Omega(x)$ is also a log-normal random
+variable. In Figure~\ref{fig:rcircstable}, a realization of the
+random circle map using the probability density function $h$
+from~(\ref{eq:square}) is shown, where the orbit converges to a period 5 orbit. 
 \begin{figure}[!h]
-\caption[Random circle map, stable orbit]{The cobweb
+\caption[Random circle map, stable orbit under the Uniform distribution]{The cobweb
   diagram (green) for a random realization of the circle map (blue) with $\omega =
-  0.3, k=1, \alpha = 10^{-5}$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
+  0.3, k=1, \alpha = 10^{-5},L=0.1, N=100$. The bounded uniform distribution
+  from~(\ref{eq:square}) was applied to this map. The orbit
   has converged to a stable period 5 orbit. Its basin of attraction is
   $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
 	\begin{center}
 		\includegraphics[scale=0.7]{figs/randcirc_cobweb.png}
 	\end{center}
 \end{figure}
+Figure~\ref{fig:circ_u_envelope1}, \ref{fig:circ_u_envelope2}, and \ref{fig:circ_u_envelope3} depict rough estimates\footnote{The
+  maxima and minima over 500 samples were recorded and plotted in
+  these figures.} of upper and lower bounds for the random circle map
+for various sets of parameters, where the random variables
+$a_n,b_n\sim Unif(-M_n,M_n)$. 
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Uniform
+distribution for $k=1,\omega=0.3$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
+  and $k=1,\omega=0.3$. Sample realizations are shown in red. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},$
+  }\label{fig:circ_u_envelope1}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k1_L09_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k1_L05_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k1_L01_w03.png}
+\end{figure}
+
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Uniform
+distribution for $k=1.5,\omega=0.3$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
+  and $k=1.5,\omega=0.3$. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},$
+  }\label{fig:circ_u_envelope2}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L09_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L05_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L01_w03.png}
+\end{figure}
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Uniform
+distribution for $k=1.5,\omega=0.7$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
+  and $k=1.5,\omega=0.7$. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},$
+  }\label{fig:circ_u_envelope3}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L09_w07.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L05_w07.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L01_w07.png}
+\end{figure}
+
 Numerical simulations of~(\ref{randcirc}) require a finite number of
 terms in the Fourier series of $\xi(x)$ in~(\ref{fs1}). Therefore, we find
 \begin{align}\label{fs_circ}
@@ -511,14 +612,92 @@ terms in the Fourier series of $\xi(x)$ in~(\ref{fs1}). Therefore, we find
 However, since we
 do not require $\Omega(x)$ of the circle map~(\ref{randcirc}) to be bounded as strictly
 as $R(x)$ of the logistic map~(\ref{randlogmap}), $\alpha$ may be
-chosen freely, and $h(a,b)$ is not limited to the bounded uniform
-distribution. The choice of $h(a,b)$ should fulfill the conditions of
-the Lyapunov Central Limit Theorem (Theorem~\ref{clt}) in order to
-guarantee the noise is log-normal.
+chosen freely, and $h(\hat{\xi}_n)$ is not limited to the bounded uniform
+distribution. The choice of $h(\hat{\xi}_n)$ should be chosen such that the
+sum over the random variables is normal, as we aim to mimic log-normal
+noise.
+
+For example, consider choosing $\hat{\xi}_n$ according to a normal
+distribution, with mean $\hat{\mu}_n=0$ and variance $\hat{\sigma}_n^2 =
+S(n) = \alpha e^{-L|n|}$ for some $|\alpha| \leq 1$. In other words, 
+\begin{align}\label{eq:norm}
+\hat{\xi}_n\sim N(0,\alpha e^{-L|n|}). 
+\end{align}
+Figure~\ref{fig:rcircstable_norm} demonstrates a realization of a random circle
+map, where the noise is drawn from the normal distribution.
+\begin{figure}[!h]
+\caption[Random circle map, stable orbit under the Normal distribution]{The cobweb
+  diagram (green) for a random realization of the circle map (blue) with $\omega =
+  0.3, k=1, \alpha = 10^{-5}, L=0.1, N=100$. The normal distribution
+  from~(\ref{eq:norm}) was applied to this map. The orbit has converged to a stable period 4 orbit. }\label{fig:rcircstable_norm}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/randcirc_norm_cobweb.png}
+	\end{center}
+\end{figure}
+Figure~\ref{fig:circ_n_envelope1}, \ref{fig:circ_n_envelope2}, and \ref{fig:circ_n_envelope3} depict rough estimates\footnote{The
+  maxima and minima over 500 samples were recorded and plotted in
+  these figures.} of upper and lower bounds for the random circle map
+for various sets of parameters, where the random variables
+$a_n,b_n\sim N(0,\alpha e^{-L|n|})$.
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Normal
+distribution for $k=1,\omega=0.3$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
+  and $k=1,\omega=0.3$. Sample realizations are shown in red. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},$
+  }\label{fig:circ_n_envelope1}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k1_L09_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k1_L05_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k1_L01_w03.png}
+\end{figure}
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Normal
+distribution for $k=1.5,\omega=0.3$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
+  and $k=1.5,\omega=0.3$. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},$
+  }\label{fig:circ_n_envelope2}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L09_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L05_w03.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L01_w03.png}
+\end{figure}
+\begin{figure}[htp]
+\caption[Upper and lower bounds on the random circle map, Normal
+distribution for $k=1.5,\omega=0.7$]{A coarse
+  demonstration (500 samples) of the upper (blue) and lower (black)
+  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
+  and $k=1.5,\omega=0.7$. From left to right:
+  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},$
+  }\label{fig:circ_n_envelope3}
+\centering
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L09_w07.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L05_w07.png}\hfill
+\includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L01_w07.png}
+\end{figure}
+
+The sum of $m$ independent normal random variables
+$X_1, ..., X_m$ with means $\mu_1, ..., \mu_m$ and variances
+$\sigma_1^2, ..., \sigma_m^2$ has the convenient property
+\begin{align*}
+\sum_{n=1}^mX_n \sim N\left(\sum_{n=1}^m\mu_n, \sum_{n=1}^m\sigma_n^2\right).
+\end{align*}
+Thus, for $\hat{\xi}_{-N},...,\hat{\xi}_N$, we have
+\begin{align}\label{sum:norm}
+\sum_{n=-N}^N \hat{\xi}_n \sim N\left(0, \alpha\sum_{n=-N}^N e^{-L|n|}\right).
+\end{align}
+This implies $\xi(x)$ in~(\ref{fs_circ}) is also normal because it is
+a transformation of the sum in~(\ref{sum:norm}). Consequently, the
+noise in the circle map $\Omega(x)$ is log-normal, as
+desired. 
 
 Overall, we have a much simpler set of equations for the circle map
-than for the logistic map since $\Omega(x)$ is unrestricted. For each realization of the map, we choose
-a set of random variables $a_n, b_n$ that correspond to the Fourier
-modes of $\xi(x)$, and may be drawn from an
-unbounded distribution, as long as the variance decays according to
+than for the logistic map since $\Omega(x)$ is unrestricted. For each
+realization of the map, we choose a set of random variables $a_n, b_n$
+that correspond to the Fourier modes of $\xi(x)$, where $\hat{\xi}_n =
+a_n + ib_n$. The variables $a_n, b_n$ may be drawn from an unbounded
+distribution, as long as the variance of Fourier modes $\hat{\sigma}_n^2$ decays according to
 the spectral density $S(n)$ in~(\ref{Sn}). 

@@ -5,8 +5,8 @@
 clear; clc; close all
 
 % set up params
-nr1 = 400%0;
-nr2 = 500%0;
+nr1 = 800;%0;
+nr2 = 1000;%0;
 nx = 1000;
 nL = 10;
 maxp = 256;
@@ -29,9 +29,7 @@ numcols = maxp+2; % [r, orbit_order, orbit_locations]
 %[L, dr1, dr2, N, minsigma, maxsigma, nx]
 metadata = zeros(nL,7);
 
-L = 0.1;
-
-for i = 1:length(L)
+for i = 5:length(L)
     disp(i);  
     res_data = zeros(rlen*nx,numcols); %container for data
     ressum = 1; %keep track of index in container

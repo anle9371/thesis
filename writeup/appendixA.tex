@@ -1,87 +1,64 @@
-\chapter{Weird Exam Answers}	% *NOT* \OnePageChapter
-
-\paragraph{About appendices:}
-	Each appendix follow the same page-numbering rules
-	as a regular chapter; the first page of a
-	(multi-page) appendix is not numbered.
-	By the way, the following are supposedly
-	authentic answers to English GCSE exams!
-
-
+\chapter{Load Balancing Tool and Detailed Program
+  Description}\label{lbdetails}
+\section{Example of Using the Load Balancer}
+In Figure~\ref{fig:lbtool}, there are 40 nodes, and each node has a
+list of tasks to complete. Janus has 12 processors per node. 
 \begin{enumerate}
-
-\item
-The Greeks were a highly sculptured people, and without
-them we wouldnt have history. The Greeks also had myths.
-A myth is a female moth.
-
-\item
-Actually, Homer was not written by Homer but by another
-man of that name.
-
-\item
-Socrates was a famous Greek teacher who went around
-giving people advice. They killed him. Socrates died from an
-overdose of wedlock. After his death, his career suffered a
-dramatic decline.
-
-\item
-Julius Caesar extinguished himself on the battlefields
-of Gaul. The Ides of March murdered him because they thought
-he was going to be made king. Dying, he gasped out: Tee hee,
-Brutus.
-
-\item
-Nero was a cruel tyranny who would torture his subjects
-by playing the fiddle to them.
-
-\item
-In midevil times most people were alliterate. The
-greatest writer of the futile ages was Chaucer, who
-wrote many poems and verses and also wrote literature.
-
-\item
-Another story was William Tell, who shot an arrow
-through an apple while standing on his sons head.
-
-\item
-Writing at the same time as Shakespeare was Miguel
-Cervantes. He wrote Donkey Hote. The next great author
-was John Milton. Milton wrote Paradise Lost. Then his
-wife died and he wrote Paradise Regained.
-
-\item
-During the Renaissance America began. Christopher
-Columbus was a great navigator who discovered America while
-cursing about the Atlantic. His ships were called the Nina,
-the Pinta, and the Santa Fe.
-
-\item
-Gravity was invented by Issac Walton. It is chiefly
-noticeable in the autumn when the apples are falling
-off the trees.
-
-\item
-Johann Bach wrote a great many musical compositions and
-had a large number of children. In between he practiced on
-an old spinster which he kept up in his attic. Bach died
-from 1750 to the present. Bach was the most famous composer
-in the world and so was Handel. Handel was half German
-half Italian and half English. He was very large.
-
-\item
-Soon the Constitution of the United States was adopted
-to secure domestic hostility. Under the constitution the
-people enjoyed the right to keep bare arms.
-
-\item
-The sun never set on the British Empire because the
-British Empire is In the East and the sun sets in the West.
-
-\item
-Louis Pasteur discovered a cure for rabbis. Charles
-Darwin was a naturalist who wrote the Organ of the Species.
-Madman Curie discovered radio. And Karl Marx became one of
-the Marx brothers.
-
+\item Each processor should take a different initial $x_0$ and report
+  whether the initial condition led to finding a stable orbit  
+\begin{itemize}
+\item The load balancer determines work distribution over the processors.
+\end{itemize}
+\item Repeat the above steps for a large number of different random
+  maps $R_i(x)$, $i = 0, 1, 2,... \bar{N}$ in order to find the sample
+  mean of any given order $p$ periodic orbit and the orbit locations
+  (if there was convergence).
+\begin{itemize}
+\item Use the data to produce a histogram of periodic orbits that depicts the expected number of order $p$ periodic orbits for the random map
+\item Create bifurcation diagrams for various values of $L$.
+\item Use a HDF5 file to store the simulation data
+\end{itemize}
 \end{enumerate}
+\section{Detailed Program Description}
+In Figure~\ref{fig:workflow}, the program begins with \texttt{generate\_cmdlines}, where the user
+specifies the desired parameters for the simulation. The resulting
+data may be processed and visualized as a histogram of periodic orbits
+or bifurcation
+diagram. 
+\begin{enumerate}
+\item \texttt{generate\_cmdlines}: the set up file for the simulation;
+specifies the parameters used in the map realizations. It will
+generate all the bash script files needed by Janus's work scheduler, \texttt{slurm}.
+\item bash scripts: Each of these scripts will invoke
+  \texttt{generate\_rands}, based on parameters given in
+  \texttt{generate\_cmdlines}. \texttt{generate\_rands} creates a data
+  file of values of $a_n,b_n$, the Fourier modes of $\xi(x)$. The
+  script \texttt{myfunc} uses the output from
+  \texttt{generate\_rands}.
+\item \texttt{generate\_rands}: Generate randomized parameters $a_n,b_n$
+  and write them to file for the parameters specified by \texttt{generate\_cmdlines}.
+\item \texttt{myfunc}: Iteratively solve the map $f(x) = x$, and print out
+  the orbit locations if they exist or return nothing if the map
+  diverges. All output from \texttt{myfunc} will be fed into a
+  \texttt{result} file associated with the given bash script. 
+\item \texttt{csv2hdf5}: Convert \texttt{result} to a HDF5 file
+  while checking for uniqueness in the data
+  set. Save the processed data in an HDF5 file for archival
+  purposes. 
+\item \texttt{unique}: Check for uniqueness in the data set and create a histogram of the data
+\item \texttt{plotbif}: Use the HDF5 file to produce the bifurcation diagram. 
+\end{enumerate}
+\section{Single core optimization}
+Optimizations implemented in the code conversion:
+\begin{itemize}
+\item Preferential use of the multiply and add operators where possible, since
+they are less expensive than divide and subtract operators
+\item Used a reduction on the loop that computes the Fourier Series
+  in order to take advantage of the data parallelism with SIMD
+\item Loop structure was reorganized to take advantage of C++ being
+  row-oriented (outer loop should go by rows, then inner loops go by columns)
+\item Functional inlining in the C++ code to reduce the number of function calls
+\item The lack of a built in uniform random number generator that generates a random
+double between two doubles led to the creation of a pseudo random number
+generator with the use of \texttt{rand} and \texttt{srand}.
+\end{itemize}

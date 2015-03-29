@@ -16,6 +16,9 @@ kvect = linspace(kmin,kmax,nstep);
 
 % random draws
 alpha = 10e-5;
+if N < (10/L)
+    N = ceil(10/L);
+end
 [a, b] = myrand(L,N,alpha);
 iter = 1200;
 trunc = 150;   % will make arnold return a vec 150 units long
@@ -71,8 +74,9 @@ set(findall(gcf,'type','text'),'FontSize',15)
 
 % save a data and png file
 h = gcf;
-name = ['tongues_',num2str(nstep),'_L_',num2str(L),'_2.png'];
-path = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\tongues\';
-dlmwrite([path,['tongues_',num2str(nstep),'_L_',num2str(L),'.csv']],period)
+name = ['tongues_norm_',num2str(nstep),'_L_',num2str(L),'.png'];
+path = 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\normal_tongues\';
+% 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\tongues\';
+dlmwrite([path,['tongues_norm_',num2str(nstep),'_L_',num2str(L),'.csv']],period)
 saveas (h, [path,name], 'png');
 end

@@ -1,6 +1,27 @@
 \chapter{Results}
 \section{Implementation of Randomness in the Logistic Map}
 \begin{figure}[!h]
+\caption[Lyapunov exponent in the random logistic map]{The
+  Lyapunov exponent for the random logistic map, where $x_0=0.6$ for $r \in
+  [0,4]$. For $\lambda>0$, the system may be chaotic, and for $\lambda
+  <0$, the system is stable.}\label{fig:detloglyap1}
+	\begin{center}
+		\includegraphics[scale=0.65]{figs/r_log_lyap_all.png}
+	\end{center}
+\end{figure} 
+
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the random logistic map compared to the
+deterministic map]{The Lyapunov exponent for the deterministic
+  logistic map (left), where $x_0=0.7$ for $r \in [3,4]$ is compared
+  to the Lyapunov exponent of the random logistic map (right), where
+  $x_0=0.7$ for $r \in [3,4]$. }\label{fig:rloglyap2}
+\centering
+\includegraphics[width=.5\textwidth]{figs/det_log_lyap.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/r_log_lyap_zoom.png}
+\end{figure}
+
+\begin{figure}[H]\linespread{1}
 \caption[Average number of order $p$ orbits for the random circle
 map]{Average number of order $p$ orbits for the random circle
 map, where $r =3.2$,$L=0.1$,$N=100$, and $\sigma = 0.0061$. Results from 2000
@@ -10,20 +31,38 @@ simulations of these parameters are plotted.}
 	\end{center}
 \end{figure}
 
-\begin{figure}[!h]
-\caption[Bifurcation diagram of the random logistic map]{Bifurcation diagram of the random
-logistic map, where $r \in [0,4]$, $\Delta r = 0.008$, $N=100$, $\sigma
-= 0.0061$, and $L=0.1$. Results from 500
-simulations of these parameters are plotted. The colorbar to the right
+\begin{figure}[H]\linespread{1}
+\caption[Random logistic map bifurcation diagram, low resolution]{A
+  low-resolution bifurcation diagram of the random
+logistic map, where $r \in [0,4]$, $\Delta r = 0.009$, $N=100$, the
+number of initial conditions $N_{x_0}=100$, and $L=0.1$. Results from 45,000 simulations are plotted. The colorbar to the right
 of the graph demonstrates the period order and corresponding color of
-the orbit.}
+the orbit. Periodicity up to period order 52 was checked.}
 	\begin{center}
-		\includegraphics[scale=0.7]{figs/rlog_bif_L_01_3.png}
+          \includegraphics[scale=0.6]{figs/rlog_bif_L_01_low.png}
+	\end{center}
+\end{figure}
+
+
+\begin{figure}[H]\linespread{1}
+\caption[Bifurcation diagram of the random logistic map, high resolution]{Bifurcation diagram of the random
+logistic map, where $r \in [0,4]$, $\Delta r = 0.002$, $N=100$, the
+number of initial conditions $N_{x_0}=1000$, and $L\in
+\{0.1,0.2,0.4,0.6,0.8,0.9\}$. Results from 1.8 million simulations are plotted. The colorbar to the right
+of the graph demonstrates the period order and corresponding color of
+the orbit. Periodicity up to period order 256 was checked.}
+	\begin{center}
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_01.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_02.png}\\
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_04.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_06.png}\\
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_08.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_09.png}\\
 	\end{center}
 \end{figure}
 
 \section{Implementation of Randomness in the Circle Map}
-\begin{figure}[!h]
+\begin{figure}[H]\linespread{1}
 \caption[Average number of order $p$ orbits for the random circle
 map]{Average number of order $p$ periodic orbits for the random circle
 map, where $L=0.1$, $\omega =0.1$, $\alpha = 10^{-5}$ and $k=1$. Results from 1000
@@ -33,7 +72,7 @@ simulations of these parameters are plotted.}
 	\end{center}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[H]\linespread{1}
 \caption[Bifurcation diagram of the random
 circle map]{Bifurcation diagram of the random
 circle map for $L=0.1$, $\omega \in [0,1]$, $\Delta \omega = 0.001$,$\alpha = 10^{-5}$
@@ -46,7 +85,7 @@ period $p > 5$.}
 	\end{center}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[H]\linespread{1}
 \caption[The devil's staircase for the random circle map]{The devil's
   staircase for $k=1$,$\alpha = 10^{-5}$ and $L = 0.1,0.5$. For small $L$
   (leftmost graph), the noise is more pronounced than for large $L$
@@ -56,7 +95,7 @@ period $p > 5$.}
 \includegraphics[width=.5\textwidth]{figs/rdevil_k1_L05.png}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[H]\linespread{1}
 \caption[Histogram of rotation numbers in the random circle
 map]{Histogram of rotation numbers in the random circle map, where
   $L=0.1$, $k=1$, $\alpha = 10^{-5}$,and $\omega = 0.45$. Results from 1000 simulations
@@ -66,34 +105,16 @@ map]{Histogram of rotation numbers in the random circle map, where
 \includegraphics[width=.5\textwidth]{figs/kde_rho_k1_L01_om045.png}
 \end{figure}
 
-\begin{figure}[htp]
+\begin{figure}[H]\linespread{1}  
 \caption[The Arnold tongues for the random circle map]{The Arnold
-  tongues for $k\in [0,1]$, $\Delta k = 0.001$, $\omega \in [0,1]$,
-  $\Delta \omega = 0.001$ and $L_j =0.1j$, where $j = 1, 2, 3, 4, 7,
-  9$. Plots are ordered left to right, and top to bottom. Red: period 1
-  fixed points, black: orbits that have period larger than 100 (or
-  possibly no period), orange: period 2 orbit, yellow: period 3 orbit, blue: period 5 orbit,
-green: period 4 orbit, and purple: period 6 orbit.}\label{fig:randtongues}
+  tongues for $k\in [0,1.5]$, $\Delta k = 0.0015$, $\omega \in [0,1]$,
+  $\Delta \omega = 0.001$ and $L_j \in \{10^{-6},0.05,0.1,0.3,0.5,0.9\}$. Plots are ordered left to right, and top to bottom. The colorbar
+to the right demonstrates the period order and corresponding color.}\label{fig:randtongues}
 \centering
+\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_1e-05.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_005.png}\\
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_01.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_02.png}\\
-\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_03.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_04.png}\\
-\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_07.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_03.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_1000_L_05.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_09.png}\\
 \end{figure}
-
-\section{Dynamic Load Balancing on the Janus Supercomputer}
-\begin{figure}[!h]
-\caption[Load Balancing Workflow]{Load Balancing Workflow}
-	\begin{center}
-          \includegraphics[scale=0.5]{figs/workflow.png}
-	\end{center}
-\end{figure}
-\begin{figure}[!h]
-\caption[Load Balancing Tool Overview]{Load Balancing Tool Overview}
-	\begin{center}
-          \includegraphics[scale=0.45]{figs/load_balancer.png}
-	\end{center}
-\end{figure}
-

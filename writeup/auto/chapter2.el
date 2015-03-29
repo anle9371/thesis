@@ -9,7 +9,6 @@
      "realcond"
      "xihatmean"
      "Sn"
-     "homog"
      "spec"
      "cx"
      "fig:covspec"
@@ -28,5 +27,14 @@
      "fig:envelope"
      "randcirc"
      "fig:rcircstable"
-     "fs_circ")))
+     "fig:circ_u_envelope1"
+     "fig:circ_u_envelope2"
+     "fig:circ_u_envelope3"
+     "fs_circ"
+     "eq:norm"
+     "fig:rcircstable_norm"
+     "fig:circ_n_envelope1"
+     "fig:circ_n_envelope2"
+     "fig:circ_n_envelope3"
+     "sum:norm")))
 
