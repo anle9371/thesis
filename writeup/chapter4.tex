@@ -26,12 +26,33 @@ diffusion, hierarchical balance model, etc.~\cite{dlb}. The Load
 Balance tool on Janus uses a master-slave strategy for
 balancing~\cite{janus}. In general, a load balancer recognizes the
 number of processors that are going to be used in a simulation, and manages
-the workload distribution among them. If, for example, Processor A finishes its load early
+the workload distribution among
+them. Figure~\ref{fig:loadbalance_overall} demonstrates the load
+balancer coordinating tasks over three nodes. 
+\begin{figure}[H]\linespread{1}   
+\caption[Load Balancing Example]{Load balancing example over
+  three nodes. The load balancer is invoked over 3 nodes; it determins
+the work distribution over each node.}\label{fig:loadbalance_overall}
+	\begin{center}
+          \includegraphics[scale=0.35]{figs/loadbalance_overall.png}
+	\end{center}
+\end{figure}
+If, for example, Processor A finishes its load early
 (perhaps its initial condition led to near-immediate convergence),
 the load balancer assigns Processor A more work by reducing the
 load on Processor B, a processor taking more time to complete its
-task, and passing it to Processor A.
-
+task, and passing it to Processor A. Figure~\ref{fig:loadbalance_node}
+shows how the load balancer reassigns tasks between the 12 processors
+on any given node.
+\begin{figure}[!h]
+\caption[Processor Work distribution before and after load
+balancing]{As tasks arrive, each processor in a node takes an initial
+  task (left). As the processors finish their task, the ones who finish first are
+assigned more work while the others continue running (right).}\label{fig:loadbalance_node}
+\centering
+\includegraphics[width=.5\textwidth]{figs/loadbalance_node_start.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/loadbalance_node_end.png}
+\end{figure}
 Figure~\ref{fig:lbtool} demonstrates an example of a simulation
 using 40 nodes on Janus. A more detailed explanation of how the load
 balancing tool was called on each node is available in
@@ -80,10 +101,22 @@ to the original implementation. The HDF5
 file format was used to store the simulation results in a better
 archival format. 
 
-The benchmarking (strong scaling study) results imply
+The benchmarking (strong scaling study) results (Figure~\ref{fig:effsp}) imply
 the best speedup and efficiency is gained when invoking the load balancer on
 one node (12 processors), although we tested our simulation over 16 nodes
-(192 processors). 
+(192 processors). The formulas for calculating speedup $S$ and
+efficiency $E$ are
+\begin{align}
+\begin{split}
+S &= \frac{t_s}{t_l}\\
+E &= \frac{S}{n_p},
+\end{split}
+\end{align}
+where $t_s$ is the serial computation time, $t_l$ is the load balanced
+computation time, and $n_p$ is the number of processors used. The
+diminishing speedup and efficiency for larger numbers of processors is
+likely due to the overhead cost of coordinating tasks over many
+processors and nodes. 
 \begin{figure}[!h]
 \caption[Impact of the load balancing tool: Efficiency and
 Speedup]{Efficiency (left) and Speedup (right) of the new

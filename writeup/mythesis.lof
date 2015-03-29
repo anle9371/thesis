@@ -38,7 +38,9 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Histogram of rotation numbers in the random circle map}}{43}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces The Arnold tongues for the random circle map}}{44}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Load Balancing Tool Overview}}{46}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Load Balancing Workflow}}{47}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Impact of the load balancing tool: Efficiency and Speedup}}{48}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Load Balancing Example}}{46}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Processor Work distribution before and after load balancing}}{47}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Load Balancing Tool Overview}}{47}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Load Balancing Workflow}}{48}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Impact of the load balancing tool: Efficiency and Speedup}}{49}
 \addvspace {10\p@ }
