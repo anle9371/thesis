@@ -49,8 +49,8 @@ of $\xi(x)$ to be
 From probability, the definition of covariance is~\cite{ross}
 \begin{align*}
 \begin{split}
-C(x,y) &= E[(x - E[x])(y - E[y])]\\
-&= E[xy] - E[x]E[y].
+C(\xi(x),\xi(y)) &= E[(\xi(x) - E[\xi(x)])(\xi(y) - E[\xi(y)])]\\
+&= E[\xi(x)\xi(y)] - E[\xi(x)]E[\xi(y)].
 \end{split}
 \end{align*}
 Let us compute $C(\xi(y+x),\xi(y))$. Homogeneity implies $E[\xi(x)] =
@@ -69,19 +69,19 @@ the separation vector between the locations, we call the covariance
 function homogeneous~\cite{gelhar}. Homogeneity is consistent with the
 noise in nonnegative flow parameters, which is
 thought to rely on the distance between two points instead of their
-precise locations. $C(x)$ is also called a correlation function, which
+precise locations. $C$ is also called a correlation function, which
 describes how variables at different positions in space are
 related. It physically represents the degree of correlation between
-two consecutive instances in the process. Correlations are strongest
+two consecutive instances in the process. Correlations are typically strongest
 when iterates are nearby, and they typically decay as the distance
 between two iterates increases, although random processes could violate this assumption. 
 
 We construct a random function $\xi(x)$ on $[0,1]$ that satisfies
-(\ref{ximean}) with an infinite Fourier Series,
+(\ref{ximean}) with an infinite Fourier series,
 \begin{align}\label{fs1}
-\xi(x) = \ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx}.
+\xi(x) = \ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi}_ne^{2\pi inx}.
 \end{align}
-Desirably, the magnitudes of the Fourier modes $\hat{\xi_n}$ diminish
+Desirably, the magnitudes of the Fourier modes $\hat{\xi}_n$ diminish
 as $n \to \pm \infty$, which implies the random log-fluctuations are
 not identically distributed. To ensure~(\ref{fs1}) stays in the real plane, we impose the condition
 \begin{align}\label{realcond}
@@ -120,13 +120,13 @@ However, if $m=-n$,
 \begin{align*}
 \begin{split}
 E[\hat{\xi}_n\hat{\xi}_{-n}]&= E[\hat{\xi}_n\hat{\xi}_n^*]\\
-&=E[a_n^2+b_n^2]\\
+%&=E[a_n^2+b_n^2]\\
 &=E[|\hat{\xi}_n|^2]
 \end{split}
 \end{align*}
 which follows from~(\ref{realcond}). In other words,
 \begin{displaymath}
-E[|\hat{\xi}_n||\hat{\xi}_m|] = \left\{
+E[\hat{\xi}_n\hat{\xi}_m] = \left\{
      \begin{array}{lr}
        E[|\hat{\xi}_n|^2] & : m = -n\\
        0 & : m \neq -n.\\
@@ -180,7 +180,7 @@ A simple spectrum that falls off quickly is
 \begin{align}\label{spec}
 S(n)=\alpha e^{-L|n|},
 \end{align}
-where $L \in [0,1]$ is the correlation length (and is fixed
+where $L > 0$ is the correlation length (and is fixed
 for each simulation). Values of $L$ close to zero will result in a
 small, negative exponent, which consequently increases the
 spectrum. On the other hand, larger values of $L$ cause
@@ -342,6 +342,7 @@ behaves according to~(\ref{sigma}).
 % describe how sums of nonidentical random variables may tend to the
 % standard normal distribution as long as the limit of the sums of the moments of the random
 % variables limit to zero. 
+
 An application of the Lyapunov Central Limit Theorem demonstrates that
 the sum over independent, non-identical uniform random variables $\hat{\xi}_n$ tends to the normal distribution~\cite{billingsley}.
 

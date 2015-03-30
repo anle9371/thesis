@@ -1,26 +1,30 @@
 \chapter{Results}
 \section{Implementation of Randomness in the Logistic Map}
-\begin{figure}[!h]
-\caption[Lyapunov exponent in the random logistic map]{The
-  Lyapunov exponent for the random logistic map, where $x_0=0.6$ for $r \in
-  [0,4]$. For $\lambda>0$, the system may be chaotic, and for $\lambda
-  <0$, the system is stable. The number of exponents computed over
-  [0,4] was $N_\lambda=10,000$.}\label{fig:detloglyap1}
-	\begin{center}
-		\includegraphics[scale=0.65]{figs/r_log_lyap_all.png}
-	\end{center}
-\end{figure} 
+% \begin{figure}[!h]
+% \caption[Lyapunov exponent in the random logistic map]{The
+%   Lyapunov exponent for the random logistic map, where $x_0=0.6$ for $r \in
+%   [0,4]$. For $\lambda>0$, the system may be chaotic, and for $\lambda
+%   <0$, the system is stable. The number of exponents computed over
+%   [0,4] was $N_\lambda=10,000$.}\label{fig:detloglyap1}
+% 	\begin{center}
+% 		\includegraphics[scale=0.65]{figs/rlog_lyap_all.png}
+% 	\end{center}
+% \end{figure} 
 
 \begin{figure}[!h]
 \caption[Lyapunov exponent in the random logistic map compared to the
 deterministic map]{The Lyapunov exponent for the deterministic
-  logistic map (left), where $x_0=0.7$ for $r \in [3,4]$ is compared
-  to the Lyapunov exponent of the random logistic map (right), where
-  $x_0=0.7$ for $r \in [3,4]$. The number of exponents computed over
-  [3,4] was $N_\lambda=10,000$. }\label{fig:rloglyap2}
+  logistic map (top left) is compared
+  to the Lyapunov exponent of the random logistic map for $L \in \{0.05,0.1,0.5,0.7,0.9\}$, where $x_0=0.7$ for $r \in [3,4]$. The number of exponents computed over
+  [3,4] was $N_\lambda=10,000$. Plots are read left to right, and top
+  to bottom. }\label{fig:rloglyap2}
 \centering
 \includegraphics[width=.5\textwidth]{figs/det_log_lyap.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/r_log_lyap_zoom.png}
+\includegraphics[width=.5\textwidth]{figs/rlog_lyap_L_005.png}\\
+\includegraphics[width=.5\textwidth]{figs/rlog_lyap_L01_zoom.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rlog_lyap_L_05.png}\\
+\includegraphics[width=.5\textwidth]{figs/rlog_lyap_L_07.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rlog_lyap_L_09.png}\\
 \end{figure}
 
 \begin{figure}[H]\linespread{1}
@@ -50,9 +54,10 @@ the orbit. Periodicity up to period order 52 was checked.}
 \caption[Bifurcation diagram of the random logistic map, high resolution]{Bifurcation diagram of the random
 logistic map, where $r \in [0,4]$, $\Delta r = 0.002$, $N=100$, the
 number of initial conditions $N_{x_0}=1000$, and $L\in
-\{0.1,0.2,0.4,0.6,0.8,0.9\}$. Results from 1.8 million simulations are plotted. The colorbar to the right
-of the graph demonstrates the period order and corresponding color of
-the orbit. Periodicity up to period order 256 was checked.}
+\{0.1,0.2,0.4,0.6,0.8,0.9\}$. Plots are read left to right, and top to
+bottom. Results from 1.8 million simulations are plotted. The colorbar to the right
+of the graph demonstrates the period order ($p\leq 256$) and corresponding color of
+the orbit.}\label{fig:rlogbif}
 	\begin{center}
 		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_01.png}\hfill
 		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_02.png}\\
@@ -63,7 +68,23 @@ the orbit. Periodicity up to period order 256 was checked.}
 	\end{center}
 \end{figure}
 
+\begin{figure}[H]\linespread{1}
+\caption[Bifurcation diagram of the random logistic map, zoomed
+in]{A zoomed in view of Figure~\ref{fig:rlogbif}, where $r \in
+  [3,4]$, $\Delta r = 0.001$, $N=100$, the number of initial
+  conditions $N_{x_0}=1000$, and $L\in \{0.1,0.2,0.4,0.6,0.8,0.9\}$.}
+	\begin{center}
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_01.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_02.png}\\
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_04.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_06.png}\\
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_08.png}\hfill
+		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_09.png}\\
+	\end{center}
+\end{figure}
+
 \section{Implementation of Randomness in the Circle Map}
+\subsection{Uniform Distribution}
 \begin{figure}[H]\linespread{1}
 \caption[Average number of order $p$ orbits for the random circle
 map]{Average number of order $p$ periodic orbits for the random circle
@@ -108,9 +129,10 @@ map]{Histogram of rotation numbers in the random circle map, where
 \end{figure}
 
 \begin{figure}[H]\linespread{1}  
-\caption[The Arnold tongues for the random circle map]{The Arnold
+\caption[The Arnold tongues for the random circle map, uniform distribution]{The Arnold
   tongues for $k\in [0,1.5]$, $\Delta k = 0.0015$, $\omega \in [0,1]$,
-  $\Delta \omega = 0.001$ and $L_j \in \{10^{-6},0.05,0.1,0.3,0.5,0.9\}$. Plots are ordered left to right, and top to bottom. The colorbar
+  $\Delta \omega = 0.001$, $\alpha = 10^{-5}$, $\hat{\xi}_n\sim Unif(-M_n,M_n)$ and $L_j \in
+  \{10^{-6},0.05,0.1,0.3,0.5,0.9\}$. Plots are ordered left to right, and top to bottom. The colorbar
 to the right demonstrates the period order and corresponding color.}\label{fig:randtongues}
 \centering
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_1e-05.png}\hfill
@@ -119,4 +141,54 @@ to the right demonstrates the period order and corresponding color.}\label{fig:r
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_03.png}\\
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_05.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/tongues_1000_L_09.png}\\
+\end{figure}
+\subsection{Normal Distribution}
+\begin{figure}[H]\linespread{1}  
+\caption[The Arnold tongues for the random circle map, normal distribution]{The Arnold
+  tongues for $k\in [0,1.5]$, $\Delta k = 0.0015$, $\omega \in [0,1]$,
+  $\Delta \omega = 0.001$, $\alpha = 10^{-5}$, $\hat{\xi}_n\sim
+  N(0,\alpha e^{-L|n|})$ and $L_j \in
+  \{0.025,0.05,0.1,0.3,0.5,0.9\}$. Plots are ordered left to right, and top to bottom. The colorbar
+to the right demonstrates the period order and corresponding color.}\label{fig:randtongues}
+\centering
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_0025.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_005.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_01.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_03.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_05.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_norm_1000_L_09.png}\\
+\end{figure}
+
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the random circle map (normal distribution) compared to the
+deterministic map, varying $\omega$]{The Lyapunov exponent for the deterministic
+  circle map (top left) is compared
+  to the Lyapunov exponent of the random circle map for $L \in
+  \{0.05,0.1,0.3,0.5,0.9\}$, where $x_0=0.7$, $k=1.5$,$\alpha =
+  10^{-5}$, and $\hat{\xi}_n\sim
+  N(0,\alpha e^{-L|n|})$ for $\omega \in [0,1]$. The number of exponents computed was $N_\lambda=10,000$. Plots are read left to right, and top to bottom. }\label{fig:rloglyap2}
+\centering
+\includegraphics[width=.5\textwidth]{figs/det_circ_lyap.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_005_w.png}\\
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_01_w.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_03_w.png}\\
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_05_w.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_09_w.png}\\
+\end{figure}
+
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the random circle map (normal distribution) compared to the
+deterministic map, varying $k$]{The Lyapunov exponent for the deterministic
+  circle map (top left) is compared
+  to the Lyapunov exponent of the random circle map for $L \in
+  \{0.05,0.1,0.3,0.5,0.7\}$, where $x_0=0.7$, $\omega=0.7$,$\alpha =
+  10^{-5}$, and $\hat{\xi}_n\sim
+  N(0,\alpha e^{-L|n|})$ for $k \in [0,5]$. The number of exponents computed was $N_\lambda=10,000$. Plots are read left to right, and top to bottom. }\label{fig:rloglyap2}
+\centering
+\includegraphics[width=.5\textwidth]{figs/det_circ_lyap_k.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_005_k_10000.png}\\
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_01_k_10000.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_03_k_10000.png}\\
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_05_k_10000.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_07_k_10000.png}\\
 \end{figure}

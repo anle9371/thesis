@@ -20,5 +20,6 @@
      "rho"
      "fig:devil_det"
      "fig:dettongues"
-     "fig:detcirclyap")))
+     "fig:detcirclyap"
+     "fig:detcirclyapk")))
 

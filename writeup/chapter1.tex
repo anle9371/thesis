@@ -5,37 +5,42 @@ Below ground, water found in the spaces between soil, sand and rock
 is called groundwater. It moves slowly through
 \textbf{aquifers} as a function of pressure (\textbf{hydraulic head}), \textbf{porosity},
 aquifer thickness, and aquifer \textbf{transmissivity}. Aquifers are
-water-bearing layers of rock and sediments that hold
-water~\cite{basics}. The pressure exerted on the groundwater is called
+water-bearing layers of rock and sediments~\cite{basics}. The pressure exerted on the groundwater is called
 the hydraulic head, and it is measured in units of height, such as
 feet or meters. It is the sum of the pressure head and the elevation head~\cite{basics}. In other words,
 the level that water entering a confined well will stand at is
 determined by the hydraulic head. Porosity refers to the ratio of the empty
 spaces to the total volume of the sediment; fine-grained materials tend to
 have greater porosities than coarse-grained materials since they are
-better sorted~\cite{basics}. Table~\ref{tbl:porosity} outlines typical
-porosity ranges for three kinds of materials: clay, sand, and gravel.
+better sorted~\cite{basics}. Porosity is quantitatively tied to water flow through
+the aquifer by $K$, the hydraulic conductivity\footnote{Typically
+  experimentally derived.} (how easily liquids pass through the pores in the sediment). Materials with high hydraulic conductivity allow more water
+ to move through the aquifer than materials with low hydraulic
+ conductivity. Table~\ref{tbl:porosity} outlines typical
+porosity and hydraulic conductivity ranges for three kinds of materials: clay, sand, and
+ gravel.
 \begin {table}[H]
-\caption [Typical porosity ranges for clay, sand, and gravel]{Typical
-  porosity ranges for clay, sand, and gravel~\cite{basics}.} \label{tbl:porosity}
+\caption [Typical porosity and hydraulic conductivity ranges for clay, sand, and gravel]{Typical
+  porosity and hydraulic conductivity ranges for clay, sand, and gravel~\cite{basics}~\cite{geotechdata}.} \label{tbl:porosity}
 \begin{center}
-    \begin{tabular}{ | c | c | c |}
+    \begin{tabular}{ | c | c | c |c|}
     \hline
-    Grain Size & Material & Porosity \\ \hline
-    Fine & Clay  &  50\% \\ \hline
-    Medium &  Sand & 25\% \\ \hline
-    Coarse &  Gravel &  20\% \\ \hline
+    Grain Size & Material & Porosity & Hydraulic Conductivity $K$ (m/s)\\ \hline
+    Fine & Clay  &  50\% &$5*10^{-9} \leq K \leq 5*10^{-6}$\\ \hline
+    Medium &  Sand & 25\% & $10^{-8} \leq K \leq 10^{-6}$\\ \hline
+    Coarse &  Gravel &  20\% & $5*10^{-4} \leq K \leq 5*10^{-2}$\\ \hline
     \end{tabular}
 \end{center}
 \end{table}
 \noindent Transmissivity characterizes the volume of water flowing through a
- cross-section of the aquifer (1 ft. by the aquifer thickness), under
- a \textbf{hydraulic gradient} of 1 ft in difference between two
- hydraulic heads by 1 ft in length between two peizometers per unit of time
- (usually one day)~\cite{basics}. The hydraulic gradient is a
- dimensionless vector gradient between two or more hydraulic heads. It
- is equal to the difference between two hydraulic heads (ft) divided by
- the length between two piezometers\footnote{A device which measures the pressure of groundwater at a specific point} (ft). 
+ cross-section of the aquifer\footnote{The aquifer cross-section is 1
+   ft. by the aquifer thickness.}. It is the product of hydraulic
+ conductivity and the aquifer thickness. Hydraulic conductivity is a
+ function of the hydraulic gradient, a dimensionless vector gradient between two or more hydraulic heads\footnote{The hydraulic gradient is equal to the difference between two hydraulic heads (ft) divided by
+ the length between two piezometers, devices which measure the
+ pressure of groundwater at a specific point}. Essentially, a
+hydraulic gradient measures the rate of change of pressure per unit of
+distance at a given location in a specific direction.
 
 Groundwater is vital
 to providing drinking water, irrigation, and makes up a large
@@ -70,11 +75,21 @@ solute is advected through a system when it moves with the local fluid
 velocity~\cite{advection}. Degredation reactions are more efficient when the solutions are thoroughly mixed
 together, so the onset of chaos in this system is a positive sign
 because it indicates the interface length between the two reactants is
-maximal, or at least large. The primary agents of mixing are the local velocity
-variations due to aquifer heterogeneity and the extent to which
-solutions move underground (transmissivity)
-\cite{neupauer}. Therefore, the spatial distribution of rocks and
-sediment plays an important role in the dynamics of the system. 
+maximal, or at least large. The primary agent of mixing is the extent to which
+solutions move underground (transmissivity)~\cite{neupauer}. 
+
+Transmissivity, as a measure of how
+much water may flow horizontally, is the governing property of the
+degredation reactions because it limits the extent of chaotic advection. In turn, transmissivity depends on the type of sediment in
+the aquifer because the sediment porosity is directly proportional to
+hydraulic conductivity. For instance, clay typically has
+very low hydraulic conductivity, but very high porosity (Table~\ref{tbl:porosity}). This
+implies a section of the aquifer primarily made of clay can hold a
+large volume of liquid per volume of sediment, but liquid flows slowly
+through the region. Without the aid of sophisticated equipment to
+determine the nature of the sediment underground, we might consider
+the sediment to be randomly distributed in space. Therefore, the
+spatial distribution of rocks and sediment plays an important role in the dynamics of the system. 
 
 Exploring the dynamics of a one-dimensional system lays the groundwork
 for understanding the dynamics of systems with higher dimensions. Two
@@ -111,11 +126,14 @@ of points after many iterates. Consider the repeating sequence $\{z_m\}$
 in an arbitrary closed orbit $\{x_n\}$, where $m,n \in \mathbb{N},
 m<n$. The sequence $\{z_m\}$ may contain many terms, but since
 $\{x_n\}$ is closed, $\{z_m\}$ eventually repeats. Thus, $z_{m+p}=z_m$
-for some $p \in \mathbb{N}, p\geq 1$. We call $p$ the period of the
-sequence, and $z_m$ the period-$p$ point. 
+for some $p \in \mathbb{N}, p\geq 1$. If this is true for any $m \in
+\mathbb{N}$, we call $p$ the period of the sequence, and $z_m$ the
+period-$p$ point. If this is true only for $m > m_0$, then the
+sequence $\{z_m\}$ is an
+eventually periodic orbit.
 
 Fixed points and periodic
-orbits are examples of attractors. An \textbf{attractor} has the following
+orbits can be examples of attractors or repellors. An \textbf{attractor} has the following
 properties: it is an invariant set, it attracts an open set of initial
 conditions, and it is minimal~\cite{strogatz}. Since the attractor is
 invariant, trajectories that begin in the attractor $A$ cannot escape
@@ -126,7 +144,7 @@ initial conditions. Otherwise, stable fixed points and periodic orbits are examp
 a \textbf{basin of attraction}, which is the set $S=\{x_0:x(t) \to A, t \to \infty\}$, i.e.
 the largest set of initial conditions $x_0$ that are drawn to the attractor as
 time goes to infinity~\cite{strogatz}. The opposite of an attractor is
-called repeller, a set that repels trajectories away from it.
+called repellor, a set that repels trajectories away from it.
 
 Previously, we mentioned an attractor is considered chaotic if it
 exhibits sensitive dependence on initial conditions, but in fact, the
@@ -157,10 +175,11 @@ exists, Lyapunov exponents are defined as
 \begin{equation}\label{eq:lyap}
 \lambda(x_0) = \lim_{n \to \infty} \frac{1}{n} \sum_{i=0}^{n-1} \ln |f'(x_i)|.
 \end{equation}
-For stable fixed points and periodic orbits, $\lambda(x_0) < 0$,
+For stable fixed points and stable periodic orbits, $\lambda(x_0) < 0$,
 and for chaotic attractors, $\lambda(x_0)>0$. Equation~\ref{eq:lyap} essentially states that if the magnitude of the
-derivative on the orbit is overall less than one (the logarithm becomes negative), then there is no chaos. However, if
-the rate of change of position on the orbit is overall greater than one (the logarithm becomes positive), then it is a
+derivative on the orbit is on average less than one (the logarithm
+becomes negative), then there is no chaos. However, if the expansion
+along the orbit is on average greater than one (the logarithm becomes positive), then it is a
 sign of chaos. $\lambda(x_0)$ is the same for all initial conditions
 $x_0$ in the same basin of attraction. 
 
@@ -216,7 +235,6 @@ attracted to or repelled from $x^*$. A Taylor series expansion around
 the perturbation $x_{n+1} = x^* + \eta_{n+1}$ linearizes the map
 \begin{align*}
 \begin{split}
-x_{n+1} &= x^* + \eta_{n+1}\\
 x^* + \eta_{n+1} &= f(x^* + \eta_n)\\
 &= f(x^*) + f'(x^*)\eta_n + \mathcal{O}(\eta_n^2),\\
 \eta_{n+1} &= f'(x^*)\eta_n + \mathcal{O}(\eta_n^2).\\
@@ -282,11 +300,11 @@ The magnitude of the multiplier can take on values
      \end{array}
    \right.
 \end{displaymath} 
-As in the fixed point scenario, $|\hat{\lambda}|<1$ occurs for a
-stable orbit, the $\mathcal{O}(\eta_n^2)$ terms of the Taylor
+As in the fixed point scenario, $|\hat{\lambda}|<1$ implies the orbit
+is stable, the $\mathcal{O}(\eta_n^2)$ terms of the Taylor
 expansion determine the local stability for $|\hat{\lambda}|=1$, and $|\hat{\lambda}|>1$ corresponds to an unstable
 orbit. However, the difference lies in the fact that the
-stability of the orbit depends on the derivative at any given point on the
+stability of the orbit depends on the derivative at all points on the
 orbit. In other words, if there is a point along the orbit where the
 slope is extremely large, then it is possible the orbit is unstable. 
 
@@ -311,9 +329,9 @@ bifurcations, such as~\cite{strogatz}:
   points approach one another, collide, and finally are destroyed. The
   reverse may also occur, where the system begins with no fixed
   points, then one is created, and finally it splits into two points. 
-\item transcritical: No matter how a parameter varies, this fixed
-  point is neither created nor destroyed. However, its stability may
-  change between stable, semistable, and unstable. In many cases, it
+\item transcritical: No matter how a parameter varies, there is no
+  creation nor destruction of fixed points. However, the stability of
+  the fixed point may change between stable, semistable, and unstable. In all cases, it
   exchanges stability with another fixed point. 
 \item pitchfork: Fixed points appear and disappear in
   symmetrical pairs as a parameter is varied. There are two types of
@@ -330,14 +348,15 @@ bifurcations, such as~\cite{strogatz}:
   becomes unstable after the bifurcation.
 \end{enumerate}
 \item period-doubling\footnote{Also known as a flip bifurcation.}:
-  When a parameter increases past a certain point, a periodic orbit of
-  order $2p$ appears near an orbit of order $p$. Chaos may appear if
-  an infinite sequence of period-doubling bifurcations occur. 
+  When a parameter increases past a certain point, a stable periodic orbit of
+  order $2p$ appears near an orbit of order $p$, and the orbit of
+  order $p$ looses stability. One mechanism for the creation of chaos is if
+  an infinite sequence of period-doubling bifurcations occurs. 
 \end{enumerate}
 A bifurcation diagram is a
 visual demonstration of the change in dynamics of a system as its
 parameters are varied. Bifurcation diagrams are constructed by
-plotting the long term behavior of the map as a function of its
+plotting the qualitative behavior of the orbits of a map as a function of its
 parameters, such as the locations of the stable and unstable orbits as
 a function of the parameters of the map. 
 
@@ -359,13 +378,14 @@ steps, and is depicted in Figure~\ref{fig:cobex}.
 \item Plot horizontally the distance from $(x_0, f(x_0)=(x_0, x_1)$ to $(f(x_0),
   f(x_0))=(x_1, x_1)$
 \item Plot vertically from $(f(x_0), f(x_0))=(x_1, x_1)$ to $(f(x_0), f(f(x_0)))=(x_1, x_2)$
-\item Repeat steps 2-3 until convergence or divergence is determined:
+\item Repeat steps 2-3 until convergence or divergence is determined
+  (or perhaps the maximum number of iterations has been reached):
   $(x_n, x_{n+1}) \to (x_{n+1}, x_{n+1}) \to (x_{n+1},x_{n+2})$
 \end{enumerate}
 
 \subsection{Logistic Map}
 The Logistic map is a quadratic recursive equation that maps the domain
-$[0,1] \rightarrow [0,1]$. It is a commonly studied topic in nonlinear dynamics and has
+$[0,1] \rightarrow [0,1]$. It is a commonly studied example in nonlinear dynamics and has
 applications in population modeling. Robert May popularized the
 logistic map in 1976~\cite{may}. He demonstrated that even simple nonlinear
 maps could have complicated dynamics. There is one parameter in the
@@ -425,7 +445,7 @@ stability (eg. Period 3 orbits for $r \approx 3.82843$) \\\hline
 \end{center}
 \end {table}
 Most notably, there is no chaos for values of $r
-< 3.5$, and for $r > 3.5$, the system appears chaotic, although
+< 3.5$, and for $r > 3.5$, the system often appears chaotic, although
 there are islands of stability interspersed throughout the bifurcation
 diagram. The Lyapunov exponent $\lambda$ of the logistic map is an indicator of
 chaos. Figure~\ref{fig:detloglyap} demonstrates how the Lyapunov
@@ -433,7 +453,8 @@ exponent of the logistic map changes sign as a function of
 $r$. $\lambda$ approaches zero at the period-doubling bifurcations
 shown in Figure~\ref{fig:bif}. The negative spikes in the plot around
 $r=3.2$ and $r=3.5$ correspond to the period 2 and period 4 orbits in the
-bifurcation diagram. Chaotic behavior appears where $\lambda >0$, near
+bifurcation diagram. In fact, $\lambda = -\infty$ when $f'(x_j)=0$ for some $x_j$,
+and such orbits are called \textbf{superstable orbits}. Chaotic behavior appears where $\lambda >0$, near
 $r=3.57$. The islands of stability in the bifurcation diagram are
 visible where $\lambda$ dips past zero, notably around $r=3.83$.
 \begin{figure}[!h]
@@ -468,11 +489,10 @@ x_{n+1}&=f(x)=x_n + \omega + g(x_n) \mod 1\\
 g(x_n)&=g(x_n + 1),
 \end{align*}
 where the angle $x$ has been normalized so that its range is $[0,1)$
-instead of $[0,2\pi )$, $\omega$ is the driving frequency of the map, and
+instead of $[0,2\pi )$, $\omega$ is the natural frequency of the map, and
 $g(x)$ is the nonlinear component of the recursion~\cite{rasband}. The
-parameter $\omega$ represents the frequency of the driving
-force, which is the external force applied to the
-rotor. We define the circle $S^1$ as $\mathbb{R} \setminus
+parameter $\omega$ represents the natural frequency of the rotor, and
+$g$ models the driving force with period 1 in time. We define the circle $S^1$ as $\mathbb{R} \setminus
 \mathbb{Z}$. The \textbf{degree} of a map $f:S^1 \to S^1$ is the integer
 deg($f$) given by 
 \begin{align*}
@@ -518,7 +538,7 @@ x_{n+1}= F(x_n) =  x_n + \omega - \frac{k}{2\pi}\sin(2\pi x_n),
 which we will explore as well. Equation (\ref{detcirc}) is the lift of the map
 $f$,
 \begin{align}\label{detcirc2}
-f(x_n) = x_n + 2\pi \omega + \frac{k}{2\pi}\sin(2\pi x_n) \mod 1.
+f(x_n) = x_n + 2\pi \omega - \frac{k}{2\pi}\sin(2\pi x_n) \mod 1.
 \end{align}
 Taking the modulus of~(\ref{detcirc}) maps the circle
 to itself. In both (\ref{detcirc}) and (\ref{detcirc2}), there are two parameters: $k \in [0,\infty)$
@@ -529,8 +549,7 @@ Figure~\ref{fig:rcircunstable} shows an orbit that appears to be quasiperiodic.
 \begin{figure}[!h]
 \caption[Deterministic circle map, stable orbit]{The cobweb
   diagram (green) for a deterministic circle map (blue) with $\omega =
-  0.5$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
-  has converged to a stable period 2 after 1000 iterations. Transient iterations were removed.}\label{fig:dcircstable}
+  0.5$ and $k=1$. After 1000 iterations, we see a stable period 2 orbit. Transient iterations were removed.}\label{fig:dcircstable}
 	\begin{center}
 		\includegraphics[scale=0.7]{figs/detcirc_cobweb_2.png}
 	\end{center}
@@ -538,8 +557,7 @@ Figure~\ref{fig:rcircunstable} shows an orbit that appears to be quasiperiodic.
 \begin{figure}[!h]
 \caption[Deterministic circle map, quasiperiodic orbit]{The cobweb
   diagram (green) for a deterministic circle map (blue) with $\omega =
-  0.6$ and $k=1$. The line $x_{n+1}=x_n$ is drawn in red. The orbit
-  appears to be quasiperiodic after 1000 iterations. Transient iterations were removed.}\label{fig:rcircunstable}
+  0.6$ and $k=1$. After 1000 iterations, we see a possibly quasiperiodic orbit. Transient iterations were removed.}\label{fig:rcircunstable}
 	\begin{center}
 		\includegraphics[scale=0.7]{figs/detcirc_cobweb_chaos.png}
 	\end{center}
@@ -547,12 +565,12 @@ Figure~\ref{fig:rcircunstable} shows an orbit that appears to be quasiperiodic.
 When discussing $f$, we will deal exclusively with the
 lift, $F$.
 
-The coupling strength $k$
-controls the amplitude of the oscillations in the circle map; no
+The coupling strength $k$ controls the amplitude of the oscillations in the circle map; no
 coupling is $k=0$, and the coupling increases as $k \to
-\infty$. For $0 \leq k < 1$, $f$ is a diffeomorphism of $S^1$, and
-when $k=1$, the map is a homeomorphism. $f$ is monotone only if $|k|<1$. For $k>1$, the map is no
-longer one-to-one, so $\rho$ may not exist~\cite{devaney}. In contrast, $\omega$
+\infty$. For $-1 \leq k < 1$, $f$ is a diffeomorphism of $S^1$, and
+when $|k|=1$, the map is a homeomorphism. $f$ is monotone only if
+$|k|\leq 1$. For $k>1$, the map is no
+longer one-to-one. In contrast, $\omega$
 applies a positive vertical shift to the map, which causes the map to wrap
 around itself, due to the effects of the modulo operator. 
 
@@ -562,10 +580,9 @@ value of $x$ by exactly $p \in \mathbb{Z}$
 \begin{align*}
 x_{n+q}=x_n+p.
 \end{align*}
-The mode-locked state of the lift $F$ implies the map $f$ is periodic
-on $\mathbb{S}^1$. The \textbf{rotation number} of the orbit is an important invariant of
-the circle map because it measures the average amount of points
-rotated by an iteration of the map. Essentially, it gives an idea of
+The mode-locked state of the lift $F$ implies the orbit is periodic
+on $\mathbb{S}^1$, i.e. $x_{n+p} \mod 1 = x_n \mod 1$. The \textbf{rotation number} of the orbit is an important invariant of
+the circle map because it measures the average amount a point is rotated per iteration of the map. Essentially, it gives an idea of
 whether $f$ has periodic orbits in $\mathbb{S}^1$.
 
 \begin{singlespacing}
@@ -577,15 +594,36 @@ number in [0,1) such that $\rho_0(F)-\rho(f)$ is an integer~\cite{devaney}.
 \end{singlespacing}
 
 \noindent It is important that $\rho(f)$ depends only on $f$ when $f$
-is a homeomorphism. But, if not, it depends on $x$. When $\rho \in \mathbb{Q}$, the system is mode-locked. Since
+is a homeomorphism. But, if not, it can depend on $x$ as well. Recall when $k>1$,
+the map~(\ref{detcirc}) is no longer one-to-one, so $\rho$
+may not exist~\cite{devaney}. When $\rho \in \mathbb{Q}$, the system is mode-locked. Since
 $\rho$ is a rational number, it can be expressed as $p/q$, where $p,q
 \in \mathbb{Z}$. The order of the periodic orbit is $q$. If $\rho$
 does not exist (when $f$ is not a homeomorphism), then the system may be in a chaotic
-state. When $\rho \in \mathbb{R} \setminus \mathbb{Q}$, the orbit is
-quasiperiodic. Quasiperiodicity refers to irregular periodicity in the
-system; the periodicity has a component of unpredictability that does
-not occur at regular intervals. The theorem below
-establishes the rotation number of the map $\rho(f)$
+state. When $f$ is a homeomorphism and $\rho \in \mathbb{R} \setminus
+\mathbb{Q}$, the orbit is quasiperiodic. Quasiperiodicity refers to irregular periodicity in the
+system; the periodicity does
+not occur at regular intervals. The changes in the rotation number $\rho$ as $\omega$ is
+varied over [0,1] is graphically demonstrated as a devil's staircase
+in Figure~\ref{fig:devil_det}. 
+\begin{figure}[!h]
+\caption[The devil's staircase for the deterministic circle map]{The devil's
+  staircase: Since the circle map is monotone, $\rho$ is independent of
+  the initial value $x_0$. At each $\omega$, $\rho$ is either
+  irrational or rational (due to the quasiperiodic cases), which results in a monotonically increasing  ``staircase." The largest steps (where $\rho$ appears constant)
+  correspond with the simplest rationals.}\label{fig:devil_det}
+	\begin{center}
+		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
+	\end{center}
+\end{figure}
+The devil's staircase a monotone
+function that is constant at rational rotation numbers, and takes on
+every value in between the rational numbers~\cite{devaney}. Interestingly, the graph of $\rho(\omega)$ is a Cantor
+function. Cantor functions are everywhere continuous and monotone, but have zero
+derivative almost everywhere. 
+
+The theorem below
+establishes that the rotation number of the map $\rho(f)$
 depends continuously on $f$, and that if $f$ is monotone, then all
 orbits have the same rotation number.
 
@@ -596,30 +634,12 @@ lift $F$. Then
 \begin{equation*}
 \rho_0(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}
 \end{equation*}
-exists and is independent of both $x$ and the lift $F$. Hence the
+exists and is independent of $x$ and $\rho$ is independent of the lift $F$. Hence the
 rotation number $\rho(f)$ is well-defined~\cite{devaney}.
 \end{theorem}
 \end{singlespacing}
 
-The changes in the rotation number $\rho$ as $\omega$ is
-varied over [0,1] is graphically demonstrated as a devil's staircase
-in Figure~\ref{fig:devil_det}. The devil's staircase is constant for
-rational rotation numbers, and takes on every value in between the
-rational numbers~\cite{devaney}. Interestingly, the graph of $\rho(\omega)$ is a Cantor
-function. Cantor functions are everywhere continuous and monotone, but have zero
-derivative almost everywhere. 
-\begin{figure}[!h]
-\caption[The devil's staircase for the deterministic circle map]{The
-  plot of $\omega$ vs the rotation number $\rho$ for $k=1$ results in a devil's
-  staircase. Since the circle map is monotone, $\rho$ is independent of
-  the initial value $x_0$. At each $\omega$, $\rho$ is either
-  irrational or rational (due to the quasiperiodic cases), which results in a monotonically increasing  ``staircase." The largest steps (where $\rho$ appears constant)
-  correspond with the simplest rationals.}\label{fig:devil_det}
-	\begin{center}
-		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
-	\end{center}
-\end{figure}
-The width of each ``step" corresponds to the width of the Arnold
+The width of each ``step" in the devil's staircase corresponds to the width of the Arnold
 tongues (Figure~\ref{fig:dettongues}) in the bifurcation diagram for
 $k$ and $\omega$ in~(\ref{detcirc}). The colored
 triangular regions in Figure~\ref{fig:dettongues} resemble tongues,
@@ -638,19 +658,28 @@ and are aptly named as such.
 Recall the onset of chaos is marked by a positive Lyapunov
 exponent. Figure~\ref{fig:detcirclyap} shows the Lyapunov exponent
 $\lambda$ of
-the circle map as a function of $\omega$ for $k=1$. Although small in
+the circle map as a function of $\omega$ for $k=1.5$. Although small in
 magnitude, $\lambda$ fluctuates between negative and positive
 values around the Arnold tongues. The negative stretches in $\lambda$
-coincide with the periodic fixed points (red, yellow, orange, blue, green
-and purple regions) in
-Figure~\ref{fig:dettongues}.  
+coincide with the periodic fixed points in Figure~\ref{fig:dettongues}.  
 \begin{figure}[!h]
-\caption[Lyapunov exponent in the deterministic circle map]{The
+\caption[Lyapunov exponent in the deterministic circle map, varying $\omega$]{The
   Lyapunov exponent for the deterministic
-  cirlce map, where $k=1.5,x_0=0.7$. The positive values of $\lambda$
+  circle map, where $k=1.5,x_0=0.7$. The positive values of $\lambda$
   indicate the system may be chaotic. About 10,000 values of $\lambda$
 were computed over $\omega \in [0,1]$.}\label{fig:detcirclyap}
 	\begin{center}
-		\includegraphics[scale=0.65]{figs/det_circ_lyap.png}
+		\includegraphics[scale=0.55]{figs/det_circ_lyap.png}
+	\end{center}
+\end{figure} 
+Figure~\ref{fig:detcirclyapk} demonstrates chaotic behavior occurs
+when $k > 1$.
+\begin{figure}[!h]
+\caption[Lyapunov exponent in the deterministic circle map, varying $k$]{The
+  Lyapunov exponent for the deterministic
+  circle map, where $\omega=0.7,x_0=0.7$. About 10,000 values of $\lambda$
+were computed over $k \in [0,5]$.}\label{fig:detcirclyapk}
+	\begin{center}
+		\includegraphics[scale=0.45]{figs/det_circ_lyap_k.png}
 	\end{center}
 \end{figure} 

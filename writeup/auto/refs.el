@@ -5,6 +5,7 @@
      "usgsgw"
      "gw"
      "basics"
+     "geotechdata"
      "advection"
      "strogatz"
      "billingsley"
