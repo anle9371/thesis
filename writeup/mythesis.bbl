@@ -1,0 +1,101 @@
+\begin{thebibliography}{10}
+
+\bibitem{athreya}
+K.B. Athreya and Jack Dai.
+\newblock Random logistic maps.
+\newblock {\em Journal of Theoretical Probability}, 13(2):595--608, 2000.
+
+\bibitem{atkinson}
+Kendall~E. Atkinson.
+\newblock {\em An Introduction to Numerical Analysis}.
+\newblock John Wiley \& Sons, Inc., 1989.
+
+\bibitem{billingsley}
+Patrick Billingsley.
+\newblock {\em Probability and Measure}.
+\newblock John Wiley and Sons, Inc., 1995.
+
+\bibitem{devaney}
+Robert~L. Devaney.
+\newblock {\em An Introduction to Chaotic Dynamical Systems}.
+\newblock The Benjamin/Cummings Publishing Co., Inc., 1986.
+
+\bibitem{gw}
+The~Groundwater Foundation.
+\newblock The basics, 2014.
+
+\bibitem{gelhar}
+Lynn~W. Gelhar.
+\newblock {\em Stochastic Subsurface Hydrology}.
+\newblock Prentice-Hall, Inc., 1993.
+
+\bibitem{geotechdata}
+Geotechdata.info.
+\newblock Soil permeability coefficient, 2015.
+
+\bibitem{advection}
+International Water~Managemente Institute.
+\newblock Advection - dispersion, 2014.
+
+\bibitem{lamb}
+Jeroen~S.W. Lamb, Martin Rasmussen, and Christian~S. Rodrigues.
+\newblock Topological bifurcations of minimal invariant sets for set-valued
+  dynamical systems.
+\newblock {\em Proceedings of the American Mathematical Society}, 2013.
+
+\bibitem{may}
+Robert May.
+\newblock Simple mathematical models with very complicated dynamics.
+\newblock {\em Nature}, 261:459--67, 1976.
+
+\bibitem{meiss}
+James~D. Meiss.
+\newblock {\em Differential Dynamical Systems}.
+\newblock Society for Industrial and Applied Mathematics, 2007.
+
+\bibitem{neupauer}
+Roseanna~M. Neupauer, James~D. Meiss, and David~C. Mays.
+\newblock Chaotic advection and reaction during engineered injection and
+  extraction in heterogeneous porous media.
+\newblock {\em Water Resources Research}, 50:1433--47, 2014.
+
+\bibitem{basics}
+North Carolina~Division of~Water~Resources.
+\newblock Basic hydrogeology, 2014.
+
+\bibitem{rasband}
+S.~Neil Rasband.
+\newblock {\em Chaotic Dynamics of Nonlinear Systems}.
+\newblock John Wiley \& Sons, Inc., 1990.
+
+\bibitem{janus}
+{Research Computing at University of Colorado Boulder}.
+\newblock Load balance tool, 2014.
+\newblock https://www.rc.colorado.edu/node/507.
+
+\bibitem{ross}
+Sheldon Ross.
+\newblock {\em A First Course in Probability}.
+\newblock Pearson Education, Inc., 2010.
+
+\bibitem{usgsgw}
+United States~Geological Service.
+\newblock Groundwater use in the united states, 2015.
+
+\bibitem{strogatz}
+Steven~H. Strogatz.
+\newblock {\em Nonlinear Dynamics and Chaos}.
+\newblock Perseus Books Publishing, LLC, 1994.
+
+\bibitem{UserGuide}
+{The HDF Group}.
+\newblock Hdf5 user's guide, 2014.
+\newblock http://www.hdfgroup.org/HDF5/doc/UG/index.html.
+
+\bibitem{dlb}
+Marc~H. Willibeek-LeMair and Anthony~P. Reeves.
+\newblock Strategies for dynamic load balancing on highly parallel computers.
+\newblock {\em {IEEE} Transactions on Parallel and Distributed Computing},
+  4(4):979--93, September 1993.
+
+\end{thebibliography}
