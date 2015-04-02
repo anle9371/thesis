@@ -40,6 +40,7 @@ if q == 1 %random map
         Df = 1 - k * cos(2.0 * pi * xv) + DW;
         lambda(j) = sum(log(abs(Df)))/n;
     end    
+    pname = ['rcirc_u_lyap_',num2str(maxj),'_L_',num2str(L),'_k_',num2str(k),'_w.png'];
 else
     for j = 1:maxj
         x = zeros(n,1);
@@ -50,6 +51,7 @@ else
         end
         lambda(j) = sum(log( 1 - k * cos(2.0 * pi * x)))/n;
     end
+    pname = ['detcirc_lyap_',num2str(maxj),'_k_',num2str(k),'_w.png'];
 end
 plot(om, lambda, 'k.','MarkerSize',3)
 axis([wmin wmax -1 1])
@@ -61,6 +63,6 @@ ylabel('\lambda','FontSize',16)
 title(['k = ',num2str(k)],'FontSize',16)
 h = gcf;
 pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\lyapunov\';
-pname = ['rcirc_n_lyap_L_',num2str(L),'_w.png'];
+% pth = 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\lyapunov\';
 saveas (h, [pth,pname], 'png');
 end

@@ -21,6 +21,9 @@ plot(t,mymap)
 hold on
 axis('square'); axis([0 1 0 1]);
 set(gca,'XTick',(0:0.1:1),'YTick',(0:0.1:1))
+set(gca,'FontSize',15)
+set(findall(gcf,'type','text'),'FontSize',15)
+
 % grid on;
 
 % % plot the line y = x

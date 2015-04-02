@@ -1,8 +1,3 @@
-% Make a cobweb plot for a 1D difference equation map
-% R0 parameter, 0 <= R <= 4
-% x0 Initial condition
-% N Number of iterations
-
 % Amy Le
 % May 29, 2014
 
@@ -11,7 +6,7 @@ close all
 iter = 1000;
 x0 = 0.2;
 x = zeros(iter+1,1);
-myR = 3.5;
+myR = 3.7;
 x(1) = x0;
 for ic = 1:iter
     %     x(ic+1) = R0*x(ic)*(1-x(ic));
@@ -21,7 +16,7 @@ end
 % plot the map function
 t = linspace(0,1,length(x));
 mymap = myR'.*(t.*(1-t));
-plot(t,mymap)
+plot(t,mymap,'Linewidth',2)
 % ,'--ks',...
 %     'LineWidth',0.5,...
 %     'MarkerSize',3,...
@@ -29,7 +24,7 @@ plot(t,mymap)
 %     'MarkerFaceColor',[0.5,0.5,0.5])
 hold on
 axis('square'); axis([0 1 0 1]);
-set(gca,'XTick',(0:0.1:1),'YTick',(0:0.1:1))
+set(gca,'XTick',(0:0.2:1),'YTick',(0:0.2:1))
 % grid on;
 
 % % plot the line y = x
@@ -52,5 +47,8 @@ text(x(2)-.3,x(2)+.01,'\rightarrow','fontsize',20)
 % % Add comments to plot
 % % at = text(0.1,0.82,['R_0 = ',num2str(R0)]); set(at,'FontSize',12);
 % % title(['R_0 = ',num2str(R0), ', x_0 = ',num2str(x0), ', N = ',num2str(N)])
+set(findall(gca, 'Type', 'Line'),'LineWidth',2);
 xlabel('x_n')
 ylabel('x_{n+1}')
+set(findall(gcf,'type','text'),'FontSize',15)
+set(gca,'FontSize',15)

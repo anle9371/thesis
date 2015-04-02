@@ -23,7 +23,7 @@ if q == 0
     mymap = t + w - (k/(2*pi)) * sin(2 * pi * t);
     mymap = mod(mymap,1.0);
     figure
-    title('Deterministic Cobweb Diagram')
+    %     title('Deterministic Cobweb Diagram')
     
     % line([x(iter) x(iter+1)],[x(iter+1) x(iter+1)],'Color','g')
     % % Add comments to plot
@@ -34,7 +34,7 @@ else
     x = zeros(iter,1);
     x(1) = x0;
     kk = 1:N;
-    [a,b] = myrand(L,N,alpha);    
+    [a,b] = myrand(L,N,alpha);
     % % bifurcation diagram calcs
     for i = 1:iter-1
         xtmp = x(i)*ones(1,N);
@@ -42,9 +42,9 @@ else
         myW = exp( log(w) + sum(res) );
         x(i+1) = x(i) + myW - (k/(2*pi)) * sin(2.0 * pi * x(i));
         x(i+1) = mod(x(i+1),1.0);
-    end        
+    end
     
-    %smooth function    
+    %smooth function
     myW = zeros(1,length(t));
     for i = 1:length(t)
         xtmp = t(i)*ones(1,N);
@@ -54,12 +54,12 @@ else
     
     mymap = mod(t + myW - (k/(2*pi)) * sin(2.0 * pi * t),1);
     figure
-    title('Random Cobweb Diagram')
+    %     title('Random Cobweb Diagram')
 end
 hold on
-plot(t,mymap,'b.','MarkerSize',4)
+plot(t,mymap,'b.','MarkerSize',5)
 axis([0 1 0 1]);
-set(gca,'XTick',(0:0.1:1),'YTick',(0:0.1:1))
+set(gca,'XTick',(0:0.2:1),'YTick',(0:0.2:1))
 
 % % plot the line y = x
 fplot('1*y',[0 1],'r');
@@ -74,4 +74,7 @@ for ic = iter-30:iter-2
 end
 xlabel('x_n')
 ylabel('x_{n+1}')
+set(gca,'FontSize',15)
+set(findall(gcf,'type','text'),'FontSize',15)
+set(findall(gca, 'Type', 'Line'),'LineWidth',2);
 end

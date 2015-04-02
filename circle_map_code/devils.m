@@ -42,10 +42,13 @@ end;
 % Plotting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure
-plot(omega,w,'b.','markersize',3)
-text(.1,.9,['\fontsize{10}k=',num2str(k)])
+plot(omega,w,'b.','markersize',5)
+% text(.1,.9,['\fontsize{10}k=',num2str(k)])
 xlabel('\omega')
-ylabel('Rotation number \rho')
-title('Devil''s staircase')
+ylabel('\rho')
+% title('Devil''s staircase')
+title(['k = ',num2str(k)],'FontSize',15)
 axis([omegamin omegamax -.10  1.1])
+set(gca,'FontSize',15)
+set(findall(gcf,'type','text'),'FontSize',15)
 end

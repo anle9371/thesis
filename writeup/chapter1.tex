@@ -1,5 +1,5 @@
  \chapter{Introduction}
- \label{introchap}
+\label{introchap}
 \section{Groundwater Contamination}
 Below ground, water found in the spaces between soil, sand and rock
 is called groundwater. It moves slowly through
@@ -19,16 +19,18 @@ the aquifer by $K$, the hydraulic conductivity\footnote{Typically
  conductivity. Table~\ref{tbl:porosity} outlines typical
 porosity and hydraulic conductivity ranges for three kinds of materials: clay, sand, and
  gravel.
-\begin {table}[H]
+\begin {table}[H]\linespread{1}
 \caption [Typical porosity and hydraulic conductivity ranges for clay, sand, and gravel]{Typical
   porosity and hydraulic conductivity ranges for clay, sand, and gravel~\cite{basics}~\cite{geotechdata}.} \label{tbl:porosity}
 \begin{center}
-    \begin{tabular}{ | c | c | c |c|}
+    \begin{tabular}{ l l l l}
     \hline
-    Grain Size & Material & Porosity & Hydraulic Conductivity $K$ (m/s)\\ \hline
-    Fine & Clay  &  50\% &$5*10^{-9} \leq K \leq 5*10^{-6}$\\ \hline
-    Medium &  Sand & 25\% & $10^{-8} \leq K \leq 10^{-6}$\\ \hline
-    Coarse &  Gravel &  20\% & $5*10^{-4} \leq K \leq 5*10^{-2}$\\ \hline
+    Grain Size & Material & Porosity & Hydraulic Conductivity $K$
+    (m/s)\\ 
+\hline
+    Fine & Clay  &  50\% &$[5\times 10^{-9}, 5\times 10^{-6}]$\\ 
+    Medium &  Sand & 25\% & $[10^{-8},10^{-6}]$\\ 
+    Coarse &  Gravel &  20\% & $[5 \times 10^{-4}, 5 \times 10^{-2}]$\\ 
     \end{tabular}
 \end{center}
 \end{table}
@@ -594,7 +596,7 @@ number in [0,1) such that $\rho_0(F)-\rho(f)$ is an integer~\cite{devaney}.
 \end{singlespacing}
 
 \noindent It is important that $\rho(f)$ depends only on $f$ when $f$
-is a homeomorphism. But, if not, it can depend on $x$ as well. Recall when $k>1$,
+is a homeomorphism. But, if not, it can depend on $x$ as well. Recall when $|k|>1$,
 the map~(\ref{detcirc}) is no longer one-to-one, so $\rho$
 may not exist~\cite{devaney}. When $\rho \in \mathbb{Q}$, the system is mode-locked. Since
 $\rho$ is a rational number, it can be expressed as $p/q$, where $p,q
@@ -608,12 +610,14 @@ varied over [0,1] is graphically demonstrated as a devil's staircase
 in Figure~\ref{fig:devil_det}. 
 \begin{figure}[!h]
 \caption[The devil's staircase for the deterministic circle map]{The devil's
-  staircase: Since the circle map is monotone, $\rho$ is independent of
-  the initial value $x_0$. At each $\omega$, $\rho$ is either
-  irrational or rational (due to the quasiperiodic cases), which results in a monotonically increasing  ``staircase." The largest steps (where $\rho$ appears constant)
-  correspond with the simplest rationals.}\label{fig:devil_det}
+  staircase. For $|k| \leq 1$, $f$ is a homeomorphism, so the
+  staircase is monotone. The largest steps (where $\rho$ appears
+  constant) correspond with the simplest rationals. If $|k|>1$, $f$ is
+  not a homeomorphism so $\rho$ may not exist. In all plots, $\omega \in [0,1],\Delta \omega = 0.001$}\label{fig:devil_det}
 	\begin{center}
-		\includegraphics[scale=0.7]{figs/devil_nonrandom_k1.png}
+		\includegraphics[width=.33\textwidth]{figs/detcirc_devil_k05.png}\hfill
+		\includegraphics[width=.33\textwidth]{figs/detcirc_devil_k1.png}\hfill
+		\includegraphics[width=.33\textwidth]{figs/detcirc_devil_k15.png}
 	\end{center}
 \end{figure}
 The devil's staircase a monotone

@@ -45,7 +45,7 @@ kmax = 100;
 
 axis([0 20 0 1]) 
 axis manual
-for k = 1:length(r)
+for k = 15:15%length(r)
     fname = strcat(strcat(strcat('prob_of_orbit_',num2str(kmax)),num2str(r(k))),'.csv');
     M = csvread(fname);
     

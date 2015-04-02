@@ -38,10 +38,10 @@ else % the function at every place in [0,1]
     xv = 0;    
     
     % % plot cobweb
-    plot(t,mymap)
+    plot(t,mymap,'Linewidth',2)
     hold on
     axis('square'); axis([0 1 0 1]);
-    set(gca,'XTick',(0:0.1:1),'YTick',(0:0.1:1))
+    set(gca,'XTick',(0:0.2:1),'YTick',(0:0.2:1))
     
     % % plot the line y = x
     fplot('1*y',[0 1],'r');
@@ -62,6 +62,9 @@ else % the function at every place in [0,1]
     line([x(iter) x(iter+1)],[x(iter+1) x(iter+1)],'Color','g')
     xlabel('x_n')
     ylabel('x_{n+1}')
-    title('Random Cobweb Diagram')
+%     title('Random Cobweb Diagram')
+    set(gca,'FontSize',15)
+    set(findall(gcf,'type','text'),'FontSize',15)
+    set(findall(gca, 'Type', 'Line'),'LineWidth',2);
 end
 end
