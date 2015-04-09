@@ -2,17 +2,17 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: mythesis.aux
 The style file: plain.bst
 Database file #1: refs.bib
 Warning--entry type for "usgsgw" isn't style-file defined
---line 10 of file refs.bib
-Warning--entry type for "gw" isn't style-file defined
 --line 16 of file refs.bib
-Warning--entry type for "basics" isn't style-file defined
+Warning--entry type for "gw" isn't style-file defined
 --line 22 of file refs.bib
-Warning--entry type for "geotechdata" isn't style-file defined
+Warning--entry type for "basics" isn't style-file defined
 --line 28 of file refs.bib
-Warning--entry type for "advection" isn't style-file defined
+Warning--entry type for "geotechdata" isn't style-file defined
 --line 34 of file refs.bib
+Warning--entry type for "advection" isn't style-file defined
+--line 40 of file refs.bib
 Warning--entry type for "janus" isn't style-file defined
---line 153 of file refs.bib
+--line 159 of file refs.bib
 Warning--entry type for "UserGuide" isn't style-file defined
---line 163 of file refs.bib
+--line 169 of file refs.bib
 (There were 7 warnings)

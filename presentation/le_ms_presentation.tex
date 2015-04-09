@@ -238,6 +238,19 @@ M_n &= \sqrt{\frac{3}{2}S(n)}\\
 }
 \end{frame}
 %------------------------------------------------
+
+\begin{frame}
+\misc{ % Anything can be placed inside the \misc{} command
+The function $R:[0,1]\to [0,4]$ where $\hat{\xi}_n \sim
+Unif(-M_n,M_n), \sigma=0.0386, L=0.1, r=3.5, N=100$
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{xi}
+\end{figure}
+}
+\end{frame}
+
+%------------------------------------------------
 \begin{frame}
 \misc{
 Choosing a distribution: Gaussian 
@@ -250,18 +263,6 @@ Choosing a distribution: Gaussian
 }
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}
-\misc{ % Anything can be placed inside the \misc{} command
-The function $R:[0,1]\to [0,4]$ where $\hat{\xi}_n \sim
-Unif(-M_n,M_n), \sigma=0.0386, L=0.1, r=3.5, N=100$
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.5]{xi}
-\end{figure}
-}
-\end{frame}
 %------------------------------------------------
 
 \begin{frame}
@@ -344,9 +345,9 @@ Bounds of the Random Logistic Map
 \end{frame}
 %------------------------------------------------
 
-\fbckg{rlog_bif_zoom_L_01} 
-\begin{frame}
-\end{frame}
+% \fbckg{rlog_bif_zoom_L_01} 
+% \begin{frame}
+% \end{frame}
 %------------------------------------------------
 
 \fbckg{rlog_bif_L_05} 
@@ -354,9 +355,9 @@ Bounds of the Random Logistic Map
 \end{frame}
 %------------------------------------------------
 
-\fbckg{rlog_bif_zoom_L_05} 
-\begin{frame}
-\end{frame}
+% \fbckg{rlog_bif_zoom_L_05} 
+% \begin{frame}
+% \end{frame}
 %------------------------------------------------
 
 \fbckg{rlog_bif_L_09} 
@@ -364,9 +365,9 @@ Bounds of the Random Logistic Map
 \end{frame}
 %------------------------------------------------
 
-\fbckg{rlog_bif_zoom_L_09} 
-\begin{frame}
-\end{frame}
+% \fbckg{rlog_bif_zoom_L_09} 
+% \begin{frame}
+% \end{frame}
 %------------------------------------------------
 \fbckg{blank}
 \begin{frame}
@@ -522,17 +523,17 @@ $\alpha = 10^{-5},L=0.05, N=200,\Delta \omega = 0.0001$
 }
 \end{frame}
 %------------------------------------------------
-\fbckg{blank}
-\begin{frame}
-\misc{ Histogram of rotation numbers in the random circle map\\
-$L=0.1$, $k=1$, $\alpha = 10^{-5}$,$\omega = 0.45$,$N_{sim}=1000$ 
-\begin{figure}
-\centering
-\includegraphics[width=.495\textwidth]{hist_rho_k1_L01_om045}\hfill
-\includegraphics[width=.495\textwidth]{kde_rho_k1_L01_om045}
-\end{figure}
-}
-\end{frame}
+% \fbckg{blank}
+% \begin{frame}
+% \misc{ Histogram of rotation numbers in the random circle map\\
+% $L=0.1$, $k=1$, $\alpha = 10^{-5}$,$\omega = 0.45$,$N_{sim}=1000$ 
+% \begin{figure}
+% \centering
+% \includegraphics[width=.495\textwidth]{hist_rho_k1_L01_om045}\hfill
+% \includegraphics[width=.495\textwidth]{kde_rho_k1_L01_om045}
+% \end{figure}
+% }
+% \end{frame}
 
 %------------------------------------------------
 \fbckg{blank}
@@ -581,6 +582,17 @@ $L=0.1$, $k=1$, $\alpha = 10^{-5}$,$\omega = 0.45$,$N_{sim}=1000$
     randomness} \pitem{Destabilizing effect on the circle map}
   \pitem{Noisy rotation numbers} \pitem{Preservation of some features
     of Lyapunov exponents} \fitem{Log-normal noise}} 
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\pointedsl{\large Effect of noise on remediation} % Text in this environment is printed in a 
+\end{frame}
+%------------------------------------------------
+\fbckg{blank} % Slide background image
+\begin{frame}
+\misc{\pitem{Log-normal noise: destabilizing effect $\to$ chaotic
+    behavior $\to$ well mixed solutions }
+\fitem{Non log-normal noise: stabilizing effect $\to$ less well mixed solutions} } 
 \end{frame}
 
 %------------------------------------------------

@@ -63,7 +63,7 @@ source~\cite{gw}. Unfortunately, by nature of being underground,
 groundwater is highly susceptible to contaminants, e.g. fertilizers,
 pesticides, road salt, gasoline, etc. Toxins that have leached into
 the water supply have deleterious effects on human health as well as
-serious environmental ramifications. 
+serious environmental ramifications. In many cases, treatment requires injecting the aquifer with a treatment solution to break down the toxins. The treatment solution is only effective if it is thoroughly mixed with the contaminated water, so essentially this problem boils down to that of mixing, a favorite topic in nonlinear dynamics. 
 
 We explore the characteristics of spatially perturbed one-dimensional
 maps with the aim of understanding \textbf{in situ remediation} of contaminated
@@ -84,11 +84,13 @@ Transmissivity, as a measure of how
 much water may flow horizontally, is the governing property of the
 degredation reactions because it limits the extent of chaotic advection. In turn, transmissivity depends on the type of sediment in
 the aquifer because the sediment porosity is directly proportional to
-hydraulic conductivity. For instance, clay typically has
+hydraulic conductivity. The type of sediment found in the aquifer is
+highly variable, and different kinds of sediment hold and release water in various capacities. For instance, clay typically has
 very low hydraulic conductivity, but very high porosity (Table~\ref{tbl:porosity}). This
 implies a section of the aquifer primarily made of clay can hold a
 large volume of liquid per volume of sediment, but liquid flows slowly
-through the region. Without the aid of sophisticated equipment to
+through the region. In contrast, a section made of gravel would
+release water orders of magnitude faster. Without the aid of sophisticated equipment to
 determine the nature of the sediment underground, we might consider
 the sediment to be randomly distributed in space. Therefore, the
 spatial distribution of rocks and sediment plays an important role in the dynamics of the system. 
@@ -98,8 +100,14 @@ for understanding the dynamics of systems with higher dimensions. Two
 one-dimensional systems known to exhibit chaotic behavior are the
 logistic map and the circle map. Applying spatial perturbations to
 these maps and observing the subsequent dynamics may give an
-indication of what occurs in two-dimensional systems, like the
-groundwater model. 
+indication of what occurs in three-dimensional systems, like the
+groundwater model. A future work would generalize the results of
+this investigation to higher dimensions. In the one-dimensional maps,
+we aim to simulate transmissivity as a random function of space, and
+observations in the field suggest transmissivty follows a log-normal
+distribution~\cite{gelhar}. In other words, the fluid flow in the aquifer is modeled
+as a one-dimensional map and the injection of the treatment solution
+in the aquifer is the initial condition for the map.
 
 \section{Chaos}
 One-dimensional maps, such as the logistic map and the circle map, are
@@ -366,7 +374,7 @@ A \textbf{cobweb diagram} is a graphical representation of the orbit
 iterations. The method of the cobweb diagram can be outlined in four
 steps, and is depicted in Figure~\ref{fig:cobex}.
 \begin{figure}[!h]
-\caption[Example of a Cobweb Diagram]{A one-dimensional map (blue) and
+\caption[Example of a cobweb diagram]{A one-dimensional map (blue) and
   the line $x_{n+1}=x_n$ (red) with a few iterates of the cobweb
   diagram (green). Cobweb diagrams encapsulate the dynamics of the orbit at a glance.}\label{fig:cobex}
     \begin{center}
@@ -386,7 +394,7 @@ steps, and is depicted in Figure~\ref{fig:cobex}.
 \end{enumerate}
 
 \subsection{Logistic Map}
-The Logistic map is a quadratic recursive equation that maps the domain
+The Logistic map is  quadratic recursive equation that maps the domain
 $[0,1] \rightarrow [0,1]$. It is a commonly studied example in nonlinear dynamics and has
 applications in population modeling. Robert May popularized the
 logistic map in 1976~\cite{may}. He demonstrated that even simple nonlinear
@@ -413,7 +421,7 @@ For example, Figure~\ref{fig:detlogstable}
 demonstrates a stable period 4 orbit, whereas Figure~\ref{fig:detlogunstable}
 demonstrates a possibly chaotic orbit. 
 \begin{figure}[!h]
-\caption[Deterministic logistic map, unstable orbit]{Deterministic
+\caption[Deterministic logistic map, erratic orbit]{Deterministic
   Logistic Map (blue) for $r=3.8$. There appears to be no
   stable orbit. The cobweb diagram (green) behaves erratically, even
   after removing the transient behavior. For values of $r \in
@@ -611,7 +619,7 @@ in Figure~\ref{fig:devil_det}.
 \begin{figure}[!h]
 \caption[The devil's staircase for the deterministic circle map]{The devil's
   staircase. For $|k| \leq 1$, $f$ is a homeomorphism, so the
-  staircase is monotone. The largest steps (where $\rho$ appears
+  staircase is monotone. Here, $k=1$. The largest steps (where $\rho$ appears
   constant) correspond with the simplest rationals. If $|k|>1$, $f$ is
   not a homeomorphism so $\rho$ may not exist. In all plots, $\omega \in [0,1],\Delta \omega = 0.001$}\label{fig:devil_det}
 	\begin{center}
@@ -645,11 +653,13 @@ rotation number $\rho(f)$ is well-defined~\cite{devaney}.
 
 The width of each ``step" in the devil's staircase corresponds to the width of the Arnold
 tongues (Figure~\ref{fig:dettongues}) in the bifurcation diagram for
-$k$ and $\omega$ in~(\ref{detcirc}). The colored
+$k$ and $\omega$ in~(\ref{detcirc}). Since there are two parameters in
+the circle map, its bifurcation diagram is 2-dimensional. For any
+given $(\omega,k)$ pair, a pixel is plotted and colored according to the order of the orbit. The colored
 triangular regions in Figure~\ref{fig:dettongues} resemble tongues,
-and are aptly named as such.
+and are aptly named as such. 
 \begin{figure}[!h]
-\caption[The Arnold Tongues for the deterministic circle map]{A color coded
+\caption[The Arnold tongues for the deterministic circle map]{A color coded
   plot of the Arnold Tongues in the circle map. This plot samples 1000 values of $\omega
   \in [0,1]$ and $k \in
   [0,1.5]$, and checks for periodicity up to period 100. The colorbar
@@ -672,8 +682,8 @@ coincide with the periodic fixed points in Figure~\ref{fig:dettongues}.
   circle map, where $k=1.5,x_0=0.7$. The positive values of $\lambda$
   indicate the system may be chaotic. About 10,000 values of $\lambda$
 were computed over $\omega \in [0,1]$.}\label{fig:detcirclyap}
-	\begin{center}
-		\includegraphics[scale=0.55]{figs/det_circ_lyap.png}
+	\begin{center}%55
+		\includegraphics[scale=0.7]{figs/det_circ_lyap.png}
 	\end{center}
 \end{figure} 
 Figure~\ref{fig:detcirclyapk} demonstrates chaotic behavior occurs

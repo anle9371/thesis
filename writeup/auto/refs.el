@@ -2,6 +2,7 @@
  (lambda ()
     (LaTeX-add-bibitems
      "neupauer"
+     "hitczenko"
      "usgsgw"
      "gw"
      "basics"

@@ -12,7 +12,7 @@ q = 1;
 w = [0.1, 0.2, 0.4, 0.06, 0.8];
 for j = 1:length(w)
     disp('round one')
-%     l = lyapunov_circ_k( kmin, kmax, maxj, x0, w(j), L, N, alpha, 0 );
+    l = lyapunov_circ_k( kmin, kmax, maxj, x0, .8, L, N, alpha, 0 );
     l = lyapunov_circ_k( kmin, kmax, maxj, x0, w(j), .05, 200, alpha, q );
     
     for i = 1:length(L)

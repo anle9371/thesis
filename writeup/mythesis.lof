@@ -1,50 +1,56 @@
 \contentsline {part} {\figurenameToC }{\relax }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Groundwater usage in the United States in 2005}}{2}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Example of a Cobweb Diagram}}{10}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Deterministic logistic map, stable orbit}}{11}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Deterministic logistic map, unstable orbit}}{12}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Example of a cobweb diagram}}{10}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Deterministic logistic map, stable orbit}}{12}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Deterministic logistic map, erratic orbit}}{13}
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Bifurcation diagram for the deterministic logistic map}}{13}
 \contentsline {figure}{\numberline {1.6}{\ignorespaces Lyapunov exponent in the deterministic logistic map}}{14}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces Deterministic circle map, stable orbit}}{16}
 \contentsline {figure}{\numberline {1.8}{\ignorespaces Deterministic circle map, quasiperiodic orbit}}{16}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces The devil's staircase for the deterministic circle map}}{17}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces The Arnold Tongues for the deterministic circle map}}{18}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces The devil's staircase for the deterministic circle map}}{18}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces The Arnold tongues for the deterministic circle map}}{19}
 \contentsline {figure}{\numberline {1.11}{\ignorespaces Lyapunov exponent in the deterministic circle map, varying $\omega $}}{19}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Lyapunov exponent in the deterministic circle map, varying $k$}}{19}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Lyapunov exponent in the deterministic circle map, varying $k$}}{20}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematic example of the covariance-spectrum pair}}{25}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces The correlation function $C(x)$}}{26}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Uniform Distribution over a Square Region}}{27}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The function $R(x)$}}{28}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Random logistic map, stable orbit}}{32}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Upper and lower bounds on the random logistic map}}{33}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Random circle map, stable orbit under the Uniform distribution}}{33}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Upper and lower bounds on the random circle map, Uniform distribution for $k=1,\omega =0.3$}}{34}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Upper and lower bounds on the random circle map, Uniform distribution for $k=1.5,\omega =0.3$}}{34}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Upper and lower bounds on the random circle map, Uniform distribution for $k=1.5,\omega =0.7$}}{34}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Random circle map, stable orbit under the Normal distribution}}{35}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Upper and lower bounds on the random circle map, Normal distribution for $k=1,\omega =0.3$}}{36}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Upper and lower bounds on the random circle map, Normal distribution for $k=1.5,\omega =0.3$}}{36}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Upper and lower bounds on the random circle map, Normal distribution for $k=1.5,\omega =0.7$}}{36}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of a covariance-spectrum pair}}{26}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces The correlation function $C(x)$}}{27}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Uniform distribution over a square region}}{29}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The function $R(x)$}}{30}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces The sum in the Lyapunov Central Limit Theorem}}{32}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces A histogram of $\frac {T_m}{s_m}$}}{33}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Random logistic map, stable orbit}}{35}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Upper and lower bounds on the random logistic map}}{36}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Random circle map, stable orbit under the uniform distribution}}{36}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Upper and lower bounds on the random circle map, with a uniform distribution, where $k=1,\omega =0.3$}}{37}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Upper and lower bounds on the random circle map, with a uniform distribution, where $k=1.5,\omega =0.3$}}{37}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Upper and lower bounds on the random circle map, with a uniform distribution, where $k=1.5,\omega =0.7$}}{37}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces The function $\Omega (x)$}}{38}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Random circle map, stable orbit under the normal distribution}}{38}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Upper and lower bounds on the random circle map, with a normal distribution, where $k=1,\omega =0.3$}}{39}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Upper and lower bounds on the random circle map, with a normal distribution, where $k=1.5,\omega =0.3$}}{39}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Upper and lower bounds on the random circle map, with a normal distribution, where $k=1.5,\omega =0.7$}}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Average number of order $p$ orbits for the random circle map}}{38}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Lyapunov exponent in the random logistic map compared to the deterministic map}}{39}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Random logistic map bifurcation diagram, low resolution}}{40}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Bifurcation diagram of the random logistic map, high resolution}}{41}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Bifurcation diagram of the random logistic map, zoomed in}}{42}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Average number of order $p$ orbits for the random circle map}}{43}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Bifurcation diagram of the random circle map}}{44}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces The devil's staircase for the random circle map}}{44}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Histogram of rotation numbers in the random circle map}}{45}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces The Arnold tongues for the random circle map, uniform distribution}}{46}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces The Arnold tongues for the random circle map, normal distribution}}{47}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $\omega $}}{48}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $k$}}{49}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Random logistic map bifurcation diagram, low resolution}}{42}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Average number of period $p$ orbits for the random logistic map}}{42}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Bifurcation diagram of the random logistic map, high resolution}}{43}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Bifurcation diagram of the random logistic map, zoomed in}}{44}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Lyapunov exponent in the random logistic map compared to the deterministic map}}{45}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The Arnold tongues for the random circle map, uniform distribution}}{47}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Lyapunov exponent in the random circle map (uniform distribution) compared to the deterministic map, varying $\omega $}}{48}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Lyapunov exponent in the random circle map (uniform distribution) compared to the deterministic map, varying $k$}}{49}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Average number of period $p$ orbits for the random circle map}}{50}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (uniform distribution)}}{50}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (uniform distribution)}}{51}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces The Arnold tongues for the random circle map, normal distribution}}{52}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $\omega $}}{53}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $k$}}{54}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (normal distribution)}}{55}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (normal distribution)}}{55}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Load Balancing Example}}{51}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Processor Work distribution before and after load balancing}}{52}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Load Balancing Tool Overview}}{52}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Load Balancing Workflow}}{53}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Impact of the load balancing tool: Efficiency and Speedup}}{54}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Load balancing example}}{58}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Processor work distribution before and after load balancing}}{58}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Load balancing tool overview}}{59}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Load balancing workflow}}{60}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Impact of the load balancing tool: efficiency and speedup}}{61}
 \addvspace {10\p@ }

@@ -15,7 +15,7 @@ k = [0.8, 1, 1.3, 2];
 
 for j = 1:length(k)
     disp(['k=',num2str(k(j))])   
-%     lambda = lyapunov_circ( wmin, wmax, maxj, x0, k(j), 0.1, N, alpha, 0 );
+    lambda = lyapunov_circ( wmin, wmax, maxj, x0, 2, 0.1, N, alpha, 0 );
     lambda = lyapunov_circ( wmin, wmax, maxj, x0, k(j), 0.05, 200, alpha, q );
     for i = 1:length(L)
         disp(['L=',num2str(L(i))])
