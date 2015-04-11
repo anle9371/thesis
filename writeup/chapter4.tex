@@ -7,8 +7,8 @@ be advantageous for exploring higher-dimensional maps.
 
 Between both the logistic map and the circle map, a commonality is the
 question: how many period $p$ orbits is the spatially random process
-responsible for? This question is another way of finding the expected number of zeros
-of the function $\mathcal{F}(x)=f(x)-x$, where $f(x)$ represents the
+responsible for? This question is another way of asking how to find
+the expected number of zeros of the function $\mathcal{F}(x)=f(x)-x$, where $f(x)$ represents the
 randomized map. The distribution of zeros of
 $\mathcal{F}(x)$ would confer a greater understanding of how the
 spatially random process stabilizes or destabilizes a map. Some prior
@@ -18,7 +18,17 @@ different vein~\cite{kahane}. We are interested in a theoretical
 explanation of the probability density function of random process for
 uniformly and normally distributed Fourier mode amplitudes
 (non-identical, independent). Figure~\ref{fig:tmsm} suggests $\xi(x)$
-is normally distributed, but this is far from a generalization.
+is normally distributed when the Fourier modes are drawn from a
+uniform distribution, but this is far from a generalization. When the
+modes are normally distributed, we achieve a log-normal spatially
+random process that mimics the noise in hydraulic modeling. Therefore,
+the circle
+map based on normally distributed modes most closely models the fluid
+flow in the aquifer. Thus, the
+next step is to delve into the theoretical role a log-normal process plays in the
+stability of the one-dimensional map, by perhaps exploring how the
+log-normal process affects the chaotic basin of attraction in the map,
+or by finding the expected number of zeros of $\mathcal{F}(x)$.
 
 \subsection{Logistic Map}
 The spatially random processes appear to stabilize the logistic map in
@@ -44,12 +54,14 @@ exponents as well, suggesting chaotic tendencies.
 The preservation of the negative spike in the plots of Lyapunov
 exponents for the random map
 (Figure~\ref{fig:rloglyap2},~\ref{fig:rloglyap2_hs}) may be explained
-by the construction of the bound on $\sigma$. As $r \to 4$, $\ln(4/r)
+by the construction of the bound on $\sigma$ in~(\ref{sigma}). As $r \to 4$, the
+dominant term $\ln(4/r)
 \to 0$, so the variance of the spatially random process diminishes as
 $r$ increases. This would cause the random map to adopt more features
-of the deterministic map for large $r$. 
+of the deterministic map for large $r$. An alternative is to consider constructing
+another bound on $\sigma$ that does not fall off as sharply as~(\ref{sigma}).
 
-Although the distribution of periods (Figure~\ref{fig:rloghist})
+Although the distribution of periods (Figure~\ref{fig:rloghist},~\ref{fig:rloghist2})
 appears exponential, it has not been analytically proved. Despite this, the
 histogram offers an interesting hypothesis on how periodic orbits are
 distributed when influenced by a random process. 
@@ -62,10 +74,11 @@ resemble tongues at all. This suggests the randomness has an overall
 destabilizing effect. Examining the Lyapunov exponents of the map
 for various values of $L$ exposed further asymmetries. Figure~\ref{fig:rcirclyap_u}
 and Figure~\ref{fig:rcirclyap_n} showed a skewed distribution of
-exponents on the right side of the plots, compared to the left side.
+exponents on the right side of the plots, compared to the left
+side. The mechanism for this asymmetry remains to be determined.
 
 Mainly, the diagrams for the circle map based on the uniform and
-normal distributions were similar, although, it appeared the normal
+normal distributions were similar, though it appeared the normal
 case produced smoother plots of rotation numbers
 (Figure~\ref{fig:randdevil1_n}, \ref{fig:randdevil2_n}). Perhaps the
 difference between the normal and uniform cases is best highlighted in
@@ -82,10 +95,17 @@ high density of exponents in the lower right corner
 only for the case where one varies $\omega$ and fixes $k$ to be
 constant.
 
-Just as the histogram in Figure~\ref{fig:rloghist} tried to suggest a
+Just as the histograms in Figures~\ref{fig:rloghist},~\ref{fig:rloghist2} tried to suggest a
 distribution of periods in the logistic map, kernel density estimation
 in Figure~\ref{fig:kde1_u} points to the rotation numbers of the map
-being normally distributed (for a large enough bandwidth).
+being normally distributed (for a large enough bandwidth). This notion
+is supported by the results from Figure~\ref{fig:avgcircorbs}, where
+the average number of orbits was shown not to follow an exponential
+distribution. The numerical simulations insinuate distributions of
+rotation number and period for the circle map, but they leave analytic
+underpinnings to be desired. A next step would be to use the theory
+surrounding the distribution of the spatially random process to derive
+a more general result.
 \section{Future Work}
 \subsection{Extension to Higher Dimensions}
 A natural and intuitive next step would be to introduce a spatially
@@ -98,11 +118,13 @@ system for competitive species interaction
 \dot{y} &= y(d-ex-fy).
 \end{split}
 \end{align}
-In this system, the parameters $a,b,c,d,e,f$ are positive constants. A
+In this system, the parameters $a,b,c,d,e,f$ are positive
+constants. A
 future work could replace one of the parameters with a spatially
 random process. Limit cycles arise in analyzing this system of
 differential equations, and it would be interesting to explore the
-effect of spatial perturbations on these cycles. Another possible
+effect of spatial perturbations on these cycles. The system of differential equations is more relevant to
+the fluid flow problem, but another possible
 choice is the two-dimensional discrete time dynamical system, the H\'{e}non map,
 \begin{align}
 \begin{split}
@@ -116,11 +138,13 @@ Poincar\'{e} section of the Lorenz model.
 \subsection{Basin of Attraction for Chaotic Trajectories}
 Exploring the basin of attraction for chaotic
 regions of the two maps may offer some interesting insights on how
-best to initialize remediation. Specifically, I would like to explore the
+best to initialize remediation. Specifically, we would like to explore the
 question: which set of initial conditions lead trajectories to chaotic
 behavior instead of stable orbits? The basin of attraction may offer
 implications on how one should inject treatment solution in the
-aquifer to get the best (chaotic) mixing.
+aquifer to get the best (chaotic) mixing. If a formal description of
+the onset of chaos for these types of systems were to exist, it would
+have implications for studying higher-dimensional systems.
 \subsection{Stabilizing Effects of Spatial Randomness}
 An unexpected result of the numerical simulations of the logistic map
 was the presence of stable low order orbits where $r \in

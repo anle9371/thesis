@@ -5,6 +5,7 @@
      "fig:rlogbif_zoom"
      "fig:rloglyap2"
      "fig:rloghist"
+     "fig:rloghist2"
      "fig:rlogbif_hs"
      "fig:rloglyap2_hs"
      "fig:rcirctongues_u"
@@ -18,5 +19,6 @@
      "fig:rcirclyap_n"
      "fig:rcirclyap2_n"
      "fig:randdevil1_n"
-     "fig:randdevil2_n")))
+     "fig:randdevil2_n"
+     "fig:rcirctongues_n_ha")))
 

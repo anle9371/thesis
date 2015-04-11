@@ -11,31 +11,53 @@ periodic orbits in the right side of the bifurcation diagram. These
 stable orbits appear for both the case where the variance $\sigma$ of
 $\xi(x)$ from~(\ref{sigma}) is chosen to be the maximal value and the
 case where we choose half of the maximal
-value. Figure~\ref{fig:rlogbif} and Figure~\ref{fig:rlogbif_zoom}
-correspond to choosing $\sigma$ to be the maximum, and
-Figure~\ref{fig:rlogbif_hs} and Figure~\ref{fig:rloglyap2_hs} to half
-of the maximum. Specifically, this stable region occurs between $r\in [3,4]$, and is most dominantly featured for the bifurcation
-diagrams with $L=0.1$. Figure~\ref{fig:rlogbif_zoom} zooms in on the
+value. Bifurcation diagrams are shown in Figure~\ref{fig:rlogbif} and
+Figure~\ref{fig:rlogbif_zoom}, which correspond to choosing $\sigma$
+to be the maximum, and in Figure~\ref{fig:rlogbif_hs} and
+Figure~\ref{fig:rloglyap2_hs}, where $\sigma$ is half
+of the maximum. Specifically, this stable region occurs between $r\in
+[3,4]$, and is most dominantly featured for the bifurcation
+diagrams with $L=0.1$. For the case where $\sigma=\sigma_{max}$, Figure~\ref{fig:rlogbif_zoom} zooms in on the
 range $r \in [3,4]$ to show the newly stabilized region more clearly. In the
 deterministic case (Figure~\ref{fig:bif}), this region was previously
-unstable. 
+unstable, except for windows of stable orbits. 
+
+In general, increasing $L$ in the bifurcation diagram for the random
+logistic map (Figure~\ref{fig:rlogbif}) increases the spread of orbit
+locations for small $r$, and it may also result in fewer stable orbits
+for small $r$, due to the low density of points in the
+diagram. Increasing $L$ also obscures the previously mentioned newly
+stable region with high-period orbits.
+
+In the bifurcation diagrams
+(Figure~\ref{fig:rlogbif},~\ref{fig:rlogbif_hs}), each value of $r \in
+[0,4]$ was tested for $N_{x_0}$ initial conditions for $x_0 \in [0,1]$. The discretization
+of $r$ for the simulation is represented by the value $N_r$, the
+number of subintervals. If iterating the map for any given set of
+parameters resulted in finding no periodic orbit of period $p_{max}$
+or less, then no orbit is recorded in the bifurcation
+diagram. Otherwise, the orbit locations are plotted along the $y$-axis
+in the figures and color coded according to period. An orbit was
+denoted period $p$ if, after iterating the map 1,000 times,
+$x_p=x_{n+p}$ within a tolerance of $\epsilon = 10^{-6}$.
 
 Examining the Lyapunov exponent of the random logistic
 map for the case where $\sigma$ is large gives some insight on whether
 the map is possibly chaotic. The exponent of the deterministic map is
 on the top left of Figure~\ref{fig:rloglyap2}, and we see there is a
-point in $r$ where stable behavior transitions to chaotic behavior (just under $r=3.6$). In the randomized case, the
+point in $r$ where stable behavior transitions to chaotic behavior
+(just under $r=3.6$). This point is referred to as the Feigenbaum
+period-doubling accumulation point. In the randomized case, the
 delimination is unclear. However one feature of the deterministic
 diagram seems to be preserved, and that is the negative spike around
-$r=3.8$, which corresponds to an island of stability in the
-deterministic map.
+$r=3.8$, which corresponds to a window of stability in the
+deterministic map (Table~\ref{tbl:bif}).
 
 \begin{figure}[H]\linespread{1}
 \caption[Bifurcation diagram of the random logistic map, $\sigma=\sigma_{max}$]{Bifurcation diagram of the random
 logistic map, where $r \in [0,4]$, $\Delta r = 0.002$, $N=100$, the
 number of initial conditions tested is $N_{x_0}$, $L\in
-\{0.1,0.2,0.4,0.6,0.8,0.9\}$, and $\sigma$ is chosen to be the maximal
-value in the interval from~(\ref{sigma}). Plots are read left to right, and top to
+\{0.1,0.2,0.4,0.6,0.8,0.9\}$, and $\sigma=\sigma_{max}$. Plots are read left to right, and top to
 bottom. Number of simulations is 1.8 million. The colorbar shows the color for each period. Orbits up to period 256 were checked.}\label{fig:rlogbif}
 	\begin{center}
 		\includegraphics[width=.5\textwidth]{figs/rlog_bif_L_01.png}\hfill
@@ -52,8 +74,7 @@ bottom. Number of simulations is 1.8 million. The colorbar shows the color for e
 in]{A zoomed in view of Figure~\ref{fig:rlogbif}, where $r \in
   [3,4]$, $\Delta r = 0.001$, $N=100$, the number of initial
   conditions tested is $N_{x_0}$, $L\in \{0.1,0.2,0.4,0.6,0.8,0.9\}$,
-  and $\sigma$ is chosen to be the maximal
-value in the interval from~(\ref{sigma}). Plots are read left to right, and top to
+  and $\sigma=\sigma_{max}$. Plots are read left to right, and top to
 bottom. Number of simulations is 1.8 million. The colorbar shows the color for each period. Orbits up to period 256 were checked.}\label{fig:rlogbif_zoom}
 	\begin{center}
 		\includegraphics[width=.5\textwidth]{figs/rlog_bif_zoom_L_01.png}\hfill
@@ -83,23 +104,39 @@ deterministic map, $\sigma=\sigma_{max}$]{The Lyapunov exponent for the determin
 \end{figure}
 
 A histogram describing the average fraction of observed period $p$
-orbits is shown in Figure~\ref{fig:rloghist}. The histogram implies
-that the most commonly observed stable orbit is period 2, and the
+orbits is shown in Figure~\ref{fig:rloghist}
+and~\ref{fig:rloghist2}. The histogram in Figure~\ref{fig:rloghist} implies
+that for $r=3.3$, the most commonly observed stable orbit is period 2, and the
 distribution of periodic orbits may follow the exponential
-distribution. The distribution of period for any give $(r,L)$ pair
+distribution. This figure corresponds with the newly stabilized region
+of the logistic map. Figure~\ref{fig:rloghist2} scans the distribution
+of period for a smaller value of $r=1.2$. Here, the most dominant
+period is 1, and the distribution still resembles the exponential. The distribution of period for any give $(r,L)$ pair
 offers insight on the type of orbits that the random process solicits.
 
 \begin{figure}[H]\linespread{1}
 \caption[Average number of period $p$ orbits for the random logistic
-map, $\sigma=\sigma_{max}$]{Average number of period $p$ orbits for the random logistic
-map, where $r =3.2$,$L=0.1$,$N=100$, and $\sigma = 0.0061$. Results from 2000
-simulations of these parameters are plotted. The error bars indicate
-the standard error of the calculation of the mean for 2000 samples.}\label{fig:rloghist}
+map, $\sigma=\sigma_{max}$ and $r=3.3$]{Average number of period $p$ orbits for the random logistic
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. $L \in
+  \{0.025,0.05,0.1\}$, $r=3.3$, $\sigma = \sigma_{max}$, $N\in \{400,200,100\}$.}\label{fig:rloghist}
 	\begin{center}
-          \includegraphics[scale=0.65]{figs/rlog_hist_r32_L01.png}
+\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_0025_r_33_s_00087808_a_96372e-07_sims_5000.png}\hfill		\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_005_r_33_s_0012418_a_38546e-06_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_01_r_33_s_0017565_a_15414e-05_sims_5000.png}
 	\end{center}
 \end{figure}
 
+\begin{figure}[H]\linespread{1}
+\caption[Average number of period $p$ orbits for the random logistic
+map, $\sigma=\sigma_{max}$ and $r=1.2$]{Average number of period $p$ orbits for the random logistic
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. $L \in
+  \{0.05,0.1,0.2\}$, $r=1.2$, $\sigma = \sigma_{max}$, $N\in \{200,100,100\}$.}\label{fig:rloghist2}
+	\begin{center}	\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_005_r_12_s_007772_a_000015098_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_01_r_12_s_010993_a_000060373_sims_5000.png}\hfill	
+\includegraphics[width=.33\textwidth]{figs/rlog_hist_L_02_r_12_s_015556_a_00024119_sims_5000.png}
+	\end{center}
+\end{figure}
 Figure~\ref{fig:rlogbif_hs} and Figure~\ref{fig:rloglyap2_hs}
 demonstrate results from simulating the random logistic map where the
 variance $\sigma$ of $\xi(x)$ is chosen to be half of the maximal
@@ -159,13 +196,13 @@ deterministic map, $\sigma=\frac{1}{2}\sigma_{max}$]{The Lyapunov exponent for t
 \section{Implementation of Randomness in the Circle Map}
 We explored how the random circle map for uniformly distributed $\hat{\xi}_n$ and
 normally distributed $\hat{\xi}_n$ changes in terms of its Arnold
-Tongues, devil's staircases, and Lyapunov exponents. We examined the
+tongues, devil's staircases, and Lyapunov exponents. We examined the
 distribution of rotation numbers using a kernel density
 estimator. The parameter $\alpha$ that scales the variance of the
 spatial process $\xi(x)$ was tested for two values: $\alpha=10^{-5}$
 and $\alpha = \frac{1}{2}10^{-5}$.
 \subsection{Uniform Distribution}
-The randomized circle map for uniformly distributed $\hat{\xi}_n$ has a set of Arnold Tongues (Figure~\ref{fig:rcirctongues_u}) that has almost no similarity to the deterministic
+The randomized circle map for uniformly distributed $\hat{\xi}_n$ has a set of Arnold tongues (Figure~\ref{fig:rcirctongues_u}) that has almost no similarity to the deterministic
 case. For low values of $L$, we have lost the
 shape of the tongues, and the diagram becomes asymmetrical. For larger
 values of $L$, the distinctive tongues and the overall symmetry is
@@ -175,6 +212,18 @@ presence of high-period orbits in the region where there is typically
 only period 1 fixed points (upper left). As $L$ increases, this region
 morphs into predominantly stable period 1 orbits. 
 
+In the Arnold tongue diagrams
+(Figure~\ref{fig:rcirctongues_u},~\ref{fig:rcirctongues_n},~\ref{fig:rcirctongues_n_ha}), each value of $k \in
+[0,1.5]$ and $\omega \in [0,1]$ was tested according to the
+discretization of $\Delta k=0.0015, \Delta \omega = 0.001$ and initial
+condition $x_0=0.7$. If iterating the map for any given set of
+parameters resulted in finding no periodic orbit of period $p_{max}$
+or less, then the pixel corresponding to this value of $(\omega, k)$
+was colored black. Otherwise, the pixel for this $(\omega, k)$ pair was colored
+according to the orbit period. An orbit was
+denoted period $p$ if, after iterating the map 1,000 times,
+$x_p=x_{n+p}$ within a tolerance of $\epsilon = 10^{-6}$.
+
 Figure~\ref{fig:rcirclyap_u} is a plot of the Lyapunov
 exponents for a fixed $k$ and varying $\omega$, whereas
 Figure~\ref{fig:rcirclyap2_u} fixes $\omega$ and varies $k$. A comparison of the Lyapunov exponent of the deterministic and random
@@ -182,8 +231,7 @@ case (Figure~\ref{fig:rcirclyap_u} and Figure~\ref{fig:rcirclyap2_u})
 partially confirms the idea that the noise is destabilizing; nearly no
 features of the deterministic graph are preserved (for small $L$), and the high
 density of positive values indicates chaotic
-behavior. Moreover,
-Figure~\ref{fig:rcirclyap_u} demonstrates that there is a skewed
+behavior. Moreover, Figure~\ref{fig:rcirclyap_u} demonstrates that there is a skewed
 distribution of Lyapunov exponents on the right side of the graph for
 all values of $L$, compared to the left side. However, this trend is not observed in Figure~\ref{fig:rcirclyap2_u}.
 
@@ -344,7 +392,7 @@ map, $\alpha = 10^{-5}$]{Histogram of rotation numbers in the random circle map,
 \end{figure}
 
 \subsection{Normal Distribution}
-Like the uniformly distributed case, the randomized circle map for normally distributed $\hat{\xi}_n$ has a set of Arnold Tongues (Figure~\ref{fig:rcirctongues_n}) that has almost no similarity to the deterministic
+Like the uniformly distributed case, the randomized circle map for normally distributed $\hat{\xi}_n$ has a set of Arnold tongues (Figure~\ref{fig:rcirctongues_n}) that has almost no similarity to the deterministic
 case. The same trend in $L$ is observed: small $L$ values seem to correspond
 with asymmetry and loss of tongue-shape, and aspects of the
 deterministic map are recovered for larger $L$. 
@@ -468,3 +516,27 @@ $k$ grows.}\label{fig:randdevil2_n}
 \includegraphics[width=.33\textwidth]{figs/rcirc_n_devil_k15_L01.png}
 \end{figure}
 
+The magnitude of the constant scaling $\sigma$ was reduced to $\alpha = \frac{1}{2}10^{-5}$ in the diagrams of the Arnold
+tongues (Figure~\ref{fig:rcirctongues_n_ha}). Generally,
+Figure~\ref{fig:rcirctongues_n} and Figure~\ref{fig:rcirctongues_n_ha}
+are similar. The reduced noise in Figure~\ref{fig:rcirctongues_n_ha}
+is reflected especially when $L=0.1$; the high-period orbits for
+$\omega < 0.2, k > 0.9$ from Figure~\ref{fig:rcirctongues_n} are absent.
+
+\begin{figure}[H]\linespread{1}  
+\caption[The Arnold tongues for the random circle map, normal
+distribution, $\alpha = \frac{1}{2}10^{-5}$]{The Arnold
+  tongues for $k\in [0,1.5]$, $\Delta k = 0.0015$, $\omega \in [0,1]$,
+  $\Delta \omega = 0.001$, $\alpha = \frac{1}{2}10^{-5}$, $\hat{\xi}_n\sim
+  N(0,\alpha e^{-L|n|})$ and $L_j \in
+  \{0.025,0.05,0.1,0.3,0.5,0.9\}$. $\Delta k$ and $\Delta \omega$
+  represent the step size in discretizing $k$ on [0,1.5] and $\omega$
+  on [0,1]. Plots are ordered left to right, and top to bottom. The colorbar
+to the right demonstrates the period and corresponding color.}\label{fig:rcirctongues_n_ha}
+\centering
+\includegraphics[width=.5\textwidth]{figs/tongues_ha_norm_1000_L_0025.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_ha_norm_1000_L_005.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_ha_norm_1000_L_01.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_ha_norm_1000_L_03.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_ha_norm_1000_L_05.png}\\
+\end{figure}

@@ -10,13 +10,13 @@ tol = 10e-6;
 xlen = maxp+5;    % number of results to print
 iter = 1000;    % number of x values in the cobweb
 
-maxsize = maxp*numiters;
+maxsize = ceil(0.5*maxp*numiters);
 % st = linspace(0+tol,1-tol,xrng);    % vector of initial conditions
 st = rand(xrng,1);
 u = 1;
 y = zeros(maxp,2); % histogram data
 p = zeros(maxp,3); %[period, avg_num, stderr]
-orbits = ones(maxsize, maxsize + 1)*-1;    % as many rows as periods and as many cols as x vals
+orbits = ones(maxsize, maxp + 1)*-1;    % as many rows as periods and as many cols as x vals
 
 for i = 1:numiters
     disp(['iteration: ',num2str(i)])
@@ -35,6 +35,9 @@ for i = 1:numiters
                 end
                 
                 u = u + 1;    % row counter
+                if u > maxsize
+                    disp('u > maxsize')
+                end
                 break
             end
         end
@@ -57,7 +60,7 @@ else
     labels = 1:maxp;
     p(:,1) = labels';
     p(:,2) = y(:,2)/total_orbs;
-    p(:,3) = std(p(:,2));
+    p(:,3) = sqrt((1/(total_orbs-1))*(std(p(:,2)))^2);
     
     % for i = 1:maxp
     %     p(i,1) = mean(y(i,2,:));
