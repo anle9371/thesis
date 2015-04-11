@@ -343,7 +343,17 @@ behaves according to~(\ref{sigma}).
 The Lyapunov Central Limit Theorem demonstrates that
 the sum over independent, non-identical uniform random variables
 $\hat{\xi}_n$ tends to the normal distribution if certain conditions
-are upheld~\cite{billingsley}. 
+are upheld~\cite{billingsley}. Unfortunately, we were unable to
+analytically demonstrate the limiting quantity in the theorem tends to
+zero. However, numerical simulations suggest the distribution of
+$\hat{\xi}_n$ is very similar to the normal distribution. To clarify,
+it remains to be determined whether random function $\xi(x)$ is
+normally distributed if $\hat{\xi}_n \sim Unif(-M_n,M_n)$. However, a histogram (Figure~\ref{fig:tmsm}) of the quantity $\frac{T_m}{s_m}$ in~(\ref{eq:tmsm})
+suggests there is some similarity to the standard normal
+distribution. Therefore, even though a spatially random process based
+on uniformly distributed Fourier mode amplitudes is not explicitly
+shown to be log-normal distributed, numerical simulations of a
+transformation of the process imply it mimics a log-normal distribution.
 
 \begin{singlespacing}
 \begin{theorem}\label{clt}
@@ -401,51 +411,74 @@ We check whether the sum $s_m^2$ diverges as $m \to \infty$. After applying the 
 &= \frac{\alpha}{2 \tanh(L/2)},
 \end{split}
 \end{align*}
-we find the sum does indeed converge to a finite value. Since
-$|\hat{\xi}_n| = \sqrt{a_n^2 + b_n^2} \leq |a_n|+|b_n| \leq 2M_n$
-almost surely, we have
-\begin{align*}
-|Y_n|^{2+\delta} = |\hat{\xi}_n|^{2+\delta} \leq (2M_n)^\delta|Y_n|^2.
-\end{align*}
-If we choose $\delta = 1$, this implies
-\begin{align*}
-\begin{split}
-\frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] \leq
-\frac{1}{s_m^{3}}\sum_{n=1}^m2M_nE[|Y_n|^{2}]
-&=\frac{2}{s_m^{3}}\sum_{n=-m}^m\sqrt{\frac{3}{2}S(n)}S(n)\\
-&=\frac{\sqrt{6}}{s_m^{3}}\sum_{n=-m}^m(\alpha e^{-L|n|})^{3/2}\\
-%&=\frac{\sqrt{6}}{s_m^{3}}\alpha^{3/2}\left(e^{-(3/2)L|-m|}+...+1+...+e^{-(3/2)Lm}\right)\\
-%&=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{s_m^{3}}\\
-&=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{\alpha^{3/2}(\frac{1}{2} +\sum_{n=1}^m e^{-Ln})^{3/2}}\\
-%&=\frac{2\sqrt{6}\left(\frac{1}{2}+(\frac{1-e^{-(3/2)L(m+1)}}{1-e^{-(3/2)L}}-1)\right)}{(\frac{1}{2} +(\frac{1-e^{-L(m+1)}}{1-e^{-L}}-1))^{3/2}}\\
-&=\frac{2\sqrt{6}\left(\frac{1-e^{-(3/2)L(m+1)}}{1-e^{-(3/2)L}}-\frac{1}{2}\right)}{(\frac{1-e^{-L(m+1)}}{1-e^{-L}}-\frac{1}{2})^{3/2}}.
-\end{split}
-\end{align*}
-Finally,
-\begin{align}\label{eq:lyapsum}
-\frac{1}{s_m^{3}}\sum_{n=1}^m2M_nE[|Y_n|^{2}]=\frac{4 \sqrt{3} \left(e^{L/2}+1\right) e^{\frac{1}{2} (-3) L (m+1)} \left(e^{\frac{3}{2} L (m+1)}+e^{\frac{3}{2} L (m+2)}-2 e^{\frac{3 L}{2}}\right)}{\left(e^L-1\right) \left(e^{L/2}+e^L+1\right) \left(\frac{e^{-L (m+1)} \left(e^{L (m+1)}+e^{L (m+2)}-2 e^L\right)}{e^L-1}\right)^{3/2}}.
+we find the sum does indeed converge to a finite value. Using the
+expressions derived above, we find 
+\begin{align}\label{eq:tmsm}
+\frac{T_m}{s_m} = \frac{\sum_{n=1}^{m} 2a_n}{\sqrt{\frac{\alpha}{2} +\alpha\sum_{n=1}^m e^{-Ln}}}. 
 \end{align}
-Figure~\ref{fig:lyapsum} demonstrates a plot of the quantity
-in~(\ref{eq:lyapsum}) for a range of $L$ values.
+A histogram in Figure~\ref{fig:tmsm} offers some insights on how the
+quantity in~(\ref{eq:tmsm}) is distributed.
 \begin{figure}[!h]
-\caption[The sum in the Lyapunov Central Limit Theorem]{The sum
-  from~(\ref{eq:lyapsum}) for $m=1000$, where $L=0.7$ (left), $L=1.1$ (middle), and $L=2.7$ (right).}\label{fig:lyapsum}
+\caption[A histogram of $\frac{T_m}{s_m}$]{A histogram of
+  $\frac{T_m}{s_m}$ from~(\ref{eq:tmsm}), where $L=0.1,N = 100, r =
+  3.3, \sigma=0.0176$. The results of 1000 simulations are shown. The probability
+  density function of the standard normal distribution is
+overlaid in red.}\label{fig:tmsm}
 	\begin{center}
-		\includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_07.png}\hfill
-\includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_11.png}\hfill
-\includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_27.png}
+		\includegraphics[scale=0.6]{figs/tmsm.png}
 	\end{center}
 \end{figure}
-Unfortunately, Figure~\ref{fig:lyapsum} seems to imply that the quantity
-in~(\ref{eq:lyapsum}) does not decay to zero for all values of $L$ as
-$m \to \infty$. To clarify, this implies the random function $\xi(x)$
-may not be normally distributed if $\hat{\xi}_n \sim
-Unif(-M_n,M_n)$. However, a histogram (Figure~\ref{fig:tmsm}) of the quantity $\frac{T_m}{s_m}$ in~(\ref{eq:tmsm})
-suggests there is some similarity to the standard normal
-distribution. Therefore, even though a spatially random process based
-on uniformly distributed Fourier mode amplitudes is not explicitly
-shown to be log-normal distributed, numerical simulations of a
-transformation of the process imply it mimics a normal distribution.
+
+In summary, for each realization of the random process, the noise
+$\xi(x)=\ln(R(x))$ is random variable whose mean value is
+$E[\xi(x)]=\ln(r)$. The Fourier modes of $\xi(x)$ are uniform random
+variables $a_n,b_n \sim Unif(-M_n,M_n)$, where $M_n=
+\sqrt{\frac{3}{2}S(n)}$. The function $S(n)=\alpha e^{-L|n|}$
+represents the spectral density, which was chosen to decay exponentially fast. The constant $\alpha = \sigma^2 \tanh(L/2)$ normalizes the corresponding
+correlation function $C(x)$. If we wish to restrict $R(x)$
+to $[0,4]$, then the standard deviation $\sigma$ of
+the noise $\xi(x)$ must be bound according to~(\ref{sigma}). The
+log-normal property of the spatially random process may be lost if we
+choose $\hat{\xi}_n \sim Unif(-M_n,M_n)$.  
+
+% Since
+% $|\hat{\xi}_n| = \sqrt{a_n^2 + b_n^2} \leq |a_n|+|b_n| \leq 2M_n$
+% almost surely, we have
+% \begin{align*}
+% |Y_n|^{2+\delta} = |\hat{\xi}_n|^{2+\delta} \leq (2M_n)^\delta|Y_n|^2.
+% \end{align*}
+% If we choose $\delta = 1$, this implies
+% \begin{align*}
+% \begin{split}
+% \frac{1}{s_m^{2+\delta}}\sum_{n=1}^mE[|Y_n|^{2+\delta}] \leq
+% \frac{1}{s_m^{3}}\sum_{n=1}^m2M_nE[|Y_n|^{2}]
+% &=\frac{2}{s_m^{3}}\sum_{n=-m}^m\sqrt{\frac{3}{2}S(n)}S(n)\\
+% &=\frac{\sqrt{6}}{s_m^{3}}\sum_{n=-m}^m(\alpha e^{-L|n|})^{3/2}\\
+% %&=\frac{\sqrt{6}}{s_m^{3}}\alpha^{3/2}\left(e^{-(3/2)L|-m|}+...+1+...+e^{-(3/2)Lm}\right)\\
+% %&=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{s_m^{3}}\\
+% &=\frac{\sqrt{6}\alpha^{3/2}\left(1+2\sum_{n=1}^{m}e^{-(3/2)Ln}\right)}{\alpha^{3/2}(\frac{1}{2} +\sum_{n=1}^m e^{-Ln})^{3/2}}\\
+% %&=\frac{2\sqrt{6}\left(\frac{1}{2}+(\frac{1-e^{-(3/2)L(m+1)}}{1-e^{-(3/2)L}}-1)\right)}{(\frac{1}{2} +(\frac{1-e^{-L(m+1)}}{1-e^{-L}}-1))^{3/2}}\\
+% &=\frac{2\sqrt{6}\left(\frac{1-e^{-(3/2)L(m+1)}}{1-e^{-(3/2)L}}-\frac{1}{2}\right)}{(\frac{1-e^{-L(m+1)}}{1-e^{-L}}-\frac{1}{2})^{3/2}}.
+% \end{split}
+% \end{align*}
+% Finally,
+% \begin{align}\label{eq:lyapsum}
+% \frac{1}{s_m^{3}}\sum_{n=1}^m2M_nE[|Y_n|^{2}]=\frac{4 \sqrt{3} \left(e^{L/2}+1\right) e^{\frac{1}{2} (-3) L (m+1)} \left(e^{\frac{3}{2} L (m+1)}+e^{\frac{3}{2} L (m+2)}-2 e^{\frac{3 L}{2}}\right)}{\left(e^L-1\right) \left(e^{L/2}+e^L+1\right) \left(\frac{e^{-L (m+1)} \left(e^{L (m+1)}+e^{L (m+2)}-2 e^L\right)}{e^L-1}\right)^{3/2}}.
+% \end{align}
+% Figure~\ref{fig:lyapsum} demonstrates a plot of the quantity
+% in~(\ref{eq:lyapsum}) for a range of $L$ values.
+% \begin{figure}[!h]
+% \caption[The sum in the Lyapunov Central Limit Theorem]{The sum
+%   from~(\ref{eq:lyapsum}) for $m=1000$, where $L=0.7$ (left), $L=1.1$ (middle), and $L=2.7$ (right).}\label{fig:lyapsum}
+% 	\begin{center}
+% 		\includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_07.png}\hfill
+% \includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_11.png}\hfill
+% \includegraphics[width=.33\textwidth]{figs/lyapunov_clt_L_27.png}
+% 	\end{center}
+% \end{figure}
+% Unfortunately, Figure~\ref{fig:lyapsum} seems to imply that the quantity
+% in~(\ref{eq:lyapsum}) does not decay to zero for all values of $L$ as
+% $m \to \infty$.
 
 % \begin{align*}
 % \begin{split}
@@ -490,32 +523,6 @@ transformation of the process imply it mimics a normal distribution.
 % e^{-L|n|/2}&\leq \hat{\epsilon}\sqrt{\frac{e^L+1}{e^L-1}} 
 % \end{split}
 % \end{align*}
-\begin{align}\label{eq:tmsm}
-\frac{T_m}{s_m} = \frac{\sum_{n=1}^{m} 2a_n}{\sqrt{\frac{\alpha}{2} +\alpha\sum_{n=1}^m e^{-Ln}}} 
-\end{align}
-\begin{figure}[!h]
-\caption[A histogram of $\frac{T_m}{s_m}$]{A histogram of
-  $\frac{T_m}{s_m}$ from~(\ref{eq:tmsm}), where $L=0.1,N = 100, r =
-  3.3, \sigma=0.0176$. The results of 1000 simulations are shown. The probability
-  density function of the standard normal distribution is
-overlaid in red.}\label{fig:tmsm}
-	\begin{center}
-		\includegraphics[scale=0.6]{figs/tmsm.png}
-	\end{center}
-\end{figure}
-
-In summary, for each realization of the random process, the noise
-$\xi(x)=\ln(R(x))$ is random variable whose mean value is
-$E[\xi(x)]=\ln(r)$. The Fourier modes of $\xi(x)$ are uniform random
-variables $a_n,b_n \sim Unif(-M_n,M_n)$, where $M_n=
-\sqrt{\frac{3}{2}S(n)}$. The function $S(n)=\alpha e^{-L|n|}$
-represents the spectral density, which was chosen to decay exponentially fast. The constant $\alpha = \sigma^2 \tanh(L/2)$ normalizes the corresponding
-correlation function $C(x)$. If we wish to restrict $R(x)$
-to $[0,4]$, then the standard deviation $\sigma$ of
-the noise $\xi(x)$ must be bound according to~(\ref{sigma}). The
-log-normal property of the spatially random process may be lost if we
-choose $\hat{\xi}_n \sim Unif(-M_n,M_n)$.  
-
 \section{Random Dynamics of the Logistic Map}
 The spatially random logistic map has not been as well explored in the
 literature as the temporally random case~\cite{athreya}. Athreya and
@@ -601,10 +608,9 @@ $a_n,b_n\sim Unif(-M_n,M_n)$.
 \caption[Upper and lower bounds on the random circle map, with a uniform
 distribution, where $k=1,\omega=0.3$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
-  and $k=1,\omega=0.3$. Sample realizations are shown in red. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},$
-  }\label{fig:circ_u_envelope1}
+  bounds of the random circle map, where $\hat{\xi}_n\sim
+  Unif(-M_n,M_n),k=1,\omega=0.3,\alpha = 10^{-5},N=100$. Sample
+  realizations are shown in red. From left to right: $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_u_envelope1}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k1_L09_w03.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k1_L05_w03.png}\hfill
@@ -615,10 +621,9 @@ distribution, where $k=1,\omega=0.3$]{A coarse
 \caption[Upper and lower bounds on the random circle map, with a uniform
 distribution, where $k=1.5,\omega=0.3$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
-  and $k=1.5,\omega=0.3$. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},$
-  }\label{fig:circ_u_envelope2}
+  bounds of the random circle map, where $\hat{\xi}_n\sim Unif(-M_n,M_n)$
+  and $k=1.5,\omega=0.3,\alpha = 10^{-5},N=100$. From left to right:
+  $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_u_envelope2}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L09_w03.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L05_w03.png}\hfill
@@ -628,10 +633,9 @@ distribution, where $k=1.5,\omega=0.3$]{A coarse
 \caption[Upper and lower bounds on the random circle map, with a uniform
 distribution, where $k=1.5,\omega=0.7$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim Unif(-M_n,M_n)$
-  and $k=1.5,\omega=0.7$. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},$
-  }\label{fig:circ_u_envelope3}
+  bounds of the random circle map, where $\hat{\xi}_n\sim
+  Unif(-M_n,M_n),k=1.5,\omega=0.7,\alpha = 10^{-5},N=100$. From left
+  to right: $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_u_envelope3}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L09_w07.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_unif_500_k15_L05_w07.png}\hfill
@@ -686,10 +690,9 @@ $a_n,b_n\sim N(0,\alpha e^{-L|n|})$.
 \caption[Upper and lower bounds on the random circle map, with a normal
 distribution, where $k=1,\omega=0.3$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
-  and $k=1,\omega=0.3$. Sample realizations are shown in red. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1,\omega=0.3,N=100\},$
-  }\label{fig:circ_n_envelope1}
+  bounds of the random circle map, where $\hat{\xi}_n\sim N(0,\alpha
+  e^{-L|n|}),k=1,\omega=0.3,\alpha = 10^{-5},N=100$. Sample
+  realizations are shown in red. From left to right: $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_n_envelope1}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k1_L09_w03.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k1_L05_w03.png}\hfill
@@ -699,10 +702,9 @@ distribution, where $k=1,\omega=0.3$]{A coarse
 \caption[Upper and lower bounds on the random circle map, with a normal
 distribution, where $k=1.5,\omega=0.3$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
-  and $k=1.5,\omega=0.3$. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.3,N=100\},$
-  }\label{fig:circ_n_envelope2}
+  bounds of the random circle map, where $\hat{\xi}_n\sim N(0,\alpha
+  e^{-L|n|}),k=1.5,\omega=0.3,\alpha = 10^{-5},N=100$. From left to
+  right: $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_n_envelope2}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L09_w03.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L05_w03.png}\hfill
@@ -712,10 +714,9 @@ distribution, where $k=1.5,\omega=0.3$]{A coarse
 \caption[Upper and lower bounds on the random circle map, with a normal
 distribution, where $k=1.5,\omega=0.7$]{A coarse
   demonstration (500 samples) of the upper (blue) and lower (black)
-  bounds of the random circle map, where $a_n,b_n\sim N(0,\alpha e^{-L|n|})$
-  and $k=1.5,\omega=0.7$. From left to right:
-  $\{L=0.9,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\}, \{L=0.5,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},\{L=0.1,\alpha = 10^{-5},k=1.5,\omega=0.7,N=100\},$
-  }\label{fig:circ_n_envelope3}
+  bounds of the random circle map, where $\hat{\xi}_n\sim N(0,\alpha
+  e^{-L|n|}),k=1.5,\omega=0.7,\alpha = 10^{-5},N=100$. From left to
+  right: $L=0.9,L=0.5,L=0.1$.}\label{fig:circ_n_envelope3}
 \centering
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L09_w07.png}\hfill
 \includegraphics[width=.3\textwidth]{figs/envelope_norm_500_k15_L05_w07.png}\hfill

@@ -21,8 +21,6 @@
      "sigma"
      "fig:R"
      "clt"
-     "eq:lyapsum"
-     "fig:lyapsum"
      "eq:tmsm"
      "fig:tmsm"
      "randlogmap"

@@ -1,52 +1,29 @@
-%loop through values of r on (0,4) and check basin_size and orbit prob
-
-clear 
-clc
-close all
-
-global tol
-tol = 10e-8;
-
 % % prob of orbit
 % % pick a value of r that has a long tail and do 10^6 iterates
 % % 2 < r < 3
-% L = linspace(0.2+tol,1-tol,20);
-% r = linspace(1+tol,4-tol,20);
-% r = 2.5;
-% L = 0.1;
-% % maxiters = 10e6;
-% % for i = 1:maxiters  
-% %     disp(i)
-% %     disp(100*i/maxiters)
-% 
-% maxiter = 10e6 - 6519;
-% for k = 4e5:6e5
-%     disp(k)
-%     disp(100*k/1e6)
-%     prob_of_orbits(L,r,k)
-% end
-% % end
 
-% % bifurcation diagram
-r = linspace(3.75+tol,4-tol,500);
-L = 0.1;
+clear ; clc; close all
 
-% Test = open('C:\Users\swamy\Documents\amy\thesis\code\figures\bifurcation_r500_x10_L0.1.fig');
-Test = open('C:\Users\amy\Documents\code\bifurcation_r500_x10_L0.1.fig');
-figure(Test)
-hold on
-axis([0 4 0 1])
-axis manual
+L = linspace(0,1,11);
+L(3:end) = L(2:10);
+L(1) = 0.025;
+L(2) = 0.05;
+N = 100*ones(length(L),1);
+N(1) = 400;
+N(2) = 200;
+maxp = 100;
+r = linspace(.5,4,5);
+xrng = 10;
+pth = 'C:\Users\amy\Dropbox\thesis\logistic_map_code\figures\histograms\';
+numiters = 500;
+numsims = xrng*numiters;
 
-for j = 1:10
-    disp(j)
-    for i = 1:length(r)
-        drawnow
-        bifur(L,r(i))
+for i = 1:length(L)
+    for j = 2:length(r)
+        [data,sigma,alpha] = prob_of_orbits(L(i),N(i),r(j),xrng,numiters,maxp);
+        fname = ['rlog_hist_L_',num2str(L(i)),'_r_',num2str(r(j)),...
+            '_s_',num2str(sigma),'_a_',num2str(alpha),'_sims_',num2str(numsims)];
+        dlmwrite([pth,fname,'.csv'], data, '-append');
+        plot_prob_of_orbits(data, pth, fname, L(i), r(j), maxp)
     end
 end
-h = findall(gca,'marker','.');
-set(h,'markersize',2)
-savefig('bifurcation_2500_x10_L0.1.fig');
-h2 = gcf;
-print(h2, '-dpng', 'bifurcation_r500_x10_L0.1_v5.png')

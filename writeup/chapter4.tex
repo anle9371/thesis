@@ -1,7 +1,95 @@
-\chapter{Future Work}
-\section{Extension to Higher Dimensions}
+\chapter{Conclusion}
+\section{Spatially Random Processes and 1-Dimensional Maps}
+This thesis explored various visualizations of bifurcation diagrams
+for the logistic and circle map, but establishing a formal way of
+expressing the bifurcation diagram for spatially random maps would
+be advantageous for exploring higher-dimensional maps.
+
+Between both the logistic map and the circle map, a commonality is the
+question: how many period $p$ orbits is the spatially random process
+responsible for? This question is another way of finding the expected number of zeros
+of the function $\mathcal{F}(x)=f(x)-x$, where $f(x)$ represents the
+randomized map. The distribution of zeros of
+$\mathcal{F}(x)$ would confer a greater understanding of how the
+spatially random process stabilizes or destabilizes a map. Some prior
+work in analyzing the number of zeros of a function with a random
+process based on a Fourier series has been done, but in a slightly
+different vein~\cite{kahane}. We are interested in a theoretical
+explanation of the probability density function of random process for
+uniformly and normally distributed Fourier mode amplitudes
+(non-identical, independent). Figure~\ref{fig:tmsm} suggests $\xi(x)$
+is normally distributed, but this is far from a generalization.
+
+\subsection{Logistic Map}
+The spatially random processes appear to stabilize the logistic map in
+certain regions of the bifurcation diagram, specifically where $r \in [3,4]$
+(Figure~\ref{fig:rlogbif}, \ref{fig:rlogbif_zoom}). Evidence of the
+newly stable regions is the presence of low-period orbits and negative
+Lyapunov exponents for the random map (Figure~\ref{fig:rloglyap2}). On
+the other hand, the presence of high-period orbits for
+small $r$ in Figure~\ref{fig:rlogbif} and high density of positive
+Lyapunov exponents (Figure~\ref{fig:rloglyap2}) suggests the possibility of chaos.
+
+As expected, reducing the noise introduced in the logistic
+map by halving the variance of the random process resulted in
+bifurcation diagrams that were more similar to the deterministic
+case. There were fewer high-period orbits for small values of $r$ and the spread of orbit
+locations was smaller. However, despite reducing
+the magnitude of the noise, the random process continues to stabilize
+the map (Figure~\ref{fig:rlogbif_hs}). Negative Lyapunov exponents calculated
+for this level of variance (Figure~\ref{fig:rloglyap2_hs}) support the
+idea of stabilization, however, there was a high density of positive
+exponents as well, suggesting chaotic tendencies.
+
+The preservation of the negative spike in the plots of Lyapunov
+exponents for the random map
+(Figure~\ref{fig:rloglyap2},~\ref{fig:rloglyap2_hs}) may be explained
+by the construction of the bound on $\sigma$. As $r \to 4$, $\ln(4/r)
+\to 0$, so the variance of the spatially random process diminishes as
+$r$ increases. This would cause the random map to adopt more features
+of the deterministic map for large $r$. 
+
+Although the distribution of periods (Figure~\ref{fig:rloghist})
+appears exponential, it has not been analytically proved. Despite this, the
+histogram offers an interesting hypothesis on how periodic orbits are
+distributed when influenced by a random process. 
+\subsection{Circle Map}
+In contrast to the bifurcation diagrams of the logistic map, which
+mostly retained the general shape of the deterministic map, the
+Arnold tongues (Figure~\ref{fig:rcirctongues_u},~\ref{fig:rcirctongues_n}) of the
+random circle map were asymmetric, and for some values of $L$, did not
+resemble tongues at all. This suggests the randomness has an overall
+destabilizing effect. Examining the Lyapunov exponents of the map
+for various values of $L$ exposed further asymmetries. Figure~\ref{fig:rcirclyap_u}
+and Figure~\ref{fig:rcirclyap_n} showed a skewed distribution of
+exponents on the right side of the plots, compared to the left side.
+
+Mainly, the diagrams for the circle map based on the uniform and
+normal distributions were similar, although, it appeared the normal
+case produced smoother plots of rotation numbers
+(Figure~\ref{fig:randdevil1_n}, \ref{fig:randdevil2_n}). Perhaps the
+difference between the normal and uniform cases is best highlighted in
+the diagrams for $L = 0.3$ (middle left of
+Figure~\ref{fig:rcirctongues_u} and middle right of
+Figure~\ref{fig:rcirctongues_n}). There are many high-period orbits
+for $\omega\approx 0.5$ in the uniform case, but very
+few in the normal case. Also, there is a period 2 tongue on the right
+side of the plot in the normal case, which is absent in the uniform
+case. A similarity between the simulations involving the uniform and normal
+distributions is that they both produced plots of Lyapunov exponents that seem to have a
+high density of exponents in the lower right corner
+(Figure~\ref{fig:rcirclyap_u} and Figure~\ref{fig:rcirclyap_n}), but
+only for the case where one varies $\omega$ and fixes $k$ to be
+constant.
+
+Just as the histogram in Figure~\ref{fig:rloghist} tried to suggest a
+distribution of periods in the logistic map, kernel density estimation
+in Figure~\ref{fig:kde1_u} points to the rotation numbers of the map
+being normally distributed (for a large enough bandwidth).
+\section{Future Work}
+\subsection{Extension to Higher Dimensions}
 A natural and intuitive next step would be to introduce a spatially
-random process to a higher dimensional map, such as the
+random process to a higher dimensional set of differential equations, such as the
 two-dimensional Lotka-Volterra
 system for competitive species interaction
 \begin{align}
@@ -12,8 +100,20 @@ system for competitive species interaction
 \end{align}
 In this system, the parameters $a,b,c,d,e,f$ are positive constants. A
 future work could replace one of the parameters with a spatially
-random process. 
-\section{Basin of Attraction for Chaotic Trajectories}
+random process. Limit cycles arise in analyzing this system of
+differential equations, and it would be interesting to explore the
+effect of spatial perturbations on these cycles. Another possible
+choice is the two-dimensional discrete time dynamical system, the H\'{e}non map,
+\begin{align}
+\begin{split}
+x_{n+1}&=1-ax_n^2+y_n\\
+y_{n+1}&=bx_n.
+\end{split}
+\end{align}
+One might replace one of the constants $a$ or $b$ with a spatially random
+process. This map was meant to be a simplified model of the
+Poincar\'{e} section of the Lorenz model. 
+\subsection{Basin of Attraction for Chaotic Trajectories}
 Exploring the basin of attraction for chaotic
 regions of the two maps may offer some interesting insights on how
 best to initialize remediation. Specifically, I would like to explore the
@@ -21,7 +121,7 @@ question: which set of initial conditions lead trajectories to chaotic
 behavior instead of stable orbits? The basin of attraction may offer
 implications on how one should inject treatment solution in the
 aquifer to get the best (chaotic) mixing.
-\section{Stabilizing Effects of Spatial Randomness}
+\subsection{Stabilizing Effects of Spatial Randomness}
 An unexpected result of the numerical simulations of the logistic map
 was the presence of stable low order orbits where $r \in
 [3,4]$. Previously, this region was unstable for the deterministic
@@ -30,7 +130,7 @@ explanation for this behavior. The idea of using random processes to
 stabilize chaotic behavior is a largely unexplored research topic of
 high interest and potential applications. For example, Hitczenko and Medvedev derived a condition to stabilize weakly
 unstable equilibria in temporally random processes~\cite{hitczenko}.
-\section{Dynamic Load Balancing on the Supercomputer}
+\subsection{Dynamic Load Balancing on the Supercomputer}
 We explored and simulated the spatially random logistic map using the
 dynamic load balancing tool on Janus\footnote{Janus has 1368 compute nodes, and
   each node has 12 processors. Each processor is capable of
@@ -41,115 +141,6 @@ calculations of an orbit from being parallelized, but a set of
 iterations may be load balanced over many
 cores. Improvements to this project include: adapting the program to
 produce other types of plots, extending the program to model
-the Arnold Circle Map, and optimizing the post-simulation data processing. 
-
-A \textbf{load balancer} is a tool that dynamically reassigns tasks as the
-processors complete their work. There are many strategies for load
-balancing, such as sender initiated diffusion, receiver initiated
-diffusion, hierarchical balance model, etc.~\cite{dlb}. The Load
-Balance tool on Janus uses a master-slave strategy for
-balancing~\cite{janus}. In general, a load balancer recognizes the
-number of processors that are going to be used in a simulation, and manages
-the workload distribution among
-them. Figure~\ref{fig:loadbalance_overall} demonstrates the load
-balancer coordinating tasks over three nodes. 
-\begin{figure}[H]\linespread{1}   
-\caption[Load balancing example]{Load balancing example over
-  three nodes. The load balancer is invoked over 3 nodes; it determins
-the work distribution over each node.}\label{fig:loadbalance_overall}
-	\begin{center}
-          \includegraphics[scale=0.35]{figs/loadbalance_overall.png}
-	\end{center}
-\end{figure}
-If, for example, Processor A finishes its load early
-(perhaps its initial condition led to near-immediate convergence),
-the load balancer assigns Processor A more work by reducing the
-queue of tasks on Processor B (a processor taking more time to complete its
-current task) and passing some tasks to Processor A. Figure~\ref{fig:loadbalance_node}
-shows how the load balancer reassigns tasks between the 12 processors
-on any given node.
-\begin{figure}[!h]
-\caption[Processor work distribution before and after load
-balancing]{As tasks arrive, each processor in a node takes an initial
-  task (left). As the processors finish their task, the ones who finish first are
-assigned more work while the others continue running (right).}\label{fig:loadbalance_node}
-\centering
-\includegraphics[width=.5\textwidth]{figs/loadbalance_node_start.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/loadbalance_node_end.png}
-\end{figure}
-Figure~\ref{fig:lbtool} demonstrates an example of a simulation
-using 40 nodes on Janus. A more detailed explanation of how the load
-balancing tool was called on each node is available in
-Appendix~\ref{lbdetails}. 
-\begin{figure}[H]\linespread{1}   
-\caption[Load balancing tool overview]{Load Balancing Tool Overview:
-  The load balancer is invoked over 40 nodes, where each node handles
-  some value of $r \in [0,4]$ and a number $N_x$ of initial conditions
-  $x_0 \in [0,1]$ are tested. Each node produces a datafile, which is
-  compiled with the other results to create a bifurcation diagram or
-  histogram of periodic orbits.}\label{fig:lbtool}
-	\begin{center}
-          \includegraphics[scale=0.45]{figs/load_balancer.png}
-	\end{center}
-\end{figure}
-
-The original simulation was written in serial code in
-MATLAB, and had extremely variable runtimes (due to the nature of fixed
-point iteration). The original version of the code was rewritten for efficiency,
-speed, and scalability. The new implementation, written in C++ and
-Python, was capable of reproducing two types plots: histograms of observed periodic
-orbits and bifurcation diagrams for varying values of the correlation
-length, $L$. Figure~\ref{fig:workflow} is a workflow of the
-program structure. A more detailed explanation of the scripts in
-Figure~\ref{fig:workflow} is in the Appendix~\ref{lbdetails}. 
-\begin{figure}[H]\linespread{1}
-\caption[Load balancing workflow]{Load Balancing Workflow: The load
-  balancing tool on Janus takes as input a list of commandline prompts
-  (created by \texttt{generate\_cmdline}) calling the
-  executable files \texttt{myfunc} and
-  \texttt{generate\_rands}. \texttt{generate\_cmdline}
-  specifies the parameters the user intends to test for the
-  simulation. Each node produces a file called \texttt{result},
-  which is parsed by \texttt{Unique} and \texttt{csv2hdf5} to get
-  a set of unique orbits to store in a HDF5 file. \texttt{Unique} also creates the histogram. The final script, \texttt{plotbif}, generates the bifurcation diagram.}\label{fig:workflow}
-	\begin{center}
-          \includegraphics[scale=0.5]{figs/workflow.png}
-	\end{center}
-\end{figure}
-
-Single core optimization techniques, such as SIMD loop
-vectorization and function inlining, as well as using a dynamic load
-balancer for more efficient work distribution were
-applied. Appendix~\ref{lbdetails} enumerates the modifications applied
-to the original implementation. The HDF5
-file format was used to store the simulation results in a better
-archival format. 
-
-The benchmarking (strong scaling study) results (Figure~\ref{fig:effsp}) imply
-the best speedup and efficiency is gained when invoking the load balancer on
-one node (12 processors), although we tested our simulation over 16 nodes
-(192 processors). The formulas for calculating speedup $S$ and
-efficiency $E$ are
-\begin{align}
-\begin{split}
-S &= \frac{t_s}{t_l}\\
-E &= \frac{S}{n_p},
-\end{split}
-\end{align}
-where $t_s$ is the serial computation time, $t_l$ is the load balanced
-computation time, and $n_p$ is the number of processors used. However,
-since the original serial implementation in MATLAB could take days to complete,
-the speedup and efficiency in Figure~\ref{fig:effsp} was computed using a
-serial implementation in C++, so these plots reflect speedup and
-efficiency where single core optimization has already been applied. The
-diminishing speedup and efficiency for larger numbers of processors is
-likely due to the overhead cost of coordinating tasks over many
-processors and nodes. 
-\begin{figure}[!h]
-\caption[Impact of the load balancing tool: efficiency and
-speedup]{Efficiency (left) and Speedup (right) of the new
-  implementation. The best efficiency occurred for one node, and the best speedup was also achieved for 1 node.}\label{fig:effsp}
-\centering
-\includegraphics[width=.5\textwidth]{figs/efficiency_random_logistic.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/speedup_random_logistic.png}
-\end{figure}
+the Arnold Circle Map, and optimizing the post-simulation data
+processing. Appendix~\ref{lbdetails} offers more information regarding
+background information on load balancing tools, program design, and effects of the load balancing tool on performance.

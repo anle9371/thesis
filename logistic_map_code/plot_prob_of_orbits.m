@@ -1,21 +1,18 @@
-%plotting prob of orbits
-clear
+% plotting orbit histogram
+% data = [period, avg_num, stderr]
+function plot_prob_of_orbits(data, pth, fname, L, r, maxp)
 close all
-clc
-global tol
-tol = 10e-6;
-r = linspace(0+tol,4-tol,10);
-kmax = 100; 
-for k = 1:length(r)
-    fname = strcat(strcat(strcat('prob_of_orbit_',num2str(kmax)),num2str(r(k))),'.csv')
-    M = csvread(fname);
-    figure
-    plot(M(:,1),M(:,2),'--ks',...
-        'LineWidth',0.5,...
-        'MarkerSize',3,...
-        'MarkerEdgeColor','b',...
-        'MarkerFaceColor',[0.5,0.5,0.5])
-    xlabel('Period Order')
-    ylabel('Probability')
-    title('Probability of Period Orders')
+bar(data(:,1),data(:,2),'g')
+hold on
+h = errorbar(data(:,1),data(:,2),data(:,3),'k');
+set(h(1),'linestyle','none');
+title(['L = ',num2str(L),' r = ',num2str(r)])
+xlabel('Period')
+ylabel('Average Number of Period p Orbits')
+xlim([0 maxp])
+set(gca,'FontSize',15)
+set(findall(gcf,'type','text'),'FontSize',15)
+set(gcf,'position',get(0,'screensize'))
+fh = gcf;
+saveas (fh, [pth,fname,'.png'], 'png');
 end

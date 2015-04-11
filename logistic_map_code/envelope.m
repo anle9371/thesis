@@ -1,12 +1,6 @@
 % bound the map at each position 
 
 function envelope(r,N,L,xlen)
-
-% L = 0.1;   % max length
-% N = 100;   % max number of modes
-% r = 3.2;     % expectation of xi, E[xi] = ln(r)
-% xlen = 25;    % number of results to print
-
 iter = 1000;    % number of x locations
 kmax = 500;    % number of different realizations
 st = linspace(0,1,kmax);    % vector of initial conditions
@@ -43,5 +37,4 @@ h=gcf;
 name = ['envelope_',num2str(kmax),'_r',num2str(r),'_L',num2str(L),'.png'];
 path = 'C:\Users\amy\Dropbox\thesis\logistic_map_code\figures\';
 saveas (h, [path,name], 'png');
-
 end

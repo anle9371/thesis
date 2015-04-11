@@ -9,6 +9,7 @@
      "geotechdata"
      "advection"
      "strogatz"
+     "kahane"
      "billingsley"
      "gelhar"
      "ross"
