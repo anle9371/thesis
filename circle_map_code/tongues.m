@@ -15,7 +15,7 @@ omegavect = linspace(wmin, wmax, nstep);
 kvect = linspace(kmin,kmax,nstep);
 
 % random draws
-alpha = 10e-5;
+alpha = .5*(10e-5);
 if N < (10/L)
     N = ceil(10/L);
 end
@@ -28,9 +28,9 @@ trunc = 150;   % will make arnold return a vec 150 units long
 % arnold returns a vector xt of final postions
 % look for period order in xt
 for i = 1:nstep
-    disp(i)
+    disp(['tongue iter: ',num2str(i)])
     for j = 1:nstep
-        [xv,~,~] = arnold(x0(i,j), iter, a, b, kvect(i), omegavect(j), N, trunc,0);
+        [xv,~,~] = arnold(x0(i,j), iter, a, b, kvect(i), omegavect(j), N, trunc,1);
         if isnan(xv(end)) == 0
             for w = 1:pmax    % check period of orbit
                 if abs(xv(end-w) - xv(end)) < tol
@@ -46,8 +46,8 @@ end
 
 % set up figure
 set(gcf,'position',get(0,'screensize'))
-period = flipud(period+1);   %reflect image to get proper orientation
-image(period)   ;                    %add one to get 1 based image
+period = flipud(period);   %reflect image to get proper orientation
+image(period)   ;      
 
 % custom colormap
 c1 = colorcube(pmax);
@@ -74,9 +74,9 @@ set(findall(gcf,'type','text'),'FontSize',15)
 
 % save a data and png file
 h = gcf;
-name = ['tongues_norm_',num2str(nstep),'_L_',num2str(L),'.png'];
-path = 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\normal_tongues\';
-% 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\tongues\';
-dlmwrite([path,['tongues_norm_',num2str(nstep),'_L_',num2str(L),'.csv']],period)
-saveas (h, [path,name], 'png');
+name = ['tongues_u_halfa_',num2str(nstep),'_L_',num2str(L),'.png'];
+% 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\normal_tongues\';
+pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\tongues\halfa\';
+dlmwrite([pth,['tongues_u_halfa_',num2str(nstep),'_L_',num2str(L),'.csv']],period)
+saveas (h, [pth,name], 'png');
 end

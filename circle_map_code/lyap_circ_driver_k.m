@@ -4,12 +4,12 @@ kmin = 0;
 kmax = 5;
 maxj = 10000;
 x0 = 0.7;
-alpha = 10e-5;
+alpha = .5*(10e-5);
 
-L = [0.1, 0.3, 0.5, 0.7, 0.9];
+L = [0.1, 0.3, 0.5, 0.9];
 N = 100;
 q = 1;
-w = [0.1, 0.2, 0.4, 0.06, 0.8];
+w = [0.3, 0.65];
 for j = 1:length(w)
     disp('round one')
     l = lyapunov_circ_k( kmin, kmax, maxj, x0, .8, L, N, alpha, 0 );

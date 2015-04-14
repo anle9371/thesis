@@ -18,7 +18,7 @@ if s ~= 1
     end
     mymap = mod(t + myW - (k/(2*pi)) * sin(2.0 * pi * t),1);
     xt = 0;
-else
+else %s = 1
     % % bifurcation diagram calcs
     x = zeros(iter,1);
     x(1) = x0;

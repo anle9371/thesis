@@ -12,7 +12,7 @@
 % plot of the lyapunov exponent vs omega
 function lambda = lyapunov_circ_k( kmin, kmax, maxj, x0, w, L, N, alpha, q )
 close all
-
+kk=1:N;
 k = linspace(kmin,kmax,maxj);
 lambda = zeros(maxj,1);
 n = 1000;
@@ -28,9 +28,9 @@ if q == 1 %random map
         xi = zeros(n,1);
         for ic = 1:n
             xtmp = xv(ic)*ones(1,N);
-            res = 2*(-a'.*2*pi.*w.*sin(2*pi*w.*xtmp) + b'.*2*pi.*w.*cos(2*pi*w.*xtmp));
+            res = 2*(-a'.*2*pi.*kk.*sin(2*pi*kk.*xtmp) + b'.*2*pi.*kk.*cos(2*pi*kk.*xtmp));
             Dxi(ic) = sum(res) ;
-            xi(ic) = log(k(j)) + sum(2*(a'.*cos(2*pi*w.*xtmp) - b'.*sin(2*pi*w.*xtmp)));
+            xi(ic) = log(k(j)) + sum(2*(a'.*cos(2*pi*kk.*xtmp) - b'.*sin(2*pi*kk.*xtmp)));
         end
         
         %compute Omega'(x)
@@ -41,7 +41,7 @@ if q == 1 %random map
         Df = 1 - k(j) * cos(2.0 * pi * xv) + DW;
         lambda(j) = sum(log(abs(Df)))/n;
     end    
-    pname = ['rcirc_u_lyap_',num2str(maxj),'_L_',num2str(L),'_w_',num2str(w),'_k.png'];
+    pname = ['rcirc_u_halfa_lyap_',num2str(maxj),'_L_',num2str(L),'_w_',num2str(w),'_k.png'];
 else
     for j = 1:maxj
         x = zeros(n,1);
@@ -63,7 +63,7 @@ xlabel('k','FontSize',16)
 ylabel('\lambda','FontSize',16)
 title(['\omega = ',num2str(w)],'FontSize',16)
 h = gcf;
-% pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\';
-pth = 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\lyapunov\';
+pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\lyapunov\uniform\halfa\';
+% pth = 'C:\Users\swamy\Documents\amy\thesis\circle_map_code\circle_map_code\figures\lyapunov\';
 saveas (h, [pth,pname], 'png');
 end
