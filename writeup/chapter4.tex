@@ -115,10 +115,30 @@ constant.
 Just as the histograms in Figures~\ref{fig:rloghist},~\ref{fig:rloghist2} tried to suggest a
 distribution of periods in the logistic map, kernel density estimation
 in Figure~\ref{fig:kde1_u} points to the rotation numbers of the map
-being normally distributed (for a large enough bandwidth). This notion
-is supported by the results from Figure~\ref{fig:avgcircorbs}, where
-the average number of orbits was shown not to follow an exponential
-distribution. The numerical simulations insinuate distributions of
+being normally distributed (for a large enough bandwidth) for
+uniformly distributed $\hat{\xi}_n$. This notion is supported by the
+results from Figure~\ref{fig:avgcircorbs} and~\ref{fig:avgcircorbs_ha}, where the average number of orbits was shown not to follow an exponential
+distribution. One difference between the log scale plots is that for $\alpha=\frac{1}{2}10^{-5}$, the range
+of average number of periodic orbits seems wider than for
+$\alpha=10^{-5}$. 
+
+For the normally distributed $\hat{\xi}_n$, halving
+$\alpha$ introduces more stable high-period orbits when
+$L=0.05,\omega=0.9,k=1$ (left side of Figure~\ref{fig:rcirchist_n1} and~\ref{fig:rcirchist_n1_ha}). Reducing
+$\alpha$ also reduces the frequency of period 6 orbits for
+$L=0.9,\omega=0.6,k=1.5$ (right side of Figure~\ref{fig:rcirchist_n2}
+and~\ref{fig:rcirchist_n2_ha}). Studying the results from the circle
+map for uniformly distributed
+$\hat{\xi}_n$ was different from the normally distributed case. First,
+the observed frequency of period 1 and 2 orbits have opposite trends when $\alpha$ is
+halved (Figure~\ref{fig:rcirchist_u_ma1}
+and~\ref{fig:rcirchist_u_ha1}). Also, in Figure~\ref{fig:rcirchist_u_ma2},
+period 3 and 6 orbits dominate the plot evenly, yet in
+Figure~\ref{fig:rcirchist_u_ha2}, period 3 is half as frequently observed than
+period 6. From this perspective it does not seem that the circle map
+with two different random processes is similar at all.
+
+The numerical simulations insinuate distributions of
 rotation number and period for the circle map, but they leave analytic
 underpinnings to be desired. A next step would be to use the theory
 surrounding the distribution of the spatially random process to derive
@@ -164,13 +184,25 @@ the onset of chaos for these types of systems were to exist, it would
 have implications for studying higher-dimensional systems.
 \subsection{Stabilizing Effects of Spatial Randomness}
 An unexpected result of the numerical simulations of the logistic map
-was the presence of stable low order orbits where $r \in
+was the presence of stable low-period orbits where $r \in
 [3,4]$. Previously, this region was unstable for the deterministic
-map. Further study of this phenomenon may yield a theoretical
+map. A natural question that arises is: how small can we make the
+variance of the spatially random process such that this stable region is
+preserved? This thesis explored using the maximum upper bound $\sigma=\sigma_{max}$ and half
+of the maximum $\sigma=\frac{1}{2}\sigma_{max}$ from the expression
+in~(\ref{sigma}). Looking at smaller values of $\sigma$, or choosing
+an alternative method of bounding the variance would be an
+thought-provoking future study. The circle map also displayed stable period 2 orbits where there
+were previously only period 1 orbits for $L=0.3$, but this region
+disappeared for $L\leq 0.1$ and $L \geq 0.5$. It would be interesting
+to find the largest $\epsilon > 0$ such that $L=0.3 \pm \epsilon$
+results in the birth of this period 2 region in the circle map. Further study of the stabilized
+regions in both maps may yield a theoretical
 explanation for this behavior. The idea of using random processes to
 stabilize chaotic behavior is a largely unexplored research topic of
 high interest and potential applications. For example, Hitczenko and Medvedev derived a condition to stabilize weakly
-unstable equilibria in temporally random processes~\cite{hitczenko}.
+unstable equilibria in temporally random
+processes~\cite{hitczenko}. 
 \subsection{Dynamic Load Balancing on the Supercomputer}
 We explored and simulated the spatially random logistic map using the
 dynamic load balancing tool on Janus\footnote{Janus has 1368 compute nodes, and
@@ -183,5 +215,12 @@ iterations may be load balanced over many
 cores. Improvements to this project include: adapting the program to
 produce other types of plots, extending the program to model
 the Arnold Circle Map, and optimizing the post-simulation data
-processing. Appendix~\ref{lbdetails} offers more information regarding
+processing. Furthermore, we can explore using Newton's method to find
+the fixed points of the randomized maps. The advantages of this method
+over simply iterating the maps would be quadratic convergence to the
+roots and identification of unstable orbits. The current iterative
+method only locates stable orbits, and its rate of convergence is
+highly variable. 
+
+Appendix~\ref{lbdetails} offers more information regarding
 background information on load balancing tools, program design, and effects of the load balancing tool on performance.

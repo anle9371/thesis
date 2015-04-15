@@ -45,23 +45,29 @@
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Lyapunov exponent in the random circle map (uniform distribution) compared to the deterministic map, varying $k$, $\alpha = 10^{-5}$}}{57}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha = 10^{-5}$, $\omega =0.9$ and $k=1$}}{58}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha =10^{-5}$, $\omega =0.6$ and $k=1.5$}}{58}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Average number of period $p$ orbits for the random circle map, $\alpha = 10^{-5}$}}{59}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Log scale plot of average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha =10^{-5}$, $\omega =0.6$ and $k=1$}}{59}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha = \frac {1}{2}10^{-5}$, $\omega =0.9$ and $k=1$}}{60}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha =\frac {1}{2}10^{-5}$, $\omega =0.6$ and $k=1.5$}}{60}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (uniform distribution), $\alpha = 10^{-5}$}}{61}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (uniform distribution), $\alpha = 10^{-5}$}}{61}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Histogram and kernel density estimator of rotation numbers in the random circle map, $\alpha = 10^{-5}$}}{62}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces The Arnold tongues for the random circle map, normal distribution, $\alpha = 10^{-5}$}}{64}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces The Arnold tongues for the random circle map, normal distribution, $\alpha = \frac {1}{2}10^{-5}$}}{65}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $\omega $, $\alpha = 10^{-5}$}}{66}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $k$, $\alpha = 10^{-5}$}}{67}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (normal distribution), $\alpha = 10^{-5}$}}{68}
-\contentsline {figure}{\numberline {3.27}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (normal distribution), $\alpha = 10^{-5}$}}{68}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Log scale plot of average number of period $p$ orbits for the random circle map (uniform distribution), for $\alpha =\frac {1}{2}10^{-5}$, $\omega =0.6$ and $k=1$}}{61}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (uniform distribution), $\alpha = 10^{-5}$}}{62}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (uniform distribution), $\alpha = 10^{-5}$}}{62}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Histogram and kernel density estimator of rotation numbers in the random circle map, $\alpha = 10^{-5}$}}{63}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces The Arnold tongues for the random circle map, normal distribution, $\alpha = 10^{-5}$}}{65}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces The Arnold tongues for the random circle map, normal distribution, $\alpha = \frac {1}{2}10^{-5}$}}{66}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $\omega $, $\alpha = 10^{-5}$}}{67}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $k$, $\alpha = 10^{-5}$}}{68}
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Lyapunov exponent in the random circle map (normal distribution) compared to the deterministic map, varying $k$, $\alpha = \frac {1}{2}10^{-5}$}}{69}
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Average number of period $p$ orbits for the random circle map (normal distribution), for $\alpha = 10^{-5}$, $\omega =0.9$ and $k=1$}}{70}
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Average number of period $p$ orbits for the random circle map (normal distribution), for $\alpha =10^{-5}$, $\omega =0.6$ and $k=1.5$}}{70}
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Average number of period $p$ orbits for the random circle map (normal distribution), for $\alpha = \frac {1}{2}10^{-5}$, $\omega =0.9$ and $k=1$}}{71}
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Average number of period $p$ orbits for the random circle map (normal distribution), for $\alpha =\frac {1}{2}10^{-5}$, $\omega =0.6$ and $k=1.5$}}{71}
+\contentsline {figure}{\numberline {3.32}{\ignorespaces The devil's staircase for the random circle map, varying $L$ (normal distribution), $\alpha = 10^{-5}$}}{72}
+\contentsline {figure}{\numberline {3.33}{\ignorespaces The devil's staircase for the random circle map, varying $k$ (normal distribution), $\alpha = 10^{-5}$}}{72}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Load balancing example}}{76}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Processor work distribution before and after load balancing}}{77}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Load balancing tool overview}}{79}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Load balancing workflow}}{81}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Impact of the load balancing tool: efficiency and speedup}}{82}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Load balancing example}}{81}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Processor work distribution before and after load balancing}}{82}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Load balancing tool overview}}{84}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Load balancing workflow}}{86}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Impact of the load balancing tool: efficiency and speedup}}{87}
 \addvspace {10\p@ }

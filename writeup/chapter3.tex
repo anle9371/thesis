@@ -171,6 +171,7 @@ we have $(0.05, 200, 0.07772)$ (left), $(0.1, 100, 0.10993)$
 \includegraphics[width=.33\textwidth]{figs/rlog_hist_L_02_r_12_s_015556_a_00024119_sims_5000.png}
 	\end{center}
 \end{figure}
+
 Figure~\ref{fig:rlogbif_hs} and Figure~\ref{fig:rloglyap2_hs}
 demonstrate results from simulating the random logistic map where the
 variance $\sigma$ of $\xi(x)$ is chosen to be half of the maximal
@@ -402,9 +403,9 @@ distribution, $\alpha = \frac{1}{2}10^{-5}$]{The Arnold
 \centering
 \includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_0025.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_005.png}\\
-\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_03.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_05.png}\\
-\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_07.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_01.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_03.png}\\
+\includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_05.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/tongues_u_halfa_1000_L_09.png}\\
 \end{figure}
 
@@ -479,25 +480,21 @@ The histograms in the previous two
 figures(\ref{fig:rcirchist_u_ma1},~\ref{fig:rcirchist_u_ma2}) seemed
 to obscure some results due to the linear scale of the $y$-axis. A plot of the average number of orbits
 (Figure~\ref{fig:avgcircorbs}) uses a logarithmic scale. It is clear
-that the largest number of orbits over 1000
-simulations is period 1. The parameters tested in this simulation were
-for $k=1, \omega=0.1$, which corresponds to a stable period 1 region
-in the bifurcation diagram (middle left in
-Figure~\ref{fig:rcirctongues_u}). This demonstrates the presence of
-stable high-period orbits, where previously there were only
-stable period 1 orbits in the deterministic map. Interestingly, the
+that the largest number of orbits over 5,000
+simulations is period 5. The parameters tested in this simulation were
+for $k=1, \omega=0.6$. Interestingly, the
 semi-log plot demonstrates the distribution of periodic orbits is not
 exponential, since the shape of the graph is not linear.
 
 \begin{figure}[H]\linespread{1}
-\caption[Average number of period $p$ orbits for the random circle
-map, $\alpha = 10^{-5}$]{Average number of period $p$ orbits for the random circle map,
-  where $L=0.1$, $\omega =0.1$, $\alpha = 10^{-5}$, $\hat{\xi}_n\sim
-  Unif(-M_n,M_n)$ and $k=1$. Results from 1000 simulations of these
+\caption[Log scale plot of average number of period $p$ orbits for the random circle
+map (uniform distribution), for $\alpha=10^{-5}$, $\omega=0.6$ and
+$k=1$]{Log scale plot of average number of period $p$ orbits for the random circle map,
+  where $L=0.1$, $\omega =0.6$, $\alpha = 10^{-5}$, $\hat{\xi}_n\sim
+  Unif(-M_n,M_n)$ and $k=1$. Results from 5,000 simulations of these
   parameters are plotted, using a logarithmic scale for the
-  $y$-axis. The error bars indicate the standard error in calculating the mean over 1000 samples.}\label{fig:avgcircorbs}
-	\begin{center}
-		\includegraphics[scale=0.65]{figs/rcirc_avg_num_1000_sim_logscale.png}
+  $y$-axis.}\label{fig:avgcircorbs}
+	\begin{center}		\includegraphics[width=.8\textwidth]{figs/rcirc_avg_num_1000_sim_logscale.png}
 	\end{center}
 \end{figure}
 
@@ -551,6 +548,27 @@ we have $(0.05, 200)$ (left), $(0.1, 100)$
 \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_halfa_L_09_w_06_k_15_sims_5000.png}
 	\end{center}
 \end{figure}
+
+A log plot of the average number of orbits
+(Figure~\ref{fig:avgcircorbs_ha}) uses a logarithmic scale, like in Figure~\ref{fig:avgcircorbs}. It is clear
+that the largest number of orbits over 5,000
+simulations is period 5 and there are many stable high-period orbits for both the case where $\alpha = 10^{-5}$ and $\alpha=\frac{1}{2}10^{-5}$. The parameters tested in this simulation were
+for $k=1, \omega=0.6$. Interestingly, both the semi-log plots
+demonstrate a non-exponential distribution of period. One difference
+between the plots is that for $\alpha=\frac{1}{2}10^{-5}$, the range
+of average number of periodic orbits seems wider than for $\alpha=10^{-5}$.
+
+\begin{figure}[H]\linespread{1}
+\caption[Log scale plot of average number of period $p$ orbits for the random circle
+map (uniform distribution), for $\alpha=\frac{1}{2}10^{-5}$, $\omega=0.6$ and $k=1$]{Average number of period $p$ orbits for the random circle map,
+  where $L=0.1$, $\omega =0.6$, $\alpha = \frac{1}{2}10^{-5}$, $\hat{\xi}_n\sim
+  Unif(-M_n,M_n)$ and $k=1$. Results from 5,000 simulations of these
+  parameters are plotted, using a logarithmic scale for the
+  $y$-axis.}\label{fig:avgcircorbs_ha}
+	\begin{center}		\includegraphics[width=.8\textwidth]{figs/rcirc_u_avg_num_logscale_ha.png}
+	\end{center}
+\end{figure}
+
 % \begin{figure}[H]\linespread{1}
 % \caption[Bifurcation diagram of the random
 % circle map in $(x,\omega)$-space with the uniform distribution]{Bifurcation diagram of the random
@@ -720,22 +738,6 @@ deterministic map, varying $\omega$, $\alpha = 10^{-5}$]{The Lyapunov exponent f
 
 \begin{figure}[!h]
 \caption[Lyapunov exponent in the random circle map (normal distribution) compared to the
-deterministic map, varying $\omega$, $\alpha = \frac{1}{2}10^{-5}$]{The Lyapunov exponent for the deterministic
-  circle map (top left) is compared
-  to the Lyapunov exponent of the random circle map for $L \in
-  \{0.05,0.1,0.3,0.5,0.9\}$, where $x_0=0.7$, $k=1.5$,$\alpha =\frac{1}{2}10^{-5}$, and $\hat{\xi}_n\sim
-  N(0,\alpha e^{-L|n|})$ for $\omega \in [0,1]$. The number of exponents computed was $N_\lambda=10,000$. Plots are read left to right, and top to bottom. }\label{fig:rcirclyap_n_ha}
-\centering
-\includegraphics[width=.5\textwidth]{figs/det_circ_lyap.png}\hfill
-% \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_005_w.png}\\
-% \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_01_w.png}\hfill
-% \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_03_w.png}\\
-% \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_05_w.png}\hfill
-% \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_L_09_w.png}\\
-\end{figure}
-
-\begin{figure}[!h]
-\caption[Lyapunov exponent in the random circle map (normal distribution) compared to the
 deterministic map, varying $k$, $\alpha = 10^{-5}$]{The Lyapunov exponent for the deterministic
   circle map (top left) is compared
   to the Lyapunov exponent of the random circle map for $L \in
@@ -756,41 +758,82 @@ deterministic map, varying $k$, $\alpha = 10^{-5}$]{The Lyapunov exponent for th
 deterministic map, varying $k$, $\alpha = \frac{1}{2}10^{-5}$]{The Lyapunov exponent for the deterministic
   circle map (top left) is compared
   to the Lyapunov exponent of the random circle map for $L \in
-  \{0.05,0.1,0.3,0.5,0.7\}$, where $x_0=0.7$, $\omega=0.4$,$\alpha =\frac{1}{2}10^{-5}$, and $\hat{\xi}_n\sim
+  \{0.3,0.5,0.7\}$, where $x_0=0.7$, $\omega=0.4$,$\alpha =\frac{1}{2}10^{-5}$, and $\hat{\xi}_n\sim
   N(0,\alpha e^{-L|n|})$ for $k \in [0,5]$. The number of exponents computed was $N_\lambda=10,000$. Plots are read left to right, and top to bottom. }\label{fig:rcirclyap2_n}
 \centering
-\includegraphics[width=.5\textwidth]{figs/det_circ_lyap_k.png}\hfill
-\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_005_w_04_k.png}\\
-\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_01_w_04_k.png}\hfill
+\includegraphics[width=.5\textwidth]{figs/detcirc_n_lyap_10000_w_04_k.png}\hfill
+%\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_005_w_04_k.png}\\
+%\includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_01_w_04_k.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_03_w_04_k.png}\\
 \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_05_w_04_k.png}\hfill
 \includegraphics[width=.5\textwidth]{figs/rcirc_n_lyap_halfa10000_L_07_w_04_k.png}\\
 \end{figure}
 
-% \begin{figure}[H]\linespread{1}
-% \caption[Average number of period $p$ orbits for the random circle
-% map (normal distribution), for $\alpha = 10^{-5}$, $\omega=0.9$ and $k=1$]{Average number of period $p$ orbits for the random circle
-% map, where 5000 simulations are plotted. The error bars indicate
-% the standard error of the calculation of the mean. $L \in
-%   \{0.025,0.05,0.1\}$, $k=1$, $\omega=0.9$, $\alpha = 10^{-5}$, $N\in \{400,200,100\}$.}\label{fig:rcirchist_n_ma1}
-% 	\begin{center}
-% \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_0025_w_09_k_1_sims_5000.png}\hfill
-% \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_05_w_09_k_1_sims_5000.png}\hfill
-% \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_01_w_09_k_1_sims_5000.png}
-% 	\end{center}
-% \end{figure}
+Histograms displaying the average number of periodic orbits are shown
+in Figure~\ref{fig:rcirchist_n1}
+through~\ref{fig:rcirchist_n2_ha}. Halving $\alpha$ introduces more
+stable high-period orbits when $L=0.05,\omega=0.9,k=1$ (left side of
+Figure~\ref{fig:rcirchist_n1} and~\ref{fig:rcirchist_n1_ha}). Reducing
+$\alpha$ also reduces the frequency of period 6 orbits for
+$L=0.9,\omega=0.6,k=1.5$ (right side of Figure~\ref{fig:rcirchist_n2} and~\ref{fig:rcirchist_n2_ha}).
 
-% \begin{figure}[H]\linespread{1}
-% \caption[Average number of period $p$ orbits for the random circle
-% map (normal distribution), for $\alpha=10^{-5}$, $\omega=0.9$ and $k=1.5$]{Average number of period $p$ orbits for the random circle
-% map, where 5000 simulations are plotted. The error bars indicate
-% the standard error of the calculation of the mean. $L \in
-%   \{0.05,0.1,0.9\}$, , $\omega=0.9$, $k=1$, $\alpha = 10^{-5}$, $N\in \{200,100,100\}$.}\label{fig:rcirchist_n_ma2}
-% 	\begin{center}	\includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_005_w_09_k_15_sims_5000.png}\hfill
-% \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_01_w_09_k_15_sims_5000.png}\hfill
-% \includegraphics[width=.33\textwidth]{figs/rcirc_hist_u_L_09_w_09_k_15_sims_5000.png}
-% 	\end{center}
-% \end{figure}
+\begin{figure}[H]\linespread{1}
+\caption[Average number of period $p$ orbits for the random circle
+map (normal distribution), for $\alpha = 10^{-5}$, $\omega=0.9$ and $k=1$]{Average number of period $p$ orbits for the random circle
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. In all plots,
+$\alpha = 10^{-5}$, $\omega=0.9$ and $k=1$. For $(L,N)$,
+we have $(0.025, 400)$ (left), $(0.05, 200)$
+(middle), and $(0.1, 100)$ (right).}\label{fig:rcirchist_n1}
+	\begin{center}
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_0025_w_09_k_1_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_005_w_09_k_1_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_01_w_09_k_1_sims_5000.png}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]\linespread{1}
+\caption[Average number of period $p$ orbits for the random circle
+map (normal distribution), for $\alpha=10^{-5}$, $\omega=0.6$ and $k=1.5$]{Average number of period $p$ orbits for the random circle
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. In all plots,
+$\alpha = 10^{-5}$, $\omega=0.6$ and $k=1.5$. For $(L,N)$,
+we have $(0.05, 200)$ (left), $(0.1, 100)$
+(middle), and $(0.9, 100)$ (right).}\label{fig:rcirchist_n2}
+	\begin{center}	\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_005_w_06_k_15_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_01_w_06_k_15_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_L_09_w_06_k_15_sims_5000.png}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]\linespread{1}
+\caption[Average number of period $p$ orbits for the random circle
+map (normal distribution), for $\alpha = \frac{1}{2}10^{-5}$, $\omega=0.9$ and $k=1$]{Average number of period $p$ orbits for the random circle
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. In all plots,
+$\alpha = \frac{1}{2}10^{-5}$, $\omega=0.9$ and $k=1$. For $(L,N)$,
+we have $(0.025, 400)$ (left), $(0.05, 200)$
+(middle), and $(0.1, 100)$ (right).}\label{fig:rcirchist_n1_ha}
+	\begin{center}
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_0025_w_09_k_1_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_005_w_09_k_1_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_01_w_09_k_1_sims_5000.png}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]\linespread{1}
+\caption[Average number of period $p$ orbits for the random circle
+map (normal distribution), for $\alpha=\frac{1}{2}10^{-5}$, $\omega=0.6$ and $k=1.5$]{Average number of period $p$ orbits for the random circle
+map, where 5000 simulations are plotted. The error bars indicate
+the standard error of the calculation of the mean. In all plots,
+$\alpha = \frac{1}{2}10^{-5}$, $\omega=0.6$ and $k=1.5$. For $(L,N)$,
+we have $(0.05, 200)$ (left), $(0.1, 100)$
+(middle), and $(0.9, 100)$ (right).}\label{fig:rcirchist_n2_ha}
+	\begin{center}	\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_005_w_06_k_15_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_01_w_06_k_15_sims_5000.png}\hfill
+\includegraphics[width=.33\textwidth]{figs/rcirc_hist_n_halfa_L_09_w_06_k_15_sims_5000.png}
+	\end{center}
+\end{figure}
 
 Figure~\ref{fig:randdevil1_n} and Figure~\ref{fig:randdevil2_n} are
 plots of the rotation number of the random circle map for normally
