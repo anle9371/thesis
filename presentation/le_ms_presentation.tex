@@ -289,6 +289,7 @@ x_{n+1}= f_c(x_n) &=  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n)\>, \quad 
 \end{align*}
 }
 \end{frame}
+
 %------------------------------------------------
 \fbckg{blank}
 \begin{frame}
@@ -420,15 +421,19 @@ x_{n+1}= f_c(x_n) &=  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n)\>, \quad 
 \fbckg{blank}
 \begin{frame}
 \pointedsl{\large Period Distribution} 
- \end{frame}
+\end{frame}
 %------------------------------------------------
-\fbckg{rlog_hist_L_01_r_33_s_0017565_a_15414e-05_sims_5000}
+\fbckg{blank}
 \begin{frame}
- \end{frame}
-%------------------------------------------------
-\fbckg{rlog_hist_L_09_r_33_s_005351_a_0001208_sims_5000}
-\begin{frame}
- \end{frame}
+\misc{ Period Distribution
+\begin{figure}[h]
+\centering
+\includegraphics[width=.495\textwidth]{rlog_hist_L_01_r_33_s_0017565_a_15414e-05_sims_5000}\hfill
+\includegraphics[width=.495\textwidth]{rlog_hist_L_01_r_33_sims_5000semilogy}
+\end{figure}
+}
+\end{frame}
+
 %------------------------------------------------
 \fbckg{blank}
 \begin{frame}
@@ -445,9 +450,46 @@ x_{n+1}= f_c(x_n) &=  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n)\>, \quad 
 \begin{frame}
 \end{frame}
 %------------------------------------------------
+\fbckg{tongues_norm_halfa_1000_L_01} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_0125} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_015} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_0175} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_02} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_0225} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_025} 
+\begin{frame}
+\end{frame}
+%------------------------------------------------
+\fbckg{tongues_n_ma_1000_L_0275} 
+\begin{frame}
+\end{frame}
+
+%------------------------------------------------
 \fbckg{tongues_norm_1000_L_03} 
 \begin{frame}
 \end{frame}
+% %------------------------------------------------
+% \fbckg{tongues_norm_halfa_1000_L_03} 
+% \begin{frame}
+% \end{frame}
 %------------------------------------------------
 \fbckg{tongues_norm_1000_L_05} 
 \begin{frame}
@@ -482,8 +524,40 @@ $N_\lambda = 10,000$ simulations, $\alpha = 10^{-5}$, $L=0.1$
 \misc{ Period Distribution
 \begin{figure}[h]
 \centering
-\includegraphics[width=.495\textwidth]{rcirc_hist_u_L_01_w_06_k_1_sims_5000}\hfill
+\includegraphics[width=.495\textwidth]{rcirc_hist_n_L_01_w_06_k_1_sims_5000}\hfill
 \includegraphics[width=.495\textwidth]{rcirc_avg_num_1000_sim_logscale}
+\end{figure}
+}
+\end{frame}
+%------------------------------------------------
+\fbckg{blank}
+\begin{frame}
+\misc{ Rotation Number
+$\rho(f)$ is the fractional part of
+\begin{equation*}
+\rho(F) = \lim_{n \to \infty} \frac{|F^n(x)|}{n}.
+\end{equation*}
+}
+\end{frame}
+%------------------------------------------------
+\fbckg{blank}
+\begin{frame}
+\misc{ Devil's Staircase
+\begin{figure}[h]
+\centering
+\includegraphics[width=.495\textwidth]{detcirc_devil_k1}\hfill
+\includegraphics[width=.495\textwidth]{rcirc_n_devil_k1_L005}
+\end{figure}
+}
+\end{frame}
+%------------------------------------------------
+\fbckg{blank}
+\begin{frame}
+\misc{ Distribution of Rotation Number
+\begin{figure}[h]
+\centering
+\includegraphics[width=.495\textwidth]{hist_rho_k1_L01_om045}\hfill
+\includegraphics[width=.495\textwidth]{kde_rho_k1_L01_om045}
 \end{figure}
 }
 \end{frame}
@@ -498,7 +572,7 @@ $N_\lambda = 10,000$ simulations, $\alpha = 10^{-5}$, $L=0.1$
 \misc{Logistic Map\\
 \pitem{Stabilized low period region of logistic map for $r \in [3,4]$}
 \pitem{High-period orbits for small $r$ present when $\sigma \approx \sigma_{max}$}
-\fitem{Distribution of period may be exponential}} 
+\fitem{Distribution of period may not be exponential}} 
 \end{frame}
 %------------------------------------------------
 \fbckg{blank} % Slide background image

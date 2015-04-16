@@ -62,21 +62,25 @@ of the deterministic map for large $r$. An alternative is to consider constructi
 another bound on $\sigma$ that does not fall off as sharply as~(\ref{sigma}).
 
 Although the distribution of periods (Figure~\ref{fig:rloghist},~\ref{fig:rloghist2})
-appears exponential, it has not been analytically proved. When halving
-$\sigma$, the exponential shape is retained, although it is scaled a
+appeared exponential, the log scale plot of the histograms
+demonstrates an exponential distribution is unlikely, since the shape
+of the data is nonlinear (Figure~\ref{fig:rloghistlog}). When halving
+$\sigma$, the general shape of the histogram is retained, although it is scaled a
 little smaller. It appears the density of
 stable orbits for $r<3$ diminishes as $L$ is increased (Figure~\ref{fig:rloghist_hs},~\ref{fig:rloghist2_hs}). Additionally,
-there are fewer stable high period orbits when $\sigma$ is small. Despite this, the
-histogram offers an interesting hypothesis on how periodic orbits are
-distributed when influenced by a random process. 
+there are fewer stable high period orbits when $\sigma$ is small. 
 \subsection{Circle Map}
 In contrast to the bifurcation diagrams of the logistic map, which
 mostly retained the general shape of the deterministic map, the
 Arnold tongues (Figure~\ref{fig:rcirctongues_u},~\ref{fig:rcirctongues_n}) of the
 random circle map were asymmetric, and for some values of $L$, did not
 resemble tongues at all. This suggests the randomness has an overall
-destabilizing effect. Examining the Lyapunov exponents of the map
-for various values of $L$ exposed further asymmetries. Figure~\ref{fig:rcirclyap_u}
+destabilizing effect. Figure~\ref{fig:rcirctongues_n2} demonstrated
+that the Arnold tongues for normally distributed $\hat{\xi}_n$ undergo
+complicated fluctuations when $L$ is increased by $\Delta L=0.025$ in the range [0.1,0.3].
+
+Examining the Lyapunov exponents of the map
+for various values of $L$ exposed further asymmetries. Figure~\ref{fig:rcirclyap_u},~\ref{fig:rloglyap2_hs}
 and Figure~\ref{fig:rcirclyap_n} showed a skewed distribution of
 exponents on the right side of the plots, compared to the left
 side. The mechanism for this asymmetry remains to be determined.
@@ -86,7 +90,7 @@ high-period orbits for certain values of $\omega < 0.2$, eliminate period
 2 orbits when $\omega >0.9$, and reduce the number of period 4 orbits
 in the center tongue
 (Figure~\ref{fig:rcirctongues_u},~\ref{fig:rcirctongues_u_ha}). The
-histograms in Figure~\ref{} and~\ref{} support this idea. For
+histograms in Figure~\ref{fig:rcirchist_u_ma1} and~\ref{fig:rcirchist_u_ha1} support this idea. For
 instance, the observed frequency of
 period 1 and 2 orbits have opposite trends when $\alpha$ is
 halved. Also, depending on $\alpha$, one may observe period 3 and 6 orbits dominate the plot evenly, or period 3 is half as frequently observed than
@@ -94,12 +98,12 @@ period 6. Unlike the random logistic map, it does not seem that the
 distribution of period is consistent in the circle map when the
 variance of the Fourier modes is reduced.  
 
-Mainly, the diagrams for the circle map based on the uniform and
-normal distributions were similar, though it appeared the normal
+Mainly, the Arnold tongue diagrams for the circle map based on the uniform and
+normal distributions were qualitatively similar, though it appeared the normal
 case produced smoother plots of rotation numbers
 (Figure~\ref{fig:randdevil1_n}, \ref{fig:randdevil2_n}). Perhaps the
 difference between the normal and uniform cases is best highlighted in
-the diagrams for $L = 0.3$ (middle left of
+the tongue diagrams for $L = 0.3$ (middle left of
 Figure~\ref{fig:rcirctongues_u} and middle right of
 Figure~\ref{fig:rcirctongues_n}). There are many high-period orbits
 for $\omega\approx 0.5$ in the uniform case, but very
@@ -129,13 +133,14 @@ $\alpha$ also reduces the frequency of period 6 orbits for
 $L=0.9,\omega=0.6,k=1.5$ (right side of Figure~\ref{fig:rcirchist_n2}
 and~\ref{fig:rcirchist_n2_ha}). Studying the results from the circle
 map for uniformly distributed
-$\hat{\xi}_n$ was different from the normally distributed case. First,
+$\hat{\xi}_n$ was different from the normally distributed case in
+terms of quantifying period distribution. First,
 the observed frequency of period 1 and 2 orbits have opposite trends when $\alpha$ is
 halved (Figure~\ref{fig:rcirchist_u_ma1}
 and~\ref{fig:rcirchist_u_ha1}). Also, in Figure~\ref{fig:rcirchist_u_ma2},
 period 3 and 6 orbits dominate the plot evenly, yet in
 Figure~\ref{fig:rcirchist_u_ha2}, period 3 is half as frequently observed than
-period 6. From this perspective it does not seem that the circle map
+period 6. From this perspective, it does not seem that the circle map
 with two different random processes is similar at all.
 
 The numerical simulations insinuate distributions of

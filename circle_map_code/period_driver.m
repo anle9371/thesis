@@ -1,8 +1,10 @@
 % % % prob of orbit
 
 clear; clc; close all
-pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\histogram\uniform_maxa\';
-fname = 'rcirc_hist_u_L_01_w_06_k_1_sims_5000';
+pth = 'C:\Users\amy\Dropbox\thesis\logistic_map_code\figures\histograms\maxsig\';
+fname = 'rlog_hist_L_0.1_r_3.3_s_0.017565_a_1.5414e-05_sims_5000';
+% pth = 'C:\Users\amy\Dropbox\thesis\circle_map_code\figures\histogram\normal_maxa\';
+% fname = 'rcirc_hist_n_L_01_w_06_k_1_sims_5000';
 data = csvread([pth,fname,'.csv']);
 plot_prob_of_orbits(data, pth, fname, 0.1, 0.6, 1, 100)
 % L = linspace(0,1,11);
