@@ -14,6 +14,7 @@
      "fig:covspec"
      "a"
      "fig:correlation"
+     "bdnr2"
      "bdnr"
      "fig:square"
      "eq:square"

@@ -9,11 +9,10 @@ case studies:
 \end{enumerate}
 A spatially random process is one that depends on space and is
 invariant in time; there is no time dependence in the process. A
-function that takes on a different value for any given location in
+function that takes on a random value for any given location in
 space, but retains the same value if it were to return to this same
 location at a later time would be a spatially random process. The random spatial perturbations in both maps are intended to mimic
-the noise used in hydraulic modeling for the porosity and hydraulic
-conductivity, which is assumed to be log-normal with an
+the noise used in hydraulic modeling for transmissivity, which is assumed to be log-normal with an
 exponentially decaying spatial correlation. Observations
 in subsurface hydrology suggest flow parameters are
 log-normal~\cite{gelhar}. The following sections offer background
@@ -24,8 +23,8 @@ exponentially decaying spatial correlation, so we let
 \begin{equation}\label{R}
 \xi(x)=\ln(R(x)) 
 \end{equation}
-be a normal random variable~\cite{gelhar} that represents the noise. Then
-$R(x)$ is a log-normal random variable. A normal distribution may be used
+be a normal random variable that represents the noise. Then
+$R(x)$ is a log-normal random variable~\cite{gelhar}. A normal distribution may be used
 for subsurface storage properties\footnote{Some examples of subsurface
 storage properties include porosity and moisture content.}, but in some cases, it is
 inappropriate because it would imply negative values have nonzero
@@ -77,7 +76,7 @@ precise locations. $C$ is also called a correlation function, which
 describes how variables at different positions in space are
 related. It physically represents the degree of correlation between
 two consecutive instances in the process. Correlations are typically strongest
-when iterates are nearby, and they typically decay as the distance
+when iterates are nearby, and they decay as the distance
 between two iterates increases, although random processes could violate this assumption. 
 
 We construct a random function $\xi(x)$ on $[0,1]$ that satisfies
@@ -87,7 +86,8 @@ We construct a random function $\xi(x)$ on $[0,1]$ that satisfies
 \end{align}
 Desirably, the magnitudes of the Fourier modes $\hat{\xi}_n$ diminish
 as $n \to \pm \infty$, which implies the random log-fluctuations are
-not identically distributed. To ensure~(\ref{fs1}) stays in the real plane, we impose the condition
+not identically distributed. If we modify the variance of the modes to
+decay exponentially, we achieve convergence in the sum. To ensure~(\ref{fs1}) stays in the real plane, we impose the condition
 \begin{align}\label{realcond}
 \hat{\xi}_{n}^* = \hat{\xi}_{-n},
 \end{align}
@@ -137,7 +137,10 @@ E[\hat{\xi}_n\hat{\xi}_m] = \left\{
      \end{array}
    \right.
 \end{displaymath} 
-Notice we may choose a function of $n$ for $E[|\hat{\xi}_n|^2]$. For notation, let the function $S:\mathbb{Z} \to \mathbb{R}$ be
+Notice we may choose a function of $n$ for
+$E[|\hat{\xi}_n|^2]$. Remember that if we choose a function that
+causes $\lim_{n \to \infty}\hat{\xi}_n \to 0$ fast enough, then the sum in~(\ref{fs1}) will
+converge. For notation, let the function $S:\mathbb{Z} \to \mathbb{R}$ be
 \begin{equation}\label{Sn}
 S(n) = E[|\hat{\xi}_n|^2] = \hat{\sigma}_n^2.
 \end{equation}
@@ -153,11 +156,11 @@ C(\xi(x+y),\xi(y)) &= E[(\xi(y+x) -\ln(r))(\xi(y)-\ln(r))]\\
 C(\xi(x+y),\xi(y)) &= E\left[\sum_n\sum_m \hat{\xi}_n\hat{\xi}_m e^{2\pi
   imx}e^{2\pi iy(n+m)}\right]\\
 &= \sum_n\sum_m E\left[\hat{\xi}_n\hat{\xi}_m e^{2\pi
-  imx}e^{2\pi iy(n+m)}\right].
+  imx}e^{2\pi iy(n+m)}\right],
 \end{split}
 \end{align*}
-If $m \neq -n$, then $E[\hat{\xi}_n\hat{\xi}_m]=0$ and if $m =-n$, then $e^{2\pi
-  iy(n+m)}=1$, which means
+since if $m \neq -n$, then $E[\hat{\xi}_n\hat{\xi}_m]=0$ and if $m =-n$, then $e^{2\pi
+  iy(n+m)}=1$, then
 \begin{align*}
 C(x) = E[|\hat{\xi}_n|^2 e^{-2\pi inx}].
 \end{align*}
@@ -242,7 +245,7 @@ for various values of $L$.
 We may wish to bound the distribution of the noise, especially if we
 apply the noise to the logistic map. Its parameter $r$ must take on
 values in the interval $[0,4]$, or else iterates of the map may leave $[0,1]$. If we
-substitute the constant parameter $r$ for $R(x)$, we require
+substitute $R(x)$ for the constant parameter $r$, then we require
 $R(x) \leq 4$. One way to prevent the possibility of exiting $[0,1]$ is to bound the distribution of $\hat{\xi}_n$ from~(\ref{fs1}). Suppose the probability density
 function for $\hat{\xi}_n$ is nonzero only in the complex square centered at the
 origin with side length $2M_n$ (shown in Figure~\ref{fig:square}). Thus, $|a_n|,|b_n| \leq M_n$, and for a fixed $r$, we
@@ -258,7 +261,7 @@ Since we also defined $\xi(x)$ as a series, we have
 \begin{align*}
 \xi(x) =\ln(R(x))= \ln(r) + \sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx} \leq \ln(r) + \sum_{n \in \mathbb{Z}}|\hat{\xi_n}|,
 \end{align*}
-where $r$ is fixed for any given realization. Recall the sum
+where $r$ is fixed for any given realization. Remember the sum
 in~(\ref{fs1}) was constructed to be real, so it is less than the sum
 over $|\hat{\xi}_n|$. If the sum over the magnitude of the Fourier modes is bounded by a constant, $\xi(x)$ will also be bounded by the same limit; therefore we choose
 \begin{align*}
@@ -269,15 +272,18 @@ over $|\hat{\xi}_n|$. If the sum over the magnitude of the Fourier modes is boun
 \end{align*}
 We have $|\hat{\xi_n}| = \sqrt{a_n^2 + b_n^2}$ and $|a_n|,|b_n| \leq M_n$, which implies
 \begin{align}
-\begin{split}\label{bdnr}
+\begin{split}\label{bdnr2}
 \sum_{n \in \mathbb{Z}}|\hat{\xi_n}| =\sum_{n \in \mathbb{Z}}\sqrt{a_n^2 + b_n^2} &\leq \sum_{n \in
   \mathbb{Z}}|a_n| + |b_n|\\
-&\leq \sum_{n \in \mathbb{Z}}2M_n\\
-&\leq \ln(4/r).
+&\leq \sum_{n \in \mathbb{Z}}2M_n.
 \end{split}
 \end{align}
-What remains is to choose $M_n$ such that the sum in~(\ref{bdnr}) is
-bounded by $\ln(4/r)$. In order for this to occur, the sequence of side lengths $M_n$ must be summable. 
+What remains is to choose $M_n$ such that the sum in~(\ref{bdnr2}) is
+bounded by $\ln(4/r)$,
+\begin{align}\label{bdnr}
+\sum_{n \in \mathbb{Z}}\hat{\xi_n}e^{2\pi inx} \leq 2\sum_{n \in \mathbb{Z}}M_n \leq \ln(4/r).
+\end{align}
+In order for this to occur, the sequence of side lengths $M_n$ must be summable. 
 \begin{figure}[!h]
 \caption[Uniform distribution over a square region]{The probability
   density function of $\hat{\xi_n}$ is uniformly distributed across
@@ -288,7 +294,8 @@ bounded by $\ln(4/r)$. In order for this to occur, the sequence of side lengths 
 	\end{center}
 \end{figure}
 
-Let $\hat{\xi}_n$ be uniformly distributed, so 
+Using a bounded distribution to describe $\hat{\xi}_n$ will ensure
+$R(x) \leq 4$, unlike an unbounded distribution. Let $\hat{\xi}_n$ be uniformly distributed, so 
 \begin{equation}\label{eq:square}
    h(\hat{\xi}_n) =h(a_n,b_n)= \left\{
      \begin{array}{lr}
@@ -334,7 +341,9 @@ Figure~\ref{fig:R} is a sample realization of a function $R(x)$ that
 behaves according to~(\ref{sigma}).
 \begin{figure}[!h]
 \caption[The function $R(x)$]{The function $R:[0,1]\to [0,4]$ where
-  $\sigma=0.0386, L=0.1, r=3.5, N=100$}\label{fig:R}
+  $\hat{\xi}_n\sim Unif(-M_n,M_n),\sigma=0.0386, L=0.1, r=3.5,
+  N=100$. $N$ is the upper limit on the number of Fourier terms in the
+sum from~(\ref{fs1}).}\label{fig:R}
 	\begin{center}
 		\includegraphics[scale=0.6]{figs/xi.png}
 	\end{center}
@@ -429,8 +438,8 @@ overlaid in red.}\label{fig:tmsm}
 	\end{center}
 \end{figure}
 
-In summary, for each realization of the random process, the noise
-$\xi(x)=\ln(R(x))$ is random variable whose mean value is
+In summary, for each realization of the random map, the noise
+$\xi(x)=\ln(R(x))$ is a spatially random process whose mean value is
 $E[\xi(x)]=\ln(r)$. The Fourier modes of $\xi(x)$ are uniform random
 variables $a_n,b_n \sim Unif(-M_n,M_n)$, where $M_n=
 \sqrt{\frac{3}{2}S(n)}$. The function $S(n)=\alpha e^{-L|n|}$
@@ -533,7 +542,8 @@ to the map, where the
 sequence $\{r\}_0^\infty$ has independent and identically distributed
 random variables in [0,4]. In contrast, the spatially random logistic
 map replaces the parameter $r$ from~(\ref{logmap}) with a random
-function of space, $R:[0,1]\to [0,4]$. In line with the deterministic map, 
+function of space, $R:[0,1]\to [0,4]$, and the random variables $\hat{\xi}_n$ are
+non-identical. In line with the deterministic map, 
 $f:[0,1]\to [0,1]$, where
 \begin{equation}\label{randlogmap}
 x_{n+1} = f(x_n) = R(x_n)x_n(1-x_n).
@@ -584,15 +594,14 @@ x_{n+1}= F(x_n) =  x_n + \Omega(x_n) - \frac{k}{2\pi}\sin(2\pi x_n),
 where $\omega$ from~(\ref{detcirc}) has been replaced with a function
 of space, $\Omega:S^1\to S^1$. To distinguish between the logistic map
 and the circle map, we denote the function $R(x)$ in~(\ref{R}) as
-$\Omega(x)$; that is, $\Omega(x)$ is also a log-normal random
+$\Omega(x)$; that is, $\Omega(x)$ is also meant to be a log-normal random
 variable. In Figure~\ref{fig:rcircstable}, a realization of the
 random circle map using the probability density function $h$
 from~(\ref{eq:square}) is shown, where the orbit converges to a period 5 orbit. 
 \begin{figure}[!h]
 \caption[Random circle map, stable orbit under the uniform distribution]{The cobweb
   diagram (green) for a random realization of the circle map (blue) with $\omega =
-  0.3, k=1, \alpha = 10^{-5},L=0.1, N=100$. The bounded uniform distribution
-  from~(\ref{eq:square}) was applied to this map. The orbit
+  0.3, k=1, \hat{\xi}_n \sim Unif(-M_n,M_n), \alpha = 10^{-5},L=0.1, N=100$. The orbit
   has converged to a stable period 5 orbit. Its basin of attraction is
   $S^1$. Transient iterations were removed.}\label{fig:rcircstable}
 	\begin{center}
@@ -657,7 +666,7 @@ noise.
 
 For example, consider choosing $\hat{\xi}_n$ according to a normal
 distribution, with mean $\hat{\mu}_n=0$ and variance $\hat{\sigma}_n^2 =
-S(n) = \alpha e^{-L|n|}$ for some $|\alpha| \leq 1$. In other words, 
+S(n) = \alpha e^{-L|n|}$ for some $\alpha > 0$. In other words, 
 \begin{align}\label{eq:norm}
 \hat{\xi}_n\sim N(0,\alpha e^{-L|n|}). 
 \end{align}
@@ -665,7 +674,7 @@ Figure~\ref{fig:Omega} is a plot of an example of the spatially random process,
 $\Omega(x)$.
 \begin{figure}[htp]
 \caption[The function $\Omega(x)$]{The function $\Omega:[0,1]\to [0,4]$ where
-  $\alpha=10^{-5}, L=0.1, \omega=0.7, N=100$, and $a_n,b_n\sim N(0,\alpha e^{-L|n|})$.
+  $\alpha=10^{-5}, L=0.1, \omega=0.7, N=100$, and $\hat{\xi}_n \sim N(0,\alpha e^{-L|n|})$.
   }\label{fig:Omega}
 \centering
 \includegraphics[scale=0.65]{figs/Omega.png}
@@ -675,8 +684,7 @@ map, where the noise is drawn from the normal distribution.
 \begin{figure}[htp]
 \caption[Random circle map, stable orbit under the normal distribution]{The cobweb
   diagram (green) for a random realization of the circle map (blue) with $\omega =
-  0.3, k=1, \alpha = 10^{-5}, L=0.1, N=100$. The normal distribution
-  from~(\ref{eq:norm}) was applied to this map. The orbit has converged to a stable period 4 orbit. }\label{fig:rcircstable_norm}
+  0.3, k=1, \alpha = 10^{-5}, L=0.1, N=100, \hat{\xi}_n \sim N(0,\alpha e^{-L|n|})$. The orbit has converged to a stable period 4 orbit.}\label{fig:rcircstable_norm}
 	\begin{center}
 		\includegraphics[scale=0.65]{figs/randcirc_norm_cobweb.png}
 	\end{center}

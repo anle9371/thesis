@@ -1,6 +1,7 @@
 (TeX-add-style-hook "chapter3"
  (lambda ()
     (LaTeX-add-labels
+     "results"
      "fig:rlogbif"
      "fig:rlogbif_zoom"
      "fig:rlogbif_hs"

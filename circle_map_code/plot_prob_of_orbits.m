@@ -14,12 +14,12 @@ fname = [fname,'semilogy'];
 
 title(['L = ',num2str(L),', r = 3.3'])%\omega = ',num2str(w), ', k = ',num2str(k)])
 xlabel('Period')
-ylabel('Average Number of Period p Orbits')
+ylabel('Average Fraction of Period p Orbits')
 xlim([0 maxp])
 
 set(gca,'FontSize',15)
 set(findall(gcf,'type','text'),'FontSize',15)
 % set(gcf,'position',get(0,'screensize'))
 % saveas (gcf, [pth,fname,'.png'], 'png');
-saveas (gcf, ['C:\Users\amy\Dropbox\thesis\presentation\images\',fname,'.png'], 'png');
+saveas (gcf, ['C:\Users\amy\Dropbox\thesis\writeup\figs\',fname,'.png'], 'png');
 end

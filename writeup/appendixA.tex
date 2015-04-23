@@ -12,7 +12,7 @@ them. Figure~\ref{fig:loadbalance_overall} demonstrates the load
 balancer coordinating tasks over three nodes. 
 \begin{figure}[htp]
 \caption[Load balancing example]{Load balancing example over
-  three nodes. The load balancer is invoked over 3 nodes; it determins
+  three nodes. The load balancer is invoked over 3 nodes; it determines
 the work distribution over each node.}\label{fig:loadbalance_overall}
 	\begin{center}
           \includegraphics[scale=0.35]{figs/loadbalance_overall.png}
@@ -43,12 +43,12 @@ node. Below is an outline of how each processor is called in the program.
 \begin{itemize}
 \item The load balancer determines work distribution over the processors.
 \end{itemize}
-\item Repeat the above steps for a large number of different random
+\item Repeat the above step for a large number of different random
   maps $R_i(x)$, $i = 0, 1, 2,... \bar{N}$ in order to find the sample
-  mean of any given order $p$ periodic orbit and the orbit locations
+  mean of any given period $p$ orbit and the orbit locations
   (if there was convergence).
 \begin{itemize}
-\item Use the data to produce a histogram of periodic orbits that depicts the expected number of order $p$ periodic orbits for the random map
+\item Use the data to produce a histogram of periodic orbits that depicts the expected number of period $p$ orbits for the random map
 \item Create bifurcation diagrams for various values of $L$.
 \item Use a HDF5 file to store the simulation data
 \end{itemize}
@@ -67,12 +67,12 @@ node. Below is an outline of how each processor is called in the program.
 \end{figure}
 
 The original simulation was written in serial code in
-MATLAB, and had extremely variable runtimes (due to the nature of fixed
+MATLAB, and had extremely variable run times (due to the nature of fixed
 point iteration). The original version of the code was rewritten for efficiency,
 speed, and scalability. The new implementation, written in C++ and
 Python, was capable of reproducing two types plots: histograms of observed periodic
 orbits and bifurcation diagrams for varying values of the correlation
-length, $L$. Figure~\ref{fig:workflow} is a workflow of the
+length, $L$. Figure~\ref{fig:workflow} is a work flow of the
 program structure, and we offer a detailed program description below.
 
 The program begins with \texttt{generate\_cmdlines}, where the user
@@ -105,8 +105,8 @@ generate all the bash script files needed by Janus's work scheduler, \texttt{slu
 \end{enumerate}
  
 \begin{figure}[htp]
-\caption[Load balancing workflow]{Load Balancing Workflow: The load
-  balancing tool on Janus takes as input a list of commandline prompts
+\caption[Load balancing work flow]{Load balancing work flow: The load
+  balancing tool on Janus takes as input a list of command line prompts
   (created by \texttt{generate\_cmdline}) calling the
   executable files \texttt{myfunc} and
   \texttt{generate\_rands}. \texttt{generate\_cmdline}
@@ -121,7 +121,7 @@ generate all the bash script files needed by Janus's work scheduler, \texttt{slu
 
 The HDF5 file format was used to store the simulation results in a better
 archival format. Single core optimization techniques, such as SIMD loop
-vectorization and function inlining, as well as using a dynamic load
+vectorization and function in-lining, as well as using a dynamic load
 balancer for more efficient work distribution were
 applied. The following are the optimization techniques applied:
 \begin{itemize}
@@ -131,7 +131,7 @@ they are less expensive than divide and subtract operators
   in order to take advantage of the data parallelism with SIMD
 \item Loop structure was reorganized to take advantage of C++ being
   row-oriented (outer loop should go by rows, then inner loops go by columns)
-\item Functional inlining in the C++ code to reduce the number of function calls
+\item Functional in-lining in the C++ code to reduce the number of function calls
 \item The lack of a built in uniform random number generator that generates a random
 double between two doubles led to the creation of a pseudo random number
 generator with the use of \texttt{rand} and \texttt{srand}.

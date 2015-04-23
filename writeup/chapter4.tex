@@ -14,10 +14,11 @@ $\mathcal{F}(x)$ would confer a greater understanding of how the
 spatially random process stabilizes or destabilizes a map. Some prior
 work in analyzing the number of zeros of a function with a random
 process based on a Fourier series has been done, but in a slightly
-different vein~\cite{kahane}. We are interested in a theoretical
+different vein; the random process had independent and identically
+distributed random variables~\cite{kahane}. We are interested in a theoretical
 explanation of the probability density function of random process for
 uniformly and normally distributed Fourier mode amplitudes
-(non-identical, independent). Figure~\ref{fig:tmsm} suggests $\xi(x)$
+(independent, non-identical). Figure~\ref{fig:tmsm} suggests $\xi(x)$
 is normally distributed when the Fourier modes are drawn from a
 uniform distribution, but this is far from a generalization. When the
 modes are normally distributed, we achieve a log-normal spatially
@@ -56,13 +57,13 @@ exponents for the random map
 (Figure~\ref{fig:rloglyap2},~\ref{fig:rloglyap2_hs}) may be explained
 by the construction of the bound on $\sigma$ in~(\ref{sigma}). As $r \to 4$, the
 dominant term $\ln(4/r)
-\to 0$, so the variance of the spatially random process diminishes as
+\to 0$, so the standard deviation of the spatially random process diminishes as
 $r$ increases. This would cause the random map to adopt more features
 of the deterministic map for large $r$. An alternative is to consider constructing
 another bound on $\sigma$ that does not fall off as sharply as~(\ref{sigma}).
 
-Although the distribution of periods (Figure~\ref{fig:rloghist},~\ref{fig:rloghist2})
-appeared exponential, the log scale plot of the histograms
+Although the distribution of period (Figure~\ref{fig:rloghist},~\ref{fig:rloghist2})
+appeared exponential, the log-scale plot of the histograms
 demonstrates an exponential distribution is unlikely, since the shape
 of the data is nonlinear (Figure~\ref{fig:rloghistlog}). When halving
 $\sigma$, the general shape of the histogram is retained, although it is scaled a
@@ -121,9 +122,9 @@ distribution of periods in the logistic map, kernel density estimation
 in Figure~\ref{fig:kde1_u} points to the rotation numbers of the map
 being normally distributed (for a large enough bandwidth) for
 uniformly distributed $\hat{\xi}_n$. This notion is supported by the
-results from Figure~\ref{fig:avgcircorbs} and~\ref{fig:avgcircorbs_ha}, where the average number of orbits was shown not to follow an exponential
+results from Figure~\ref{fig:avgcircorbs} and~\ref{fig:avgcircorbs_ha}, where the average fraction of orbits was shown not to follow an exponential
 distribution. One difference between the log scale plots is that for $\alpha=\frac{1}{2}10^{-5}$, the range
-of average number of periodic orbits seems wider than for
+of average fraction of periodic orbits seems wider than for
 $\alpha=10^{-5}$. 
 
 For the normally distributed $\hat{\xi}_n$, halving
@@ -187,6 +188,15 @@ implications on how one should inject treatment solution in the
 aquifer to get the best (chaotic) mixing. If a formal description of
 the onset of chaos for these types of systems were to exist, it would
 have implications for studying higher-dimensional systems.
+
+One way to quantify whether a trajectory is chaotic is to calculate
+the Lyapunov exponent, so a future study may attempt to calculate the
+probability of a positive Lyapunov exponent for any given initial
+condition. The probability of a positive Lyapunov exponent could be
+calculated by averaging the observed exponents for many simulations of
+the random map. This calculation would be a quantitative measure that
+may distinguish between the images of Lyapunov exponents from
+Chapter~\ref{results}, as they are currently only qualitatively assessed.
 \subsection{Stabilizing Effects of Spatial Randomness}
 An unexpected result of the numerical simulations of the logistic map
 was the presence of stable low-period orbits where $r \in
@@ -196,8 +206,7 @@ variance of the spatially random process such that this stable region is
 preserved? This thesis explored using the maximum upper bound $\sigma=\sigma_{max}$ and half
 of the maximum $\sigma=\frac{1}{2}\sigma_{max}$ from the expression
 in~(\ref{sigma}). Looking at smaller values of $\sigma$, or choosing
-an alternative method of bounding the variance would be an
-thought-provoking future study. The circle map also displayed stable period 2 orbits where there
+an alternative method of bounding the variance would be a thought-provoking future study. The circle map also displayed stable period 2 orbits where there
 were previously only period 1 orbits for $L=0.3$, but this region
 disappeared for $L\leq 0.1$ and $L \geq 0.5$. It would be interesting
 to find the largest $\epsilon > 0$ such that $L=0.3 \pm \epsilon$
@@ -209,7 +218,8 @@ high interest and potential applications. For example, Hitczenko and Medvedev de
 unstable equilibria in temporally random
 processes~\cite{hitczenko}. 
 \subsection{Dynamic Load Balancing on the Supercomputer}
-We explored and simulated the spatially random logistic map using the
+The original implementation of the numerical simulations was written
+in MATLAB, and quite inefficient in certain places. We explored and simulated the spatially random logistic map using the
 dynamic load balancing tool on Janus\footnote{Janus has 1368 compute nodes, and
   each node has 12 processors. Each processor is capable of
   independently carrying
@@ -222,7 +232,7 @@ produce other types of plots, extending the program to model
 the Arnold Circle Map, and optimizing the post-simulation data
 processing. Furthermore, we can explore using Newton's method to find
 the fixed points of the randomized maps. The advantages of this method
-over simply iterating the maps would be quadratic convergence to the
+over simply iterating the maps would be quicker convergence to the
 roots and identification of unstable orbits. The current iterative
 method only locates stable orbits, and its rate of convergence is
 highly variable. 
